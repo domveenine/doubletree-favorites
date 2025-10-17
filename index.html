@@ -24,11 +24,11 @@
     .card.short{ border-color: var(--short); background: #f5a62320; }
     .card.quick{ border-color: var(--quick); background: #9b59b620; }
     .card.worth{ border-color: var(--worth); background: #d0021b20; }
-    .card h3 { color: #000 !important; }
-    .card p, .card .cuisine, .card .row, .card .muted { color: #333 !important; }
-    .cuisine{ font-style:italic; font-size:0.95rem; margin:4px 0; }
-    .price { font-weight:700; margin-left:6px; }
+    .card h3 { color: #000 !important; margin-bottom:4px; }
+    .cuisine{ font-style:italic; font-size:0.95rem; margin:4px 0; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+    .price { display:inline-block; background:rgba(0,0,0,0.1); border-radius:10px; padding:2px 6px; font-size:0.8rem; font-weight:600; color:#333; }
     .row{ margin:6px 0; font-size:0.95rem; }
+    .distance{ display:block; font-size:0.9rem; color:#555; margin-top:2px; }
     .row a{ color:inherit; text-decoration:none; border-bottom:1px dotted rgba(0,0,0,0.3); font-weight:normal; }
     .row a:hover{ border-bottom:1px solid rgba(0,0,0,0.5); }
     .muted{ opacity:0.9; }
@@ -60,67 +60,67 @@
 
       <div class="card walking"><h3>My Mom’s</h3>
         <p class="cuisine">Classic New Mexican Breakfast & Lunch <span class="price">$$</span></p>
-        <p class="row">500 4th St NW #106, Albuquerque, NM 87102 • 0.1 mi from hotel</p>
+        <p class="row">500 4th St NW #106, Albuquerque, NM 87102<span class="distance">• 0.1 mi from hotel</span></p>
         <p class="row muted">(505) 247-2943 • Mon–Fri 8a–2p</p></div>
 
       <div class="card walking"><h3>CHAR (at Hotel Andaluz)</h3>
         <p class="cuisine">Upscale American Grill <span class="price">$$$</span></p>
-        <p class="row">125 2nd St NW, Albuquerque, NM 87102 • 0.2 mi from hotel</p>
+        <p class="row">125 2nd St NW, Albuquerque, NM 87102<span class="distance">• 0.2 mi from hotel</span></p>
         <p class="row muted">(505) 242-9080 • Daily 7a–10p</p></div>
 
       <div class="card walking"><h3>Oni Ramen</h3>
         <p class="cuisine">Japanese & New Mexican Fusion <span class="price">$$</span></p>
-        <p class="row">600 Central Ave SW #100, Albuquerque, NM 87102 • 0.3 mi from hotel</p>
+        <p class="row">600 Central Ave SW #100, Albuquerque, NM 87102<span class="distance">• 0.3 mi from hotel</span></p>
         <p class="row muted">(505) 503-6722 • Daily 11:30a–8p</p></div>
 
       <div class="card walking"><h3>505 Central Food Hall</h3>
         <p class="cuisine">Food Hall with Local Vendors <span class="price">($ Varies)</span></p>
-        <p class="row">505 Central Ave NW, Albuquerque, NM 87102 • 0.3 mi from hotel</p>
+        <p class="row">505 Central Ave NW, Albuquerque, NM 87102<span class="distance">• 0.3 mi from hotel</span></p>
         <p class="row muted">Varies by Vendor • Usually 11a–9p</p></div>
 
       <div class="card walking"><h3>Slate Street Café</h3>
         <p class="cuisine">Café & Brunch <span class="price">$$</span></p>
-        <p class="row">515 Slate Ave NW, Albuquerque, NM 87102 • 0.4 mi from hotel</p>
+        <p class="row">515 Slate Ave NW, Albuquerque, NM 87102<span class="distance">• 0.4 mi from hotel</span></p>
         <p class="row muted">(505) 243-2210 • Mon–Fri 8a–2p, Sat 9a–2p</p></div>
 
       <div class="card walking"><h3>Tractor Brewing Company</h3>
         <p class="cuisine">Local Brewery & Pub Fare <span class="price">$$</span></p>
-        <p class="row">1800 4th St NW, Albuquerque, NM 87102 • 0.4 mi from hotel</p>
+        <p class="row">1800 4th St NW, Albuquerque, NM 87102<span class="distance">• 0.4 mi from hotel</span></p>
         <p class="row muted">(505) 243-6752 • Mon 4–9p, Tue–Thu 2–10p, Fri 2–12a, Sat 1–11p, Sun 1–10p</p></div>
 
       <div class="card walking"><h3>Range Café Downtown</h3>
         <p class="cuisine">Southwestern Diner Classics <span class="price">$$</span></p>
-        <p class="row">320 Central Ave SE, Albuquerque, NM 87102 • 0.4 mi from hotel</p>
+        <p class="row">320 Central Ave SE, Albuquerque, NM 87102<span class="distance">• 0.4 mi from hotel</span></p>
         <p class="row muted">(505) 243-1440 • Daily 7a–3p</p></div>
 
       <div class="card walking"><h3>Founders Speakeasy</h3>
         <p class="cuisine">Basement Speakeasy Cocktails <span class="price">$$$</span></p>
-        <p class="row">622 Central Ave SW, Albuquerque, NM 87102 • 0.5 mi from hotel</p>
+        <p class="row">622 Central Ave SW, Albuquerque, NM 87102<span class="distance">• 0.5 mi from hotel</span></p>
         <p class="row muted">(505) 582-2693 • Tues–Sat 5p–2a, Sun–Mon 5p–12a</p></div>
 
       <div class="card walking"><h3>The Artichoke Café</h3>
         <p class="cuisine">Contemporary American Fine Dining <span class="price">$$</span></p>
-        <p class="row">424 Central Ave SE, Albuquerque, NM 87102 • 0.5 mi from hotel</p>
+        <p class="row">424 Central Ave SE, Albuquerque, NM 87102<span class="distance">• 0.5 mi from hotel</span></p>
         <p class="row muted">(505) 243-0200 • Mon–Thu 11a–9p, Fri–Sat 11a–10p</p></div>
 
       <div class="card walking"><h3>Marble Brewery</h3>
         <p class="cuisine">Craft Brewery with Food Trucks <span class="price">$$</span></p>
-        <p class="row">111 Marble Ave NW, Albuquerque, NM 87102 • 0.5 mi from hotel</p>
+        <p class="row">111 Marble Ave NW, Albuquerque, NM 87102<span class="distance">• 0.5 mi from hotel</span></p>
         <p class="row muted">(505) 243-2739 • Daily 11:30a–10p</p></div>
 
       <div class="card walking"><h3>Farina Pizzeria & Wine Bar</h3>
         <p class="cuisine">Artisan Pizzeria & Wine Bar <span class="price">$$</span></p>
-        <p class="row">510 Central Ave SE, Albuquerque, NM 87102 • 0.6 mi from hotel</p>
+        <p class="row">510 Central Ave SE, Albuquerque, NM 87102<span class="distance">• 0.6 mi from hotel</span></p>
         <p class="row muted">(505) 243-0130 • Mon–Sat 11a–9p</p></div>
 
       <div class="card walking"><h3>Cocina Azul</h3>
         <p class="cuisine">Traditional New Mexican <span class="price">$$</span></p>
-        <p class="row">1134 Mountain Rd NW, Albuquerque, NM 87104 • 0.7 mi from hotel</p>
+        <p class="row">1134 Mountain Rd NW, Albuquerque, NM 87104<span class="distance">• 0.7 mi from hotel</span></p>
         <p class="row muted">(505) 831-2500 • Daily 9a–8p</p></div>
 
       <div class="card walking"><h3>Monroe’s</h3>
         <p class="cuisine">Classic New Mexican Breakfast & Lunch <span class="price">$$</span></p>
-        <p class="row">1025 4th St NW, Albuquerque, NM 87102 • 0.7 mi from hotel</p>
+        <p class="row">1025 4th St NW, Albuquerque, NM 87102<span class="distance">• 0.7 mi from hotel</span></p>
         <p class="row muted">(505) 242-1111 • Sun 9a–8p, Mon–Tue & Thu–Sat 10a–8p</p></div>
     </section>
 
@@ -129,35 +129,35 @@
       <h2 style="color:var(--short)">Beyond the Block (1–3 Miles)</h2>
       <div class="card short"><h3>Kosmos Restaurant & Astropub</h3>
         <p class="cuisine">Modern American Gastropub <span class="price">$$</span></p>
-        <p class="row">1715 5th St NW, Albuquerque, NM 87102 • 1.2 mi from hotel</p>
+        <p class="row">1715 5th St NW, Albuquerque, NM 87102<span class="distance">• 1.2 mi from hotel</span></p>
         <p class="row muted">(505) 369-1772 • Tue–Thu 11:30a–8p, Fri–Sat 11:30a–9p</p></div>
       <div class="card short"><h3>Laguna Burger (Old Town)</h3>
         <p class="cuisine">Award-Winning Burgers <span class="price">$$</span></p>
-        <p class="row">2400 12th St NW, Albuquerque, NM 87104 • 2.0 mi from hotel</p>
+        <p class="row">2400 12th St NW, Albuquerque, NM 87104<span class="distance">• 2.0 mi from hotel</span></p>
         <p class="row muted">(505) 352-8282 • Daily 10:30a–8p</p></div>
       <div class="card short"><h3>Indian Pueblo Kitchen</h3>
         <p class="cuisine">Native American Inspired <span class="price">$$</span></p>
-        <p class="row">2401 12th St NW, Albuquerque, NM 87104 • 2.1 mi from hotel</p>
+        <p class="row">2401 12th St NW, Albuquerque, NM 87104<span class="distance">• 2.1 mi from hotel</span></p>
         <p class="row muted">(505) 724-3510 • Wed–Sun 8a–3p</p></div>
       <div class="card short"><h3>Monte Carlo Steakhouse</h3>
         <p class="cuisine">Old-School Steakhouse <span class="price">$$$</span></p>
-        <p class="row">3916 Central Ave SW, Albuquerque, NM 87106 • 2.2 mi from hotel</p>
+        <p class="row">3916 Central Ave SW, Albuquerque, NM 87106<span class="distance">• 2.2 mi from hotel</span></p>
         <p class="row muted">(505) 836-9886 • Mon–Sat 11a–9p</p></div>
       <div class="card short"><h3>66 Diner</h3>
         <p class="cuisine">Retro American Diner <span class="price">$$</span></p>
-        <p class="row">1405 Central Ave NE, Albuquerque, NM 87102 • 2.3 mi from hotel</p>
+        <p class="row">1405 Central Ave NE, Albuquerque, NM 87102<span class="distance">• 2.3 mi from hotel</span></p>
         <p class="row muted">(505) 247-1421 • Mon–Thu 11a–9p, Fri–Sat 11a–10p, Sun 11a–8p</p></div>
       <div class="card short"><h3>Frontier Restaurant</h3>
         <p class="cuisine">Classic New Mexican <span class="price">$$</span></p>
-        <p class="row">2400 Central Ave SE, Albuquerque, NM 87106 • 2.5 mi from hotel</p>
+        <p class="row">2400 Central Ave SE, Albuquerque, NM 87106<span class="distance">• 2.5 mi from hotel</span></p>
         <p class="row muted">(505) 266-0550 • Daily 5a–12a</p></div>
       <div class="card short"><h3>Sawmill Market</h3>
         <p class="cuisine">Food Hall & Market Style Dining <span class="price">($ Varies)</span></p>
-        <p class="row">1909 Bellamah Ave NW, Albuquerque, NM 87104 • 2.8 mi from hotel</p>
+        <p class="row">1909 Bellamah Ave NW, Albuquerque, NM 87104<span class="distance">• 2.8 mi from hotel</span></p>
         <p class="row muted">(505) 498-2982 • Sun–Thu 8a–9p, Fri–Sat 8a–10p</p></div>
       <div class="card short"><h3>Annapurna’s Vegetarian Café</h3>
         <p class="cuisine">Ayurvedic & Vegetarian <span class="price">$$</span></p>
-        <p class="row">2201 Silver Ave SE, Albuquerque, NM 87106 • 2.8 mi from hotel</p>
+        <p class="row">2201 Silver Ave SE, Albuquerque, NM 87106<span class="distance">• 2.8 mi from hotel</span></p>
         <p class="row muted">(505) 262-2424 • Daily 9a–8p</p></div>
     </section>
 
@@ -166,19 +166,19 @@
       <h2 style="color:var(--quick)">Quick Adventure (3–5 Miles)</h2>
       <div class="card quick"><h3>M’tucci’s Bar Roma</h3>
         <p class="cuisine">Italian & Craft Cocktails <span class="price">$$$</span></p>
-        <p class="row">3222 Central Ave SE, Albuquerque, NM 87106 • 3.3 mi from hotel</p>
+        <p class="row">3222 Central Ave SE, Albuquerque, NM 87106<span class="distance">• 3.3 mi from hotel</span></p>
         <p class="row muted">(505) 508-2745 • Sun–Thu 11a–9p, Fri–Sat 11a–10p</p></div>
       <div class="card quick"><h3>Guava Tree Café</h3>
         <p class="cuisine">Latin Fusion & Sandwiches <span class="price">$$</span></p>
-        <p class="row">118 Richmond Dr NE, Albuquerque, NM 87106 • 3.0 mi from hotel</p>
+        <p class="row">118 Richmond Dr NE, Albuquerque, NM 87106<span class="distance">• 3.0 mi from hotel</span></p>
         <p class="row muted">(505) 990-2599 • Tue–Sat 11a–4p</p></div>
       <div class="card quick"><h3>Tula’s Kitchen</h3>
         <p class="cuisine">American Comfort Food <span class="price">$$</span></p>
-        <p class="row">1825 Central Ave NW, Albuquerque, NM 87104 • 4.0 mi from hotel</p>
+        <p class="row">1825 Central Ave NW, Albuquerque, NM 87104<span class="distance">• 4.0 mi from hotel</span></p>
         <p class="row muted">(505) 200-2666 • Tue–Sun 9a–9p</p></div>
       <div class="card quick"><h3>El Pinto Restaurant & Cantina</h3>
         <p class="cuisine">New Mexican & Margaritas <span class="price">$$</span></p>
-        <p class="row">10500 4th St NW, Albuquerque, NM 87114 • 4.8 mi from hotel</p>
+        <p class="row">10500 4th St NW, Albuquerque, NM 87114<span class="distance">• 4.8 mi from hotel</span></p>
         <p class="row muted">(505) 898-1771 • Daily 11a–9p</p></div>
     </section>
 
@@ -187,31 +187,31 @@
       <h2 style="color:var(--worth)">Worth the Drive (5+ Miles)</h2>
       <div class="card worth"><h3>Farm & Table</h3>
         <p class="cuisine">Farm-to-Table American <span class="price">$$$</span></p>
-        <p class="row">8917 4th St NW, Albuquerque, NM 87114 • 5.0 mi from hotel</p>
+        <p class="row">8917 4th St NW, Albuquerque, NM 87114<span class="distance">• 5.0 mi from hotel</span></p>
         <p class="row muted">(505) 503-7124 • Wed–Sat 5p–9p, Sun 9a–2p</p></div>
       <div class="card worth"><h3>Sadie’s of New Mexico</h3>
         <p class="cuisine">Classic New Mexican & Cocktails <span class="price">$$</span></p>
-        <p class="row">6230 4th St NW, Los Ranchos de Albuquerque, NM 87107 • 5.5 mi from hotel</p>
+        <p class="row">6230 4th St NW, Los Ranchos de Albuquerque, NM 87107<span class="distance">• 5.5 mi from hotel</span></p>
         <p class="row muted">(505) 345-5339 • Daily 11a–9p</p></div>
       <div class="card worth"><h3>Vernon’s Speakeasy</h3>
         <p class="cuisine">Upscale Speakeasy Steakhouse <span class="price">$$$$</span></p>
-        <p class="row">6855 4th St NW, Los Ranchos de Albuquerque, NM 87107 • 5.6 mi from hotel</p>
+        <p class="row">6855 4th St NW, Los Ranchos de Albuquerque, NM 87107<span class="distance">• 5.6 mi from hotel</span></p>
         <p class="row muted">(505) 341-0831 • Wed–Fri & Sun 4p–10p, Sat 4p–10p, Closed Mon–Tue</p></div>
       <div class="card worth"><h3>M’tucci’s</h3>
         <p class="cuisine">Italian & American Fusion <span class="price">$$$</span></p>
-        <p class="row">4939 Pan American Fwy NE, Albuquerque, NM 87109 • 6.0 mi from hotel</p>
+        <p class="row">4939 Pan American Fwy NE, Albuquerque, NM 87109<span class="distance">• 6.0 mi from hotel</span></p>
         <p class="row muted">(505) 312-8519 • Daily 11a–10p</p></div>
       <div class="card worth"><h3>Los Poblanos Campo Restaurant</h3>
         <p class="cuisine">Organic Farm Dining <span class="price">$$$</span></p>
-        <p class="row">4803 Rio Grande Blvd NW, Albuquerque, NM 87107 • 6.2 mi from hotel</p>
+        <p class="row">4803 Rio Grande Blvd NW, Albuquerque, NM 87107<span class="distance">• 6.2 mi from hotel</span></p>
         <p class="row muted">(505) 344-9297 • Wed–Sun 5p–9p, Brunch Sat–Sun 9a–2p</p></div>
       <div class="card worth"><h3>Japanese Kitchen</h3>
         <p class="cuisine">Japanese Hibachi & Sushi <span class="price">$$$</span></p>
-        <p class="row">6521 Americas Pkwy NE, Albuquerque, NM 87110 • 6.2 mi from hotel</p>
+        <p class="row">6521 Americas Pkwy NE, Albuquerque, NM 87110<span class="distance">• 6.2 mi from hotel</span></p>
         <p class="row muted">(505) 884-8937 • Lunch Mon–Sat 11:30a–2:30p, Dinner Daily 5p–9p</p></div>
       <div class="card worth"><h3>TEN3 at Sandia Peak Tram</h3>
         <p class="cuisine">Scenic Fine Dining & Cocktails <span class="price">$$$$</span></p>
-        <p class="row">30 Tramway Rd NE, Albuquerque, NM 87122 • 9.8 mi from hotel</p>
+        <p class="row">30 Tramway Rd NE, Albuquerque, NM 87122<span class="distance">• 9.8 mi from hotel</span></p>
         <p class="row muted">(505) 856-6692 • Mon–Thu 11a–9p, Fri–Sat 11a–9:30p, Sun 11a–8p</p></div>
     </section>
   </main>
@@ -219,7 +219,6 @@
   <footer>Built for DoubleTree ABQ • By DoubleTree ABQ</footer>
 
   <script>
-    // 1) Make address clickable (Apple Maps on iOS/Mac Safari, Google Maps elsewhere)
     (function(){
       function isAppleMapsPreferred(){
         const ua = navigator.userAgent || navigator.vendor || "";
@@ -232,71 +231,60 @@
         return isAppleMapsPreferred() ? `maps://?q=${enc}` : `https://maps.google.com/?q=${enc}`;
       }
       document.querySelectorAll('.card').forEach(card => {
-        // Address row = first non-muted .row
         const row = card.querySelector('.row:not(.muted)');
-        if(!row || row.dataset.linked === '1') return;
-        const text = row.textContent;
-        const split = text.indexOf('•');
-        if(split === -1) return;
-        const addr = text.slice(0, split).trim();
-        const rest = text.slice(split);
-        const a = document.createElement('a');
-        a.href = mapsHref(addr);
-        a.target = '_blank';
-        a.rel = 'noreferrer';
-        a.textContent = addr;
-        row.textContent = '';
+        if(!row || row.dataset.linked==='1') return;
+        const text=row.textContent;
+        const split=text.indexOf('•');
+        if(split===-1)return;
+        const addr=text.slice(0,split).trim();
+        const dist=text.slice(split+1).trim();
+        row.textContent='';
+        const a=document.createElement('a');
+        a.href=mapsHref(addr);
+        a.target='_blank';a.rel='noreferrer';a.textContent=addr;
+        const d=document.createElement('span');d.className='distance';d.textContent='• '+dist;
         row.appendChild(a);
-        row.appendChild(document.createTextNode(' ' + rest.trimStart()));
-        row.dataset.linked = '1';
+        row.appendChild(d);
+        row.dataset.linked='1';
       });
 
-      // Convert phone rows to tel: links
-      document.querySelectorAll('.card .row.muted').forEach(row => {
-        if(row.dataset.telified === '1') return;
-        const text = row.textContent;
-        const split = text.indexOf('•');
-        const phonePart = split === -1 ? text.trim() : text.slice(0, split).trim();
-        const rest = split === -1 ? '' : text.slice(split).trimStart();
-        // Normalize number to digits
-        const digits = phonePart.replace(/[^0-9]/g,'');
-        if(digits.length >= 10){
-          const e164 = '+1' + digits.slice(-10); // assume US
-          const a = document.createElement('a');
-          a.href = `tel:${e164}`;
-          a.textContent = phonePart;
-          row.textContent = '';
-          row.appendChild(a);
-          if(rest){ row.appendChild(document.createTextNode(' ' + rest)); }
-          row.dataset.telified = '1';
+      document.querySelectorAll('.card .row.muted').forEach(row=>{
+        if(row.dataset.telified==='1')return;
+        const text=row.textContent;
+        const split=text.indexOf('•');
+        const phonePart=split===-1?text.trim():text.slice(0,split).trim();
+        const rest=split===-1?'':text.slice(split).trimStart();
+        const digits=phonePart.replace(/[^0-9]/g,'');
+        if(digits.length>=10){
+          const e164='+1'+digits.slice(-10);
+          const a=document.createElement('a');a.href=`tel:${e164}`;a.textContent=phonePart;
+          row.textContent='';row.appendChild(a);
+          if(rest){row.appendChild(document.createTextNode(' '+rest));}
+          row.dataset.telified='1';
         }
       });
     })();
 
-    // 2) Add Uber/Lyft smart-launch buttons to every card using the address line
     (function(){
       function makeButtons(addr){
-        const uberUrl = `https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=${encodeURIComponent(addr)}`;
-        const lyftUrl = `https://ride.lyft.com/?destination=${encodeURIComponent(addr)}`;
-        const wrap = document.createElement('div');
-        wrap.className = 'actions';
-        const u = document.createElement('a');
-        u.className = 'btn-uber'; u.textContent = 'Uber'; u.href = uberUrl; u.target = '_blank'; u.rel = 'noreferrer';
-        const l = document.createElement('a');
-        l.className = 'btn-lyft'; l.textContent = 'Lyft'; l.href = lyftUrl; l.target = '_blank'; l.rel = 'noreferrer';
-        wrap.appendChild(u); wrap.appendChild(l);
+        const uberUrl=`https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=${encodeURIComponent(addr)}`;
+        const lyftUrl=`https://ride.lyft.com/?destination=${encodeURIComponent(addr)}`;
+        const wrap=document.createElement('div');wrap.className='actions';
+        const u=document.createElement('a');u.className='btn-uber';u.textContent='Uber';u.href=uberUrl;u.target='_blank';u.rel='noreferrer';
+        const l=document.createElement('a');l.className='btn-lyft';l.textContent='Lyft';l.href=lyftUrl;l.target='_blank';l.rel='noreferrer';
+        wrap.appendChild(u);wrap.appendChild(l);
         return wrap;
       }
-      document.querySelectorAll('.card').forEach(card => {
-        if(card.dataset.rides === '1') return;
-        const addressRow = card.querySelector('.row:not(.muted)');
-        if(!addressRow) return;
-        const text = addressRow.textContent;
-        const split = text.indexOf('•');
-        if(split === -1) return;
-        const addr = text.slice(0, split).trim();
+      document.querySelectorAll('.card').forEach(card=>{
+        if(card.dataset.rides==='1')return;
+        const addressRow=card.querySelector('.row:not(.muted)');
+        if(!addressRow)return;
+        const text=addressRow.textContent;
+        const split=text.indexOf('•');
+        if(split===-1)return;
+        const addr=text.slice(0,split).trim();
         card.appendChild(makeButtons(addr));
-        card.dataset.rides = '1';
+        card.dataset.rides='1';
       });
     })();
   </script>
