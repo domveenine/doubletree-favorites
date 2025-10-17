@@ -523,9 +523,9 @@
     (async () => {
       try {
         const count = await getCount(true);
-        el.textContent = `visits: ${count}`;
+        el.textContent = `Page Visits: ${count}`;
       } catch (e) {
-        el.textContent = "visits: n/a";
+        el.textContent = "Page Visits: n/a";
       }
     })();
   </script>
