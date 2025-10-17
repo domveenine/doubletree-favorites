@@ -279,46 +279,6 @@
       });
     })();
   </script>
-
-  <script>
-  // Visitor counter with network fallback
-  (function () {
-    const el = document.getElementById("visitor-counter");
-    if (!el) return;
-    const NAMESPACE = (location.hostname || "doubletree-abq").replace(/[^a-z0-9-_]/gi, "-").toLowerCase();
-    const KEY = (location.pathname || "home").replace(/[^a-z0-9-_]/gi, "-").toLowerCase() || "home";
-    const LOCAL_KEY = `vc:${NAMESPACE}:${KEY}`;
-    function fmt(n){ return Number(n).toLocaleString(); }
-    async function fetchWithTimeout(url, ms = 4000) {
-      const ctl = new AbortController();
-      const t = setTimeout(() => ctl.abort(), ms);
-      try {
-        const res = await fetch(url, { signal: ctl.signal, cache: "no-store" });
-        clearTimeout(t);
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
-      } finally { clearTimeout(t); }
-    }
-    async function hitCountApi() {
-      const base = "https://api.countapi.xyz";
-      const hitUrl = `${base}/hit/${encodeURIComponent(NAMESPACE)}/${encodeURIComponent(KEY)}`;
-      try { await fetchWithTimeout(`${base}/create?namespace=${encodeURIComponent(NAMESPACE)}&key=${encodeURIComponent(KEY)}&value=0`, 2500); } catch(_) {}
-      const data = await fetchWithTimeout(hitUrl, 4000);
-      if (!("value" in data)) throw new Error("Bad payload");
-      return data.value;
-    }
-    function localFallbackIncrement() {
-      const current = parseInt(localStorage.getItem(LOCAL_KEY) || "0", 10) || 0;
-      const next = current + 1;
-      localStorage.setItem(LOCAL_KEY, String(next));
-      return next;
-    }
-    (async () => {
-      try { el.textContent = `Page Visits: ${fmt(await hitCountApi())}`; }
-      catch { el.textContent = `Page Visits: ${fmt(localFallbackIncrement())} (device)`; }
-    })();
-  })();
-  </script>
   <script>
   // Enhance Uber/Lyft buttons to open the native app first, with graceful fallbacks
   (function(){
@@ -407,51 +367,3 @@
   </script>
 </body>
 </html>
-<!-- Invisible page view counter -->
-<div id="view-counter" aria-hidden="true" title="Page views">Views: …</div>
-
-<script>
-  (async () => {
-    // Replace this after you deploy your Google Apps Script (see Step 2)
-    const ENDPOINT = "REPLACE_WITH_YOUR_ENDPOINT";
-
-    // Use the path as a key so each page counts separately (if you add more pages later)
-    const pageKey = (location.pathname.replace(/\/$/, '') || 'home');
-
-    try {
-      const url = ENDPOINT + "?key=" + encodeURIComponent(pageKey) + "&t=" + Date.now();
-      const res = await fetch(url, { method: "GET", cache: "no-store" });
-      if (!res.ok) throw new Error("HTTP " + res.status);
-      const data = await res.json();
-      const n = (typeof data.count === "number") ? data.count :
-                (typeof data.value === "number") ? data.value :
-                (typeof data.views === "number") ? data.views : 0;
-      document.getElementById("view-counter").textContent = "Views: " + n;
-    } catch (err) {
-      const el = document.getElementById("view-counter");
-      if (el) el.style.display = "none";
-      console.error("View tracker error:", err);
-    }
-  })();
-</script>
-
-<style>
-  /* Tiny, subtle counter tucked into the bottom-right corner */
-  #view-counter {
-    position: fixed;
-    right: 8px;
-    bottom: 6px;
-    background: rgba(0, 0, 0, 0.25);
-    color: #9aa0a6;
-    font: 12px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-    padding: 2px 8px;
-    border-radius: 999px;
-    opacity: 0.35;
-    letter-spacing: 0.2px;
-    user-select: none;
-    pointer-events: none;
-    z-index: 9999;
-    transition: opacity 0.2s ease;
-  }
-  #view-counter:hover { opacity: 0.9; }
-</style>
