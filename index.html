@@ -567,27 +567,59 @@
 
   <div id="visitor-counter">Page Visits: …</div>
   <script>
-    const NAMESPACE = "doubletree-favorites-abq";
-    const KEY = "page";
+  (function () {
     const el = document.getElementById("visitor-counter");
+    if (!el) return;
 
-    async function getCount(inc = false) {
-      const endpoint = inc
-        ? `https://api.countapi.xyz/hit/${encodeURIComponent(NAMESPACE)}/${encodeURIComponent(KEY)}`
-        : `https://api.countapi.xyz/get/${encodeURIComponent(NAMESPACE)}/${encodeURIComponent(KEY)}`;
-      const res = await fetch(endpoint);
-      const data = await res.json();
+    // Unique-ish per page: namespace uses your origin, key uses the path.
+    const NAMESPACE = (location.hostname || "doubletree-abq").replace(/[^a-z0-9-_]/gi, "-").toLowerCase();
+    const KEY = (location.pathname || "home").replace(/[^a-z0-9-_]/gi, "-").toLowerCase() || "home";
+    const LOCAL_KEY = `vc:${NAMESPACE}:${KEY}`;
+
+    function fmt(n){ return Number(n).toLocaleString(); }
+
+    async function fetchWithTimeout(url, ms = 4000) {
+      const ctl = new AbortController();
+      const t = setTimeout(() => ctl.abort(), ms);
+      try {
+        const res = await fetch(url, { signal: ctl.signal, cache: "no-store" });
+        clearTimeout(t);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      } finally {
+        clearTimeout(t);
+      }
+    }
+
+    async function hitCountApi() {
+      const base = "https://api.countapi.xyz";
+      const hitUrl = `${base}/hit/${encodeURIComponent(NAMESPACE)}/${encodeURIComponent(KEY)}`;
+      // Try to create first, then hit, to avoid rare auto-create race conditions
+      try { 
+        await fetchWithTimeout(`${base}/create?namespace=${encodeURIComponent(NAMESPACE)}&key=${encodeURIComponent(KEY)}&value=0`, 2500);
+      } catch(_) {} // non-fatal
+      const data = await fetchWithTimeout(hitUrl, 4000);
+      if (!("value" in data)) throw new Error("Bad payload");
       return data.value;
+    }
+
+    function localFallbackIncrement() {
+      const current = parseInt(localStorage.getItem(LOCAL_KEY) || "0", 10) || 0;
+      const next = current + 1;
+      localStorage.setItem(LOCAL_KEY, String(next));
+      return next;
     }
 
     (async () => {
       try {
-        const count = await getCount(true);
-        el.textContent = `Page Visits: ${count}`;
+        const count = await hitCountApi();
+        el.textContent = `Page Visits: ${fmt(count)}`;
       } catch (e) {
-        el.textContent = "Page Visits: n/a";
+        // Network blocked or service down — fall back to device-local counter
+        const local = localFallbackIncrement();
+        el.textContent = `Page Visits: ${fmt(local)} (device)`;
       }
     })();
-  </script>
-</body>
-</html>
+  })();
+</script>
+
