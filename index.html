@@ -319,5 +319,91 @@
     })();
   })();
   </script>
+  <script>
+  // Enhance Uber/Lyft buttons to open the native app first, with graceful fallbacks
+  (function(){
+    function tryOpen({scheme, web, iosStore, androidStore}){
+      const ua = navigator.userAgent || navigator.vendor || "";
+      const isAndroid = /Android/i.test(ua);
+      const isIOS = /iPad|iPhone|iPod/i.test(ua);
+      const start = Date.now();
+      // Try scheme via hidden iframe (works across many mobile browsers)
+      const iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = scheme;
+      document.body.appendChild(iframe);
+
+      // Fallback to mobile web deep link if app didn't open
+      setTimeout(() => {
+        try { window.location.href = web; } catch(_) {}
+        // Final fallback to the app store
+        setTimeout(() => {
+          try {
+            if (isIOS) window.location.href = iosStore; else if (isAndroid) window.location.href = androidStore;
+          } catch(_) {}
+        }, 1400);
+      }, 900);
+
+      setTimeout(() => { if (iframe && iframe.parentNode) iframe.parentNode.removeChild(iframe); }, 2500);
+    }
+
+    function attachSmartHandlers(root){
+      root.querySelectorAll('.actions .btn-uber').forEach(a => {
+        if (a.dataset.smart === '1') return;
+        const addr = a.closest('.card').querySelector('.row')?.textContent.split('•')[0].trim();
+        if (!addr) return;
+        const enc = encodeURIComponent(addr);
+        const scheme = `uber://?action=setPickup&pickup=my_location&dropoff[formatted_address]=${enc}`;
+        const web = `https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[formatted_address]=${enc}`;
+        const ios = 'https://apps.apple.com/app/uber-request-a-ride/id368677368';
+        const android = 'https://play.google.com/store/apps/details?id=com.ubercab';
+        a.addEventListener('click', e => { e.preventDefault(); tryOpen({scheme, web, iosStore: ios, androidStore: android}); });
+        a.dataset.smart = '1';
+        a.href = web; // safe default if JS blocked
+      });
+      root.querySelectorAll('.actions .btn-lyft').forEach(a => {
+        if (a.dataset.smart === '1') return;
+        const addr = a.closest('.card').querySelector('.row')?.textContent.split('•')[0].trim();
+        if (!addr) return;
+        const enc = encodeURIComponent(addr);
+        const scheme = `lyft://ridetype?id=lyft&pickup[set]=current_location&destination[address]=${enc}`;
+        const web = `https://ride.lyft.com/?pickup=Current%20Location&destination=${enc}`;
+        const ios = 'https://apps.apple.com/app/lyft/id529379082';
+        const android = 'https://play.google.com/store/apps/details?id=me.lyft.android';
+        a.addEventListener('click', e => { e.preventDefault(); tryOpen({scheme, web, iosStore: ios, androidStore: android}); });
+        a.dataset.smart = '1';
+        a.href = web;
+      });
+    }
+
+    // If there are no ride buttons yet, build them for each card
+    (function ensureButtons(){
+      const cards = document.querySelectorAll('.card');
+      const needsBuild = Array.from(cards).some(c => !c.querySelector('.actions .btn-uber, .actions .btn-lyft'));
+      if (needsBuild){
+        cards.forEach(card => {
+          const addressRow = card.querySelector('.row');
+          if (!addressRow) return;
+          const text = addressRow.textContent || '';
+          const split = text.indexOf('•');
+          if (split === -1) return;
+          const addr = text.slice(0, split).trim();
+          const enc = encodeURIComponent(addr);
+          const wrap = document.createElement('div');
+          wrap.className = 'actions';
+          const uber = document.createElement('a');
+          uber.className = 'btn-uber'; uber.textContent = 'Uber';
+          uber.href = `https://m.uber.com/ul/?action=setPickup&pickup=my_location&dropoff[formatted_address]=${enc}`;
+          const lyft = document.createElement('a');
+          lyft.className = 'btn-lyft'; lyft.textContent = 'Lyft';
+          lyft.href = `https://ride.lyft.com/?pickup=Current%20Location&destination=${enc}`;
+          wrap.appendChild(uber); wrap.appendChild(lyft);
+          card.appendChild(wrap);
+        });
+      }
+      attachSmartHandlers(document);
+    })();
+  })();
+  </script>
 </body>
 </html>
