@@ -3,73 +3,414 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DoubleTree Favorites — Full Addresses + Prices</title>
+  <title>New Mexico United — Matchday Munchies</title>
   <style>
-    :root{ --walking:#50c878; --short:#f5a623; --quick:#9b59b6; --worth:#d0021b; }
-    *{box-sizing:border-box}
-    body{ margin:0; font-family: Arial, sans-serif; color:#222; background: linear-gradient(135deg, #c8e6c9, #bbdefb, #ffe082); min-height:100vh; overflow-x:hidden; }
-    header{ background: linear-gradient(to right, #4a90e2, #50c878, #ffb300); color:#fff; text-align:center; padding:16px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
-    header h1{ margin:0; }
-    .btn{ display:inline-block; padding:10px 16px; border-radius:10px; text-decoration:none; font-weight:700; color:#fff; min-height:44px; }
-    .btn-map{ background:#007f66; margin-top:10px; }
+    :root{
+      /* United palette */
+      --united-yellow:#ffea00;
+      --united-black:#111111;
+      --united-char:#1e1e1e;
+      --glass: rgba(255,255,255,0.08);
 
-    nav.sticky{ position: sticky; top:0; z-index:1000; display:flex; justify-content:center; flex-wrap:wrap; gap:10px; background: linear-gradient(to right, #4a90e2, #50c878, #ffb300); padding:10px; box-shadow: 0 2px 6px rgba(0,0,0,0.15); backdrop-filter: blur(6px); }
-    nav.sticky a{ color:#fff; padding:10px 16px; border-radius:8px; text-decoration:none; font-weight:600; }
-    nav .walking{ background: var(--walking); } nav .short{ background: var(--short); } nav .quick{ background: var(--quick); } nav .worth{ background: var(--worth); }
-
-    main{ max-width:900px; margin:0 auto; padding:20px; }
-    section{ margin-bottom:28px; } section h2{ margin:0 0 12px 0; }
-    .card{ border-left:6px solid; border-radius:12px; padding:16px; margin-bottom:14px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); background:#fff; }
-    .card.walking{ border-color: var(--walking); background: #50c87820; }
-    .card.short{ border-color: var(--short); background: #f5a62320; }
-    .card.quick{ border-color: var(--quick); background: #9b59b620; }
-    .card.worth{ border-color: var(--worth); background: #d0021b20; }
-    .card h3 { color: #000 !important; margin-bottom:4px; }
-    .cuisine{ font-style:italic; font-size:0.95rem; margin:4px 0; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
-    .price { display:inline-block; background:rgba(0,0,0,0.1); border-radius:10px; padding:2px 6px; font-size:0.8rem; font-weight:600; color:#333; }
-    .row{ margin:6px 0; font-size:0.95rem; }
-    .distance{ display:block; font-size:0.9rem; color:#555; margin-top:2px; }
-    .row a{ color:inherit; text-decoration:none; border-bottom:1px dotted rgba(0,0,0,0.3); font-weight:normal; }
-    .row a:hover{ border-bottom:1px solid rgba(0,0,0,0.5); }
-    .muted{ opacity:0.9; }
-    .actions{ display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
-    .btn-uber{ background:#000; color:#fff; border-radius:8px; padding:8px 12px; font-weight:700; text-decoration:none; }
-    .btn-lyft{ background:#ff00bf; color:#fff; border-radius:8px; padding:8px 12px; font-weight:700; text-decoration:none; }
-
-    footer{ text-align:center; padding:16px; font-size:.9rem; color:#444; border-top:1px solid #ccc; background:linear-gradient(to right, #4a90e2, #50c878); }
-    html{ scroll-behavior:smooth; }
-
-    #temperature {
-      position: fixed;
-      bottom: 10px;
-      right: 10px;
-      font-size: 0.9rem;
-      color: #fff;
-      background: rgba(0,0,0,0.5);
-      padding: 6px 10px;
-      border-radius: 8px;
-      z-index: 10000;
-      font-weight: 500;
+      /* Distance tabs (keep your groupings but tonal to theme) */
+      --walking: var(--united-yellow);
+      --short: #ffd54d;
+      --quick: #b3a400;
+      --worth: #ffb300;
     }
-  </style>
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family: Arial, Helvetica, sans-serif; color:#eee;
+      min-height:100vh; overflow-x:hidden;
+      background:
+        radial-gradient(80vw 80vh at 110% -10%, #222 0%, transparent 60%),
+        radial-gradient(80vw 80vh at -10% 110%, #1a1a1a 0%, transparent 60%),
+        repeating-linear-gradient(135deg, rgba(255,234,0,0.07) 0 14px, transparent 14px 28px),
+        var(--united-black);
+    }
+
+    /* Header / Hero */
+    header{
+      position:relative;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.55)),
+        linear-gradient(90deg, var(--united-yellow), #f5c400 60%, #e0b000);
+      color:#111;
+      text-align:center; padding:18px 14px 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,.35);
+    }
+    .hero-wrap{
+      max-width:1000px; margin:0 auto; position:relative; isolation:isolate;
+    }
+    .hero-badge{
+      display:inline-block;
+      background:#111; color:var(--united-yellow);
+      padding:6px 10px; border-radius:999px; font-weight:800;
+      letter-spacing:.02em; margin-bottom:8px; box-shadow:0 4px 10px rgba(0,0,0,.25);
+    }
+    header h1{
+      margin:4px 0 6px; font-size:1.8rem; color:#111;
+      text-shadow: 0 1px 0 rgba(255,255,255,.35);
+    }
+    .matchline{
+      margin:6px auto 10px; font-weight:700; color:#111; font-size:1rem;
+    }
+    .countdown{
+      display:inline-block; margin:6px auto 10px; font-weight:800;
+      background:#111; color:var(--united-yellow);
+      padding:6px 10px; border-radius:10px; letter-spacing:.03em;
+    }
+
+    .cta-row{ display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin:10px auto 6px; }
+    .btn{
+      display:inline-block; padding:10px 16px; border-radius:12px;
+      text-decoration:none; font-weight:800; min-height:44px;
+      border:2px solid #111; color:#111; background:#fff200;
+    }
+    .btn:hover{ transform:translateY(-1px); filter:brightness(1.05); }
+    .btn-outline{ background:transparent; color:#111; border-color:#111; backdrop-filter: blur(6px); }
+
+    /* Sticky nav */
+    nav.sticky{
+      position: sticky; top:0; z-index:1000;
+      display:flex; justify-content:center; flex-wrap:wrap; gap:10px;
+      background: rgba(10,10,10,.7);
+      padding:10px; box-shadow: 0 6px 16px rgba(0,0,0,.35); backdrop-filter: blur(8px);
+      border-bottom:1px solid #333;
+    }
+    nav.sticky a{
+      color:#111; padding:8px 14px; border-radius:999px; text-decoration:none; font-weight:800;
+      border:1px solid rgba(0,0,0,.2);
+    }
+    nav .walking{ background: var(--walking); }
+    nav .short{ background: var(--short); }
+    nav .quick{ background: var(--quick); }
+    nav .worth{ background: var(--worth); }
+
+    /* Main + cards */
+    main{ max-width:900px; margin:0 auto; padding:22px; }
+    section{ margin-bottom:28px; }
+    section h2{ margin:0 0 14px 0; color: var(--united-yellow); }
+
+    .card{
+      border-left:6px solid; border-radius:14px; padding:16px; margin-bottom:14px;
+      box-shadow: 0 10px 26px rgba(0,0,0,.25);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border-right:1px solid #2a2a2a; border-top:1px solid #2a2a2a;
+    }
+    .card.walking{ border-color: var(--walking); background: linear-gradient(180deg, rgba(255,234,0,0.18), rgba(255,255,255,0.03)); }
+    .card.short{ border-color: var(--short); }
+    .card.quick{ border-color: var(--quick); }
+    .card.worth{ border-color: var(--worth); }
+
+    .card h3 { color: #fff !important; margin-bottom:4px; }
+    .cuisine{
+      font-style:italic; font-size:0.95rem; margin:4px 0;
+      display:flex; align-items:center; gap:6px; flex-wrap:wrap; color:#ddd;
+    }
+    .price{
+      display:inline-block; background:rgba(255,255,255,0.12);
+      border:1px solid rgba(255,255,255,0.2);
+      border-radius:10px; padding:2px 6px; font-size:0.8rem; font-weight:700; color:#fff;
+    }
+    .row{ margin:6px 0; font-size:0.95rem; color:#eaeaea; }
+    .distance{ display:block; font-size:0.9rem; color:#cfcfcf; margin-top:2px; }
+    .row a{ color:#fff; text-decoration:none; border-bottom:1px dotted rgba(255,255,255,0.35); font-weight:600; }
+    .row a:hover{ border-bottom:1px solid rgba(255,255,255,0.6); }
+    .muted{ opacity:0.9; }
+
+    .actions{ display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+    .btn-uber, .btn-lyft{
+      border-radius:8px; padding:8px 12px; font-weight:800; text-decoration:none; border:1px solid #333;
+      box-shadow: 0 4px 12px rgba(0,0,0,.25);
+    }
+    .btn-uber{ background:#000; color:#fff; }
+    .btn-lyft{ background:#ff00bf; color:#fff; }
+
+    footer{
+      text-align:center; padding:18px; font-size:.9rem; color:#ddd; border-top:1px solid #2b2b2b;
+      background: linear-gradient(90deg, #141414, #1a1a1a);
+    }
+
+    /* Temp pill */
+    #temperature {
+      position: fixed; bottom: 10px; right: 10px;
+      font-size: 0.9rem; color: #111; background: var(--united-yellow);
+      padding: 6px 10px; border-radius: 999px; z-index: 10000; font-weight: 800; border:2px solid #111;
+      box-shadow:0 6px 16px rgba(0,0,0,.35);
+    }
+
+    /* Decorative diagonal “bar” behind header text */
+    .hero-stripe{
+      position:absolute; inset:auto -12vw -34px -12vw; height:34px;
+      background:
+        repeating-linear-gradient(45deg, #111 0 18px, var(--united-yellow) 18px 34px);
+      opacity:.18; transform:skewY(-2deg);
+    }
+  
+/* Subtle animated background overlay */
+body::before{
+  content:"";
+  position:fixed; inset:0; pointer-events:none;
+  background:
+    radial-gradient(70vw 70vh at 110% -10%, rgba(255,255,255,0.06), transparent 60%),
+    radial-gradient(70vw 70vh at -10% 110%, rgba(255,255,255,0.05), transparent 60%),
+    repeating-linear-gradient(135deg, rgba(255,234,0,0.12) 0 12px, transparent 12px 24px);
+  opacity:.10;
+  z-index:0;
+  animation: bgDrift 60s linear infinite;
+}
+@keyframes bgDrift{
+  0%{ background-position: 0 0, 0 0, 0 0; }
+  100%{ background-position: 400px 0, -400px 0, 800px 0; }
+}
+/* Ensure content sits above overlay */
+body > * { position: relative; z-index: 1; }
+
+
+/* Enhanced animated background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255,235,0,0.05), rgba(0,0,0,0.2)),
+              radial-gradient(circle at 30% 50%, rgba(255,235,0,0.1), transparent 60%),
+              radial-gradient(circle at 70% 50%, rgba(255,255,255,0.05), transparent 70%);
+  background-size: 400% 400%;
+  animation: bgMotion 40s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+@keyframes bgMotion {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* Yellow smoke animation behind restaurant cards */
+.smoke-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+.smoke {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(255,235,0,0.25) 0%, transparent 70%);
+  filter: blur(120px);
+  animation: smokeMove 60s ease-in-out infinite;
+}
+.smoke:nth-child(2) { animation-delay: -20s; top: 20%; left: 40%; }
+.smoke:nth-child(3) { animation-delay: -40s; top: 60%; left: 70%; }
+
+@keyframes smokeMove {
+  0% { transform: translate(0,0) scale(1); opacity: 0.4; }
+  25% { transform: translate(-200px,100px) scale(1.2); opacity: 0.6; }
+  50% { transform: translate(150px,-150px) scale(0.8); opacity: 0.3; }
+  75% { transform: translate(100px,200px) scale(1.1); opacity: 0.5; }
+  100% { transform: translate(0,0) scale(1); opacity: 0.4; }
+}
+.restaurant-section {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* Yellow and white confetti animation */
+.confetti-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+.confetti {
+  position: absolute;
+  width: 8px;
+  height: 14px;
+  opacity: 0.8;
+  animation: confettiFall 10s linear infinite;
+}
+.confetti.yellow { background: #ffeb00; }
+.confetti.white { background: #ffffff; }
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-20px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120vh) rotate(720deg);
+    opacity: 0.3;
+  }
+}
+
+/* Generate random confetti */
+
+
+/* Ensure overlays appear behind content but are visible within the section */
+.restaurant-section { position: relative; }
+.restaurant-section > * { position: relative; z-index: 2; }
+.restaurant-section .smoke-bg,
+.restaurant-section .confetti-bg { z-index: 1; }
+
+/* Boost smoke visibility slightly */
+.smoke { filter: blur(100px); opacity: 0.55; }
+
+/* Confetti tuning */
+.confetti { 
+  will-change: transform, opacity;
+  top: -40px;
+}
+@keyframes confettiFall {
+  0%   { transform: translateY(-40px) translateX(0) rotate(0deg); opacity: 1; }
+  50%  { transform: translateY(60vh) translateX(20px) rotate(360deg); opacity: 0.8; }
+  100% { transform: translateY(120vh) translateX(-20px) rotate(720deg); opacity: 0.35; }
+}
+
+
+/* === Global background effects: smoke + confetti (behind all content) === */
+body { position: relative; }
+body > * { position: relative; z-index: 2; } /* ensure content above effects */
+
+#effects-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1; /* below content, above body::before gradient */
+}
+
+/* Smoke */
+#smoke-layer { position: absolute; inset: 0; overflow: hidden; }
+.smoke-wisp {
+  position: absolute;
+  width: 45vmax;
+  height: 45vmax;
+  background: radial-gradient(circle, rgba(255,235,0,0.22) 0%, rgba(255,235,0,0.12) 30%, transparent 70%);
+  filter: blur(80px);
+  opacity: 0.5;
+  animation: wispFloat 60s ease-in-out infinite;
+}
+.smoke-wisp.w2 { animation-delay: -20s; }
+.smoke-wisp.w3 { animation-delay: -40s; }
+
+@keyframes wispFloat {
+  0%   { transform: translate(-10%, -5%) scale(1); }
+  33%  { transform: translate(15%, 10%) scale(1.15); }
+  66%  { transform: translate(-5%, 25%) scale(0.95); }
+  100% { transform: translate(-10%, -5%) scale(1); }
+}
+
+/* Confetti */
+#confetti-layer { position: absolute; inset: 0; overflow: hidden; }
+.confetti-piece {
+  position: absolute;
+  width: 4px; height: 7px;
+  opacity: 0.9;
+  animation: confettiFall linear infinite;
+  transform-origin: center;
+}
+.confetti-yellow { background: #ffeb00; }
+.confetti-white  { background: #ffffff; }
+
+@keyframes confettiFall {
+  0%   { transform: translateY(-10vh) rotate(0deg);   opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0.4; }
+}
+
+
+/* === Global background effects v2 (full-page; high z-index) === */
+#effects-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+#smoke-layer, #confetti-layer { position: absolute; inset: 0; overflow: hidden; }
+
+/* Smoke */
+.smoke-wisp {
+  position: absolute;
+  width: 45vmax;
+  height: 45vmax;
+  background: radial-gradient(circle, rgba(255,235,0,0.22) 0%, rgba(255,235,0,0.12) 30%, transparent 70%);
+  filter: blur(85px);
+  opacity: 0.5;
+  animation: wispFloat 60s ease-in-out infinite;
+}
+.smoke-wisp.w2 { animation-delay: -20s; }
+.smoke-wisp.w3 { animation-delay: -40s; }
+
+@keyframes wispFloat {
+  0%   { transform: translate(-10%, -5%) scale(1); }
+  33%  { transform: translate(15%, 10%) scale(1.15); }
+  66%  { transform: translate(-5%, 25%) scale(0.95); }
+  100% { transform: translate(-10%, -5%) scale(1); }
+}
+
+/* Confetti */
+.confetti-piece {
+  position: absolute;
+  width: 4px; height: 7px;
+  opacity: 0.95;
+  transform-origin: center;
+  animation: confettiFall linear infinite;
+  box-shadow: 0 0 2px rgba(0,0,0,0.25);
+}
+.confetti-yellow { background: #ffeb00; }
+.confetti-white  { background: #ffffff; }
+
+@keyframes confettiFall {
+  0%   { transform: translateY(-10vh) translateX(0vw) rotate(0deg);   opacity: 1; }
+  50%  { transform: translateY(55vh) translateX(5vw)  rotate(360deg); opacity: 0.8; }
+  100% { transform: translateY(110vh) translateX(-5vw) rotate(720deg); opacity: 0.5; }
+}
+
+</style>
 </head>
 <body>
   <header>
-    <h1>DoubleTree Favorites</h1>
-    <a class="btn btn-map" href="https://domveenine.github.io/doubletree-abq-map/" target="_blank" rel="noreferrer">Interactive Map</a>
+    <div class="hero-wrap">
+      <span class="hero-badge">SOMOS UNIDOS</span>
+      <h1>Matchday Munchies</h1>
+      <div class="matchline">Next Home Match: <strong>Sun, Oct 19 @ 3:00 PM</strong> — <strong>New Mexico United vs Oakland Roots SC</strong> · Isotopes Park</div>
+      <div id="countdown" class="countdown" aria-live="polite">Kickoff in 00d 00h 00m 00s</div>
+      <div class="cta-row">
+        <a class="btn" href="https://seatgeek.com/new-mexico-united-tickets" target="_blank" rel="noreferrer">Get Tickets</a>
+        <a class="btn btn-outline" href="https://www.newmexicoutd.com/schedule/" target="_blank" rel="noreferrer"  style="background:#FFEB00;color:black;border:2px solid black;">Full Schedule</a>
+        <a class="btn" style="background:black;color:white;border:none;"  href="https://domveenine.github.io/doubletree-abq-map/" target="_blank" rel="noreferrer">Interactive Map</a>
+      </div>
+      <div class="hero-stripe" aria-hidden="true"></div>
+    </div>
   </header>
 
   <nav class="sticky" aria-label="Distance sections">
-    <a class="walking" href="#Walking Downtown">Walking Downtown</a>
-    <a class="short" href="#Beyond the Block">Beyond the Block</a>
-    <a class="quick" href="#Quick Adventure">Quick Adventure</a>
-    <a class="worth" href="#Worth the Drive">Worth the Drive</a>
+    <a class="walking" href="#Walking Downtown">Pre-Match Walk (0–1 mi)</a>
+    <a class="short" href="#Beyond the Block">Beyond the Block (1–3 mi)</a>
+    <a class="quick" href="#Quick Adventure">Quick Adventure (3–5 mi)</a>
+    <a class="worth" href="#Worth the Drive">Worth the Drive (5+ mi)</a>
   </nav>
 
   <main>
     <!-- Walking Downtown -->
     <section id="Walking Downtown">
-      <h2 style="color:var(--walking)">Walking Downtown (0–1 Mile)</h2>
+      <h2>Pre-Match Walk (0–1 Mile)</h2>
 
       <div class="card walking"><h3>My Mom’s</h3>
         <p class="cuisine">Classic New Mexican Breakfast & Lunch <span class="price">$$</span></p>
@@ -191,7 +532,7 @@
 
     <!-- Beyond the Block -->
     <section id="Beyond the Block">
-      <h2 style="color:var(--short)">Beyond the Block (1–3 Miles)</h2>
+      <h2>Beyond the Block (1–3 Miles)</h2>
       <div class="card short"><h3>Kosmos Restaurant & Astropub</h3>
         <p class="cuisine">Modern American Gastropub <span class="price">$$</span></p>
         <p class="row"><a href="https://maps.google.com/?q=1715%205th%20St%20NW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">1715 5th St NW, Albuquerque, NM 87102</a><span class="distance">• 1.2 mi from hotel</span></p>
@@ -260,7 +601,7 @@
 
     <!-- Quick Adventure -->
     <section id="Quick Adventure">
-      <h2 style="color:var(--quick)">Quick Adventure (3–5 Miles)</h2>
+      <h2>Quick Adventure (3–5 Miles)</h2>
       <div class="card quick"><h3>M’tucci’s Bar Roma</h3>
         <p class="cuisine">Italian & Craft Cocktails <span class="price">$$$</span></p>
         <p class="row"><a href="https://maps.google.com/?q=3222%20Central%20Ave%20SE%2C%20Albuquerque%2C%20NM%2087106" target="_blank" rel="noreferrer">3222 Central Ave SE, Albuquerque, NM 87106</a><span class="distance">• 3.3 mi from hotel</span></p>
@@ -297,7 +638,7 @@
 
     <!-- Worth the Drive -->
     <section id="Worth the Drive">
-      <h2 style="color:var(--worth)">Worth the Drive (5+ Miles)</h2>
+      <h2>Worth the Drive (5+ Miles)</h2>
       <div class="card worth"><h3>Farm & Table</h3>
         <p class="cuisine">Farm-to-Table American <span class="price">$$$</span></p>
         <p class="row"><a href="https://maps.google.com/?q=8917%204th%20St%20NW%2C%20Albuquerque%2C%20NM%2087114" target="_blank" rel="noreferrer">8917 4th St NW, Albuquerque, NM 87114</a><span class="distance">• 5.0 mi from hotel</span></p>
@@ -357,12 +698,12 @@
     </section>
   </main>
 
-  <footer>Built for DoubleTree ABQ • By DoubleTree ABQ</footer>
+  <footer>Built for United Fans • Somos Unidos</footer>
 
   <div id="temperature">--°F</div>
 
   <script>
-    // Reliable Weather for Albuquerque
+    // Reliable Weather for Albuquerque (sticky pill)
     (function(){
       const tempEl=document.getElementById('temperature');
       async function updateTemperature(){
@@ -385,6 +726,93 @@
       }
       updateTemperature();setInterval(updateTemperature,600000);
     })();
+
+    // Match countdown (America/Denver)
+    (function(){
+      const el=document.getElementById('countdown');
+      // Kickoff: Sun Oct 19, 2025 3:00 PM America/Denver
+      function targetDateInDenver(){
+        // force target time in Denver regardless of viewer TZ
+        const denver = new Date('2025-10-19T15:00:00-06:00'); // MDT in Oct
+        return denver;
+      }
+      function tick(){
+        const t = targetDateInDenver().getTime() - Date.now();
+        if(t<=0){ el.textContent = 'It’s Match Time!'; return; }
+        const s = Math.floor(t/1000);
+        const d = Math.floor(s/86400);
+        const h = Math.floor((s%86400)/3600);
+        const m = Math.floor((s%3600)/60);
+        const sec = s%60;
+        el.textContent = `Kickoff in ${String(d).padStart(2,'0')}d ${String(h).padStart(2,'0')}h ${String(m).padStart(2,'0')}m ${String(sec).padStart(2,'0')}s`;
+      }
+      tick(); setInterval(tick,1000);
+    })();
   </script>
+
+<script>
+(function(){
+  if (document.getElementById('effects-container')) return; // avoid duplicates
+
+  const effects = document.createElement('div');
+  effects.id = 'effects-container';
+
+  // Try to position effects primarily over the restaurant section if present
+  
+  const restaurantSection = document.body;
+  const rect = {left:0, top:0, width:window.innerWidth, height:window.innerHeight};
+  const wrapper = document.createElement('div');
+  wrapper.style.position = 'fixed';
+  wrapper.style.left = '0';
+  wrapper.style.top = '0';
+  wrapper.style.width = '100vw';
+  wrapper.style.height = '100vh';
+  wrapper.style.pointerEvents = 'none';
+  const updatePos = ()=>{};
+  window.addEventListener('resize', updatePos, { passive: true });
+  window.addEventListener('scroll', updatePos, { passive: true });
+  updatePos();
+
+})();
+</script>
+
+
+<script>
+(function(){
+  // Remove any previous effects container to avoid duplicates
+  const old = document.getElementById('effects-container');
+  if (old) old.remove();
+
+  const effects = document.createElement('div');
+  effects.id = 'effects-container';
+
+  // Smoke
+  const smoke = document.createElement('div');
+  smoke.id = 'smoke-layer';
+  const w1 = document.createElement('div'); w1.className = 'smoke-wisp w1'; w1.style.left='5%';  w1.style.top='10%';
+  const w2 = document.createElement('div'); w2.className = 'smoke-wisp w2'; w2.style.left='45%'; w2.style.top='30%';
+  const w3 = document.createElement('div'); w3.className = 'smoke-wisp w3'; w3.style.left='70%'; w3.style.top='55%';
+  smoke.appendChild(w1); smoke.appendChild(w2); smoke.appendChild(w3);
+
+  // Confetti
+  const confetti = document.createElement('div');
+  confetti.id = 'confetti-layer';
+  const pieces = 140;
+  for (let i=0; i<pieces; i++){
+    const p = document.createElement('div');
+    p.className = 'confetti-piece ' + (i%2===0 ? 'confetti-yellow' : 'confetti-white');
+    p.style.left = (Math.random()*100).toFixed(2) + '%';
+    p.style.top = (-5 - Math.random()*25).toFixed(2) + 'vh';
+    p.style.animationDelay = (Math.random()*5).toFixed(2) + 's';
+    p.style.animationDuration = (6 + Math.random()*8).toFixed(2) + 's';
+    confetti.appendChild(p);
+  }
+
+  effects.appendChild(smoke);
+  effects.appendChild(confetti);
+  document.body.appendChild(effects);
+})();
+</script>
+
 </body>
 </html>
