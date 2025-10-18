@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>New Mexico United — Matchday Munchies</title>
   <style>
     :root{
@@ -380,6 +380,83 @@ body > * { position: relative; z-index: 2; } /* ensure content above effects */
   0%   { transform: translateY(-10vh) translateX(0vw) rotate(0deg);   opacity: 1; }
   50%  { transform: translateY(55vh) translateX(5vw)  rotate(360deg); opacity: 0.8; }
   100% { transform: translateY(110vh) translateX(-5vw) rotate(720deg); opacity: 0.5; }
+}
+
+
+/* === Mobile-friendly tweaks === */
+
+/* Respect iOS safe areas */
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+}
+
+/* Container padding adjustments */
+body {
+  padding-left: max(12px, var(--safe-left));
+  padding-right: max(12px, var(--safe-right));
+  padding-bottom: var(--safe-bottom);
+}
+
+/* Responsive typography */
+h1 { font-size: clamp(1.4rem, 3.5vw, 2.2rem); line-height: 1.15; }
+h2, .section-title { font-size: clamp(1.1rem, 3vw, 1.6rem); line-height: 1.2; }
+
+/* Buttons: larger tap targets */
+a.btn, button, .button {
+  min-height: 44px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+/* Make horizontal groups wrap nicely on small screens */
+.button-row, .cta-row, .controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.button-row a, .cta-row a, .controls a { flex: 1 1 auto; }
+
+/* Images and media */
+img, video { max-width: 100%; height: auto; border-radius: 10px; }
+
+/* Cards/grid: stack on mobile */
+.grid, .cards, .restaurant-grid, .listing-grid {
+  display: grid;
+  grid-template-columns: repeat( auto-fill, minmax(260px, 1fr) );
+  gap: 14px;
+}
+@media (max-width: 640px) {
+  .grid, .cards, .restaurant-grid, .listing-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .card, .restaurant-card {
+    padding: 12px;
+    border-radius: 14px;
+  }
+}
+
+/* Keep effects performant on mobile */
+#effects-container { will-change: transform, opacity; }
+.smoke-wisp { filter: blur(70px); opacity: 0.45; }
+.confetti-piece { will-change: transform; }
+
+/* Reduce motion if user prefers */
+@media (prefers-reduced-motion: reduce) {
+  .confetti-piece, .smoke-wisp { animation: none !important; opacity: 0.15; }
+}
+
+
+/* CTA buttons full-width on very small screens */
+@media (max-width: 400px) {
+  a.btn, button, .button { width: 100%; }
 }
 
 </style>
@@ -797,7 +874,7 @@ body > * { position: relative; z-index: 2; } /* ensure content above effects */
   // Confetti
   const confetti = document.createElement('div');
   confetti.id = 'confetti-layer';
-  const pieces = 140;
+  const pieces = Math.max(50, Math.min(140, Math.round(window.innerWidth / 6)));
   for (let i=0; i<pieces; i++){
     const p = document.createElement('div');
     p.className = 'confetti-piece ' + (i%2===0 ? 'confetti-yellow' : 'confetti-white');
