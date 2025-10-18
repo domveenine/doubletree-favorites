@@ -3,63 +3,171 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DoubleTree Favorites — Full Addresses + Prices</title>
+  <title>Go Lobos! Game Day Bites — UNM Football Edition</title>
   <style>
-    :root{ --walking:#50c878; --short:#f5a623; --quick:#9b59b6; --worth:#d0021b; }
+    :root{
+      --cherry:#BA0C2F; --cherry-dark:#8E0A24; --silver:#8A8D8F; --silver-light:#C0C0C0; --black:#111214;
+      --walking:var(--cherry);
+      --short:var(--silver);
+      --quick:#2a2d31;
+      --worth:#C41E3A;
+      --card-bg:#0f0f11; --text:#f3f4f6; --muted:#b8b9bd; --panel:#17181b;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:14px;
+    }
     *{box-sizing:border-box}
-    body{ margin:0; font-family: Arial, sans-serif; color:#222; background: linear-gradient(135deg, #c8e6c9, #bbdefb, #ffe082); min-height:100vh; overflow-x:hidden; }
-    header{ background: linear-gradient(to right, #4a90e2, #50c878, #ffb300); color:#fff; text-align:center; padding:16px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
-    header h1{ margin:0; }
-    .btn{ display:inline-block; padding:10px 16px; border-radius:10px; text-decoration:none; font-weight:700; color:#fff; min-height:44px; }
-    .btn-map{ background:#007f66; margin-top:10px; }
+    body{
+      margin:0; font-family: system-ui, Segoe UI, Inter, Roboto, Helvetica, Arial, sans-serif; color:var(--text);
+      min-height:100vh; overflow-x:hidden;
+      background:
+        radial-gradient(1200px 500px at 120% -20%, rgba(186,12,47,.25), transparent 60%),
+        radial-gradient(1000px 600px at -20% 110%, rgba(138,141,143,.25), transparent 60%),
+        linear-gradient(135deg, #0b0b0c, #15161a 40%, #1a1b20 60%, #0e0f12 100%);
+    }
+    header{
+      position:sticky; top:0; z-index:1000;
+      background: linear-gradient(100deg, var(--cherry) 0%, var(--cherry-dark) 40%, #000 100%);
+      color:#fff; text-align:center; padding:18px 12px 14px; box-shadow: var(--shadow);
+      border-bottom: 3px solid var(--silver);
+    }
+    header h1{ margin:0 0 6px 0; letter-spacing:.5px; text-transform:uppercase; font-weight:900; }
+    header .sub{font-weight:600; opacity:.95; font-size:.95rem}
+    .btn{ display:inline-block; padding:10px 16px; border-radius:10px; text-decoration:none; font-weight:800; color:#fff; min-height:44px; }
+    .btn-map{ background:#000; margin-top:10px; border:1px solid var(--silver); box-shadow:0 6px 16px rgba(0,0,0,.3); }
+    .btn-map:hover{ filter:brightness(1.1) }
+    .gameday{
+      margin-top:10px; display:inline-flex; gap:10px; align-items:center; padding:6px 10px; border-radius:999px;
+      background:linear-gradient(90deg, #222, #2b2b2e); color:#fff; border:1px solid rgba(255,255,255,.15);
+      font-weight:700; font-size:.9rem;
+    }
+    .gameday .dot{ width:8px; height:8px; border-radius:50%; background:var(--cherry); box-shadow:0 0 12px rgba(186,12,47,.9) }
+    nav.sticky{
+      position: sticky; top:72px; z-index:999; display:flex; justify-content:center; flex-wrap:wrap; gap:10px;
+      background: rgba(0,0,0,.55); padding:10px; backdrop-filter: blur(8px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    nav.sticky a{ color:#fff; padding:10px 16px; border-radius:10px; text-decoration:none; font-weight:800; letter-spacing:.2px; }
+    nav .walking{ background: var(--walking); }
+    nav .short{ background: var(--short); color:#0b0b0c;}
+    nav .quick{ background: var(--quick); }
+    nav .worth{ background: var(--worth); }
 
-    nav.sticky{ position: sticky; top:0; z-index:1000; display:flex; justify-content:center; flex-wrap:wrap; gap:10px; background: linear-gradient(to right, #4a90e2, #50c878, #ffb300); padding:10px; box-shadow: 0 2px 6px rgba(0,0,0,0.15); backdrop-filter: blur(6px); }
-    nav.sticky a{ color:#fff; padding:10px 16px; border-radius:8px; text-decoration:none; font-weight:600; }
-    nav .walking{ background: var(--walking); } nav .short{ background: var(--short); } nav .quick{ background: var(--quick); } nav .worth{ background: var(--worth); }
+    main{ max-width:980px; margin:0 auto; padding:22px; }
+    section{ margin-bottom:34px; }
+    section h2{ margin:0 0 14px 0; text-transform:uppercase; letter-spacing:.3px}
+    .card{
+      border-left:6px solid; border-radius:16px; padding:16px; margin-bottom:14px;
+      box-shadow: var(--shadow); background:var(--panel); border:1px solid rgba(255,255,255,.06);
+    }
+    .card.walking{ border-color: var(--walking); background: linear-gradient(180deg, rgba(186,12,47,.08), transparent 30%), var(--panel); }
+    .card.short{ border-color: var(--short); background: linear-gradient(180deg, rgba(192,192,192,.08), transparent 30%), var(--panel); }
+    .card.quick{ border-color: var(--quick); background: linear-gradient(180deg, rgba(42,45,49,.15), transparent 30%), var(--panel); }
+    .card.worth{ border-color: var(--worth); background: linear-gradient(180deg, rgba(196,30,58,.08), transparent 30%), var(--panel); }
+    .card h3 { color: #fff !important; margin:0 0 6px 0; font-weight:900; }
+    .cuisine{ font-style:italic; font-size:0.96rem; margin:4px 0; display:flex; align-items:center; gap:6px; flex-wrap:wrap; color:var(--muted)}
+    .price { display:inline-block; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,.12); border-radius:999px; padding:2px 8px; font-size:0.78rem; font-weight:800; color:#fff; }
+    .row{ margin:6px 0; font-size:0.95rem; color:#e8e9eb}
+    .distance{ display:block; font-size:0.88rem; color:#cfd1d4; margin-top:2px; }
+    .row a{ color:#e8e9eb; text-decoration:none; border-bottom:1px dashed rgba(232,233,235,0.4); font-weight:700; }
+    .row a:hover{ border-bottom:1px solid rgba(232,233,235,0.8); }
+    .muted{ opacity:0.9; color:#c9cacc }
+    .actions{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
+    .btn-uber{ background:#000; color:#fff; border-radius:10px; padding:9px 14px; font-weight:900; text-decoration:none; border:1px solid rgba(255,255,255,.12); }
+    .btn-lyft{ background:#ff00bf; color:#fff; border-radius:10px; padding:9px 14px; font-weight:900; text-decoration:none; border:1px solid rgba(255,255,255,.12); }
 
-    main{ max-width:900px; margin:0 auto; padding:20px; }
-    section{ margin-bottom:28px; } section h2{ margin:0 0 12px 0; }
-    .card{ border-left:6px solid; border-radius:12px; padding:16px; margin-bottom:14px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); background:#fff; }
-    .card.walking{ border-color: var(--walking); background: #50c87820; }
-    .card.short{ border-color: var(--short); background: #f5a62320; }
-    .card.quick{ border-color: var(--quick); background: #9b59b620; }
-    .card.worth{ border-color: var(--worth); background: #d0021b20; }
-    .card h3 { color: #000 !important; margin-bottom:4px; }
-    .cuisine{ font-style:italic; font-size:0.95rem; margin:4px 0; display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
-    .price { display:inline-block; background:rgba(0,0,0,0.1); border-radius:10px; padding:2px 6px; font-size:0.8rem; font-weight:600; color:#333; }
-    .row{ margin:6px 0; font-size:0.95rem; }
-    .distance{ display:block; font-size:0.9rem; color:#555; margin-top:2px; }
-    .row a{ color:inherit; text-decoration:none; border-bottom:1px dotted rgba(0,0,0,0.3); font-weight:normal; }
-    .row a:hover{ border-bottom:1px solid rgba(0,0,0,0.5); }
-    .muted{ opacity:0.9; }
-    .actions{ display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
-    .btn-uber{ background:#000; color:#fff; border-radius:8px; padding:8px 12px; font-weight:700; text-decoration:none; }
-    .btn-lyft{ background:#ff00bf; color:#fff; border-radius:8px; padding:8px 12px; font-weight:700; text-decoration:none; }
-
-    footer{ text-align:center; padding:16px; font-size:.9rem; color:#444; border-top:1px solid #ccc; background:linear-gradient(to right, #4a90e2, #50c878); }
+    footer{ text-align:center; padding:16px; font-size:.9rem; color:#d6d7d9; border-top:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(to right, #121316, #1b1d21); }
     html{ scroll-behavior:smooth; }
 
-    /* Sticky elements */
+    /* Sticky clock & temp */
     #clock, #temperature {
       position: fixed;
       bottom: 10px;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       color: #fff;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.55);
       padding: 6px 10px;
-      border-radius: 8px;
+      border-radius: 10px;
       z-index: 10000;
-      font-weight: 500;
+      font-weight: 700;
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow:0 8px 18px rgba(0,0,0,.35);
     }
     #clock { left: 10px; }
     #temperature { right: 10px; }
+
+    /* Subtle falling confetti for celebration */
+    .confetti{ position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:9999 }
+    .confetti .p{ position:absolute; width:10px; height:14px; background:var(--cherry); opacity:.9; transform:rotate(15deg); animation:fall 8s linear infinite; }
+    .confetti .p.silver{ background:var(--silver-light); }
+    .confetti .p.dark{ background:#333; }
+    @keyframes fall{
+      0%{ transform:translateY(-10vh) rotate(0deg) }
+      100%{ transform:translateY(110vh) rotate(360deg) }
+    }
+
+  
+/* Fixed, full-bleed background video */
+#bg-video{
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.7; /* 70% opacity */
+  pointer-events: none; /* keep UI clickable */
+  filter: saturate(1.05) contrast(1.05);
+}
+/* Lift main UI above background video */
+header, nav.sticky, main, footer, #clock, #temperature, .confetti{
+  position: relative;
+  z-index: 1;
+}
+
+  
+/* Adjusted card transparency and top nav spacing */
+.card{
+  background: rgba(23,24,27,0.65) !important; /* slightly more transparent */
+  backdrop-filter: blur(8px);
+}
+nav.sticky{
+  top: 90px !important; /* ensure it doesn't overlap the header */
+}
+header{
+  padding-bottom: 20px !important;
+}
+
+  
+/* Fix overlap between sticky nav and section titles */
+nav.sticky {
+  position: sticky;
+  top: 90px !important; /* stays below header */
+  z-index: 999;
+  margin-bottom: 20px; /* adds separation below the nav */
+}
+main {
+  padding-top: 20px;
+}
+section h2:first-of-type {
+  margin-top: 40px !important; /* extra space before first section */
+}
+
   </style>
 </head>
 <body>
+  <video id="bg-video" class="featured-hero__media" playsinline autoplay loop muted preload="auto" aria-hidden="true">
+    <source src="https://storage.googleapis.com/golobos-prod/2025/10/14/CeomgQYcW9Mj22GZLd9FQClTTUahgHxgFmp0OYMi.mp4" type="video/mp4">
+  </video>
+
+  
   <header>
-    <h1>DoubleTree Favorites</h1>
+    <h1>Go Lobos! Game Day Bites</h1>
+    <div class="sub">UNM Football Edition • DoubleTree Favorites</div>
     <a class="btn btn-map" href="https://domveenine.github.io/doubletree-abq-map/" target="_blank" rel="noreferrer">Interactive Map</a>
+    <a href="https://golobos.com/sports/football" target="_blank" rel="noopener noreferrer" style="text-decoration:none; color:inherit;"><div class="gameday"><span class="dot"></span> <span id="gamedayText">Home Game Today • 🏈 • </span><span id="gamedayDate"></span></div></a>
   </header>
+
 
   <nav class="sticky" aria-label="Distance sections">
     <a class="walking" href="#Walking Downtown">Walking Downtown</a>
@@ -355,7 +463,7 @@
     </section>
   </main>
 
-  <footer>Built for DoubleTree ABQ • By DoubleTree ABQ</footer>
+  <footer>Built for DoubleTree ABQ • Go Lobos!</footer>
 
   <div id="clock">--:--</div>
   <div id="temperature">--°F</div>
@@ -393,6 +501,33 @@
       updateClock();setInterval(updateClock,1000);
       updateTemperature();setInterval(updateTemperature,600000);
     })();
+  
+    // Game Day date & confetti
+    (function(){
+      const elDate = document.getElementById('gamedayDate');
+      if(elDate){
+        const now = new Date();
+        const opts = {weekday:'long', year:'numeric', month:'long', day:'numeric'};
+        elDate.textContent = new Intl.DateTimeFormat('en-US', opts).format(now);
+      }
+      // confetti particles (lightweight)
+      const root = document.getElementById('confetti');
+      if(root){
+        const N = 40;
+        for(let i=0;i<N;i++){
+          const d=document.createElement('div');
+          d.className='p ' + (i%3===0?'silver':(i%3===1?'dark':''));
+          d.style.left = (Math.random()*100)+'vw';
+          d.style.animationDelay = (Math.random()*8)+'s';
+          d.style.opacity = (0.6+Math.random()*0.4).toFixed(2);
+          d.style.transform = `translateY(${-10 - Math.random()*60}vh) rotate(${Math.random()*180}deg)`;
+          root.appendChild(d);
+        }
+        // auto stop after ~15s to avoid distraction
+        setTimeout(()=>{ if(root) root.remove(); }, 15000);
+      }
+    })();
+
   </script>
 </body>
 </html>
