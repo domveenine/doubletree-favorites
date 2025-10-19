@@ -143,13 +143,8 @@
         playsinline: 1
       },
       events: {
-  onReady: e => {
-    e.target.setPlaybackRate(0.5);
-    e.target.playVideo();
-  },
-  onStateChange: onPlayerStateChange
-}
-
+        onReady: e => e.target.playVideo(),
+        onStateChange: onPlayerStateChange
       }
     });
   }
