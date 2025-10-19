@@ -96,8 +96,6 @@
   -webkit-backdrop-filter: blur(8px);
 }
 
-
-
     .card h3 { color: #fff !important; margin-bottom:4px; text-align:center; }
     .cuisine{ font-style:italic; font-size:0.95rem; margin:4px 0; display:flex; align-items:center; justify-content:center; gap:6px; flex-wrap:wrap; color:#ddd; }
     .price{ display:inline-block; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); border-radius:10px; padding:2px 6px; font-size:0.8rem; font-weight:700; color:#fff; }
@@ -123,44 +121,10 @@
   <div id="ytplayer"></div>
 </div>
 
-<script src="https://www.youtube.com/iframe_api"></script>
-<script>
-  let player;
-  const VIDEO_ID = 'RUHOJo2HOaY';
-  const LOOP_OFFSET = 7; // seconds to skip from the end
-
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('ytplayer', {
-      videoId: VIDEO_ID,
-      playerVars: {
-        autoplay: 1,
-        mute: 1,
-        controls: 0,
-        modestbranding: 1,
-        showinfo: 0,
-        rel: 0,
-        loop: 0,
-        playsinline: 1
-      },
-      events: {
-        onReady: e => e.target.playVideo(),
-        onStateChange: onPlayerStateChange
-      }
-    });
-  }
-
-  function onPlayerStateChange(event) {
-    if (event.data === YT.PlayerState.PLAYING) {
-      const duration = player.getDuration();
-      const cutoff = duration - LOOP_OFFSET;
-      setInterval(() => {
-        if (player.getCurrentTime() >= cutoff) {
-          player.seekTo(0);
-        }
-      }, 1000);
-    }
-  }
-</script>
+<div id="video-background" aria-hidden="true">
+  <iframe src="https://www.youtube.com/embed/RUHOJo2HOaY?autoplay=1&mute=1&controls=0&loop=1&playlist=RUHOJo2HOaY&modestbranding=1&playsinline=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+</div>
+<div id="video-overlay"></div>
 
   <header>
     <div class="hero-wrap">
