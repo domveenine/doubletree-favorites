@@ -59,15 +59,43 @@
     section h2{ margin:0 0 14px 0; color: var(--united-yellow); text-align:center; }
 
      .card{
-      border-left:6px solid; border-radius:14px; padding:16px; margin:14px auto; box-shadow: 0 10px 26px rgba(0,0,0,.25);
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-      border-right:1px solid #2a2a2a; border-top:1px solid #2a2a2a;
-      max-width:700px;
-    }
-    .card.walking{ border-color: var(--walking); background: linear-gradient(180deg, rgba(255,234,0,0.18), rgba(255,255,255,0.03)); }
-    .card.short{ border-color: var(--short); }
-    .card.quick{ border-color: var(--quick); }
-    .card.worth{ border-color: var(--worth); }
+  border-left:6px solid;
+  border-radius:14px;
+  padding:16px;
+  margin:14px auto;
+  box-shadow: 0 10px 26px rgba(0,0,0,.35);
+  background: rgba(20,20,20,0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-right:1px solid rgba(255,255,255,0.08);
+  border-top:1px solid rgba(255,255,255,0.08);
+  max-width:700px;
+}
+.card.walking{
+  border-color: var(--walking);
+  background: linear-gradient(180deg, rgba(255,234,0,0.18), rgba(20,20,20,0.70));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.card.short{
+  border-color: var(--short);
+  background: linear-gradient(180deg, rgba(255,213,77,0.18), rgba(20,20,20,0.70));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.card.quick{
+  border-color: var(--quick);
+  background: linear-gradient(180deg, rgba(179,164,0,0.18), rgba(20,20,20,0.70));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.card.worth{
+  border-color: var(--worth);
+  background: linear-gradient(180deg, rgba(255,179,0,0.18), rgba(20,20,20,0.70));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
 
 
     .card h3 { color: #fff !important; margin-bottom:4px; text-align:center; }
