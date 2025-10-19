@@ -156,9 +156,13 @@ nav.sticky a:hover{
         loop: 0,
         playsinline: 1
       },
-      events: {
-        onReady: e => e.target.playVideo(),
-        onStateChange: onPlayerStateChange
+     events: {
+  onReady: e => {
+    e.target.setPlaybackRate(0.75);
+    e.target.playVideo();
+  },
+  onStateChange: onPlayerStateChange
+}
       }
     });
   }
