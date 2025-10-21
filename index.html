@@ -260,12 +260,95 @@
       .actions a{ flex:1 1 auto; text-align:center; }
       nav.sticky{ top: var(--safe-top); }
     }
-  </style>
+  
+    /* ===== Global Sparkle Field (full-page background) ===== */
+    .sparkle-field{
+      position: fixed;
+      inset: -5% -5% -5% -5%; /* slightly beyond viewport for smooth entry/exit */
+      z-index: 0 !important;  /* keep behind all content; overrides body > * rule */
+      pointer-events: none;
+      filter: drop-shadow(0 2px 6px rgba(146,190,255,0.35));
+      mix-blend-mode: screen;
+      opacity: 0.6; /* overall visibility (user asked for more visible) */
+    }
+    .sparkle-field .sparkle{
+      position: absolute;
+      display: block;
+      border-radius: 999px;
+      background: radial-gradient(closest-side, rgba(255,255,255,0.95), rgba(146,190,255,0.55) 55%, rgba(146,190,255,0.0) 70%);
+      box-shadow:
+        0 0 12px rgba(146,190,255,0.45),
+        0 0 24px rgba(146,190,255,0.25);
+      will-change: transform, opacity;
+      animation:
+        floatY var(--dur, 48s) linear infinite,
+        driftX var(--drift, 9s) ease-in-out infinite alternate,
+        twinkle var(--tw, 6s) ease-in-out infinite;
+      opacity: var(--alpha, 0.85);
+    }
+    @keyframes floatY{
+      0%   { transform: translate3d(0, 8vh, 0) scale(var(--scale,1)); }
+      100% { transform: translate3d(0, -118vh, 0) scale(var(--scale,1)); }
+    }
+    @keyframes driftX{
+      0%   { transform: translate3d(-2vw, 0, 0) scale(var(--scale,1)); }
+      100% { transform: translate3d(2vw, 0, 0) scale(var(--scale,1)); }
+    }
+    @keyframes twinkle{
+      0%,100% { filter: drop-shadow(0 0 6px rgba(146,190,255,0.35)); }
+      50%     { filter: drop-shadow(0 0 12px rgba(146,190,255,0.7)); }
+    }
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .sparkle-field{ display:none !important; }
+      .sparkle-field .sparkle{ animation: none !important; }
+    }
+
+</style>
 </head>
 <body>
+  <div class="sparkle-field" aria-hidden="true">
+  <span class="sparkle" style="left:64.50%; top:-7.00%; width:9.30px; height:9.30px; --dur:43.59s; --drift:10.68s; --alpha:0.89; --scale:1.34; animation-delay:2.61s;"></span>
+  <span class="sparkle" style="left:41.88%; top:-6.42%; width:8.62px; height:8.62px; --dur:53.18s; --drift:7.13s; --alpha:0.72; --scale:1.19; animation-delay:16.35s;"></span>
+  <span class="sparkle" style="left:20.93%; top:60.71%; width:15.71px; height:15.71px; --dur:36.22s; --drift:11.03s; --alpha:0.89; --scale:1.00; animation-delay:4.66s;"></span>
+  <span class="sparkle" style="left:97.55%; top:30.39%; width:7.11px; height:7.11px; --dur:39.29s; --drift:11.24s; --alpha:0.86; --scale:1.28; animation-delay:21.89s;"></span>
+  <span class="sparkle" style="left:53.77%; top:106.77%; width:10.54px; height:10.54px; --dur:54.77s; --drift:11.15s; --alpha:0.87; --scale:1.32; animation-delay:17.32s;"></span>
+  <span class="sparkle" style="left:71.28%; top:-4.50%; width:8.73px; height:8.73px; --dur:45.84s; --drift:7.40s; --alpha:0.73; --scale:0.86; animation-delay:8.34s;"></span>
+  <span class="sparkle" style="left:64.11%; top:33.78%; width:10.44px; height:10.44px; --dur:43.12s; --drift:8.33s; --alpha:0.98; --scale:1.19; animation-delay:18.27s;"></span>
+  <span class="sparkle" style="left:15.80%; top:77.50%; width:7.96px; height:7.96px; --dur:48.90s; --drift:11.95s; --alpha:0.87; --scale:1.13; animation-delay:20.54s;"></span>
+  <span class="sparkle" style="left:85.66%; top:83.12%; width:8.75px; height:8.75px; --dur:37.09s; --drift:8.58s; --alpha:0.74; --scale:0.93; animation-delay:28.29s;"></span>
+  <span class="sparkle" style="left:89.14%; top:27.76%; width:13.87px; height:13.87px; --dur:49.45s; --drift:11.57s; --alpha:0.81; --scale:0.96; animation-delay:7.40s;"></span>
+  <span class="sparkle" style="left:56.38%; top:21.53%; width:13.02px; height:13.02px; --dur:66.53s; --drift:9.00s; --alpha:0.73; --scale:1.40; animation-delay:15.29s;"></span>
+  <span class="sparkle" style="left:7.45%; top:-4.35%; width:7.32px; height:7.32px; --dur:57.33s; --drift:10.96s; --alpha:0.80; --scale:0.84; animation-delay:11.45s;"></span>
+  <span class="sparkle" style="left:101.60%; top:53.49%; width:17.65px; height:17.65px; --dur:65.27s; --drift:7.06s; --alpha:0.90; --scale:1.21; animation-delay:16.11s;"></span>
+  <span class="sparkle" style="left:25.75%; top:66.92%; width:7.34px; height:7.34px; --dur:50.78s; --drift:9.27s; --alpha:0.98; --scale:1.33; animation-delay:7.90s;"></span>
+  <span class="sparkle" style="left:50.06%; top:11.44%; width:16.95px; height:16.95px; --dur:65.60s; --drift:8.49s; --alpha:0.87; --scale:1.17; animation-delay:4.59s;"></span>
+  <span class="sparkle" style="left:77.30%; top:54.73%; width:15.34px; height:15.34px; --dur:54.03s; --drift:7.00s; --alpha:0.76; --scale:0.81; animation-delay:27.87s;"></span>
+  <span class="sparkle" style="left:89.39%; top:89.80%; width:9.69px; height:9.69px; --dur:37.97s; --drift:11.39s; --alpha:0.98; --scale:0.85; animation-delay:14.58s;"></span>
+  <span class="sparkle" style="left:5.20%; top:81.27%; width:15.19px; height:15.19px; --dur:40.37s; --drift:9.38s; --alpha:0.84; --scale:0.96; animation-delay:26.17s;"></span>
+  <span class="sparkle" style="left:42.01%; top:15.42%; width:12.47px; height:12.47px; --dur:60.82s; --drift:8.01s; --alpha:0.76; --scale:1.40; animation-delay:19.50s;"></span>
+  <span class="sparkle" style="left:43.56%; top:52.11%; width:7.45px; height:7.45px; --dur:43.64s; --drift:8.69s; --alpha:0.86; --scale:0.94; animation-delay:6.61s;"></span>
+  <span class="sparkle" style="left:5.38%; top:65.73%; width:8.75px; height:8.75px; --dur:66.78s; --drift:11.30s; --alpha:0.67; --scale:0.94; animation-delay:20.07s;"></span>
+  <span class="sparkle" style="left:20.28%; top:5.88%; width:17.23px; height:17.23px; --dur:55.42s; --drift:9.36s; --alpha:0.92; --scale:1.28; animation-delay:5.71s;"></span>
+  <span class="sparkle" style="left:8.08%; top:41.73%; width:11.08px; height:11.08px; --dur:51.88s; --drift:10.65s; --alpha:0.89; --scale:1.39; animation-delay:2.95s;"></span>
+  <span class="sparkle" style="left:39.87%; top:30.72%; width:16.34px; height:16.34px; --dur:44.45s; --drift:7.95s; --alpha:0.81; --scale:1.05; animation-delay:8.36s;"></span>
+  <span class="sparkle" style="left:23.98%; top:100.79%; width:11.32px; height:11.32px; --dur:65.29s; --drift:9.75s; --alpha:0.67; --scale:1.40; animation-delay:25.08s;"></span>
+  <span class="sparkle" style="left:98.78%; top:101.16%; width:16.18px; height:16.18px; --dur:41.65s; --drift:9.43s; --alpha:0.72; --scale:1.04; animation-delay:1.76s;"></span>
+  <span class="sparkle" style="left:37.41%; top:108.24%; width:9.18px; height:9.18px; --dur:62.66s; --drift:9.28s; --alpha:0.80; --scale:1.37; animation-delay:29.86s;"></span>
+  <span class="sparkle" style="left:55.80%; top:76.21%; width:7.86px; height:7.86px; --dur:46.09s; --drift:11.84s; --alpha:0.85; --scale:1.13; animation-delay:22.44s;"></span>
+  <span class="sparkle" style="left:3.95%; top:60.10%; width:12.03px; height:12.03px; --dur:64.99s; --drift:7.79s; --alpha:0.99; --scale:0.85; animation-delay:5.57s;"></span>
+  <span class="sparkle" style="left:59.88%; top:71.03%; width:8.82px; height:8.82px; --dur:40.08s; --drift:11.45s; --alpha:0.74; --scale:1.16; animation-delay:18.58s;"></span>
+  <span class="sparkle" style="left:41.60%; top:60.04%; width:12.27px; height:12.27px; --dur:67.78s; --drift:8.02s; --alpha:0.90; --scale:0.94; animation-delay:11.87s;"></span>
+  <span class="sparkle" style="left:67.86%; top:26.00%; width:9.79px; height:9.79px; --dur:61.56s; --drift:7.36s; --alpha:0.81; --scale:1.40; animation-delay:29.88s;"></span>
+  <span class="sparkle" style="left:5.62%; top:15.58%; width:9.18px; height:9.18px; --dur:67.73s; --drift:11.40s; --alpha:0.96; --scale:1.02; animation-delay:4.73s;"></span>
+  <span class="sparkle" style="left:84.71%; top:74.42%; width:13.34px; height:13.34px; --dur:69.57s; --drift:10.27s; --alpha:0.65; --scale:1.29; animation-delay:8.98s;"></span>
+  <span class="sparkle" style="left:66.99%; top:102.67%; width:7.61px; height:7.61px; --dur:39.92s; --drift:7.54s; --alpha:0.84; --scale:0.96; animation-delay:18.14s;"></span>
+  <span class="sparkle" style="left:72.63%; top:14.43%; width:13.61px; height:13.61px; --dur:44.98s; --drift:9.44s; --alpha:0.97; --scale:1.31; animation-delay:2.77s;"></span>
+</div>
+
   <header>
     <h1>DoubleTree Favorites</h1>
-    <div class="sub">Curated picks near DoubleTree ABQ by the DoubleTree team!</div>
+    <div class="sub">Curated picks near DoubleTree ABQ</div>
     <p style="margin-top:12px;">
       <a class="btn btn-map" href="https://domveenine.github.io/doubletree-abq-map/" target="_blank" rel="noreferrer">Open Interactive Map</a>
     </p>
