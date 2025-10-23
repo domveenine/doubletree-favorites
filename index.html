@@ -51,8 +51,8 @@
       letter-spacing:.02em; margin-bottom:8px; box-shadow:0 4px 10px rgba(0,0,0,.25);
     }
     header h1{
-      margin:4px 0 6px; font-size:1.8rem; color:#111;
-      text-shadow: 0 1px 0 rgba(255,255,255,.35);
+      margin:4px 0 6px; font-size:1.8rem; color:#ffffff !important;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
     }
     .matchline{
       margin:6px auto 10px; font-weight:700; color:#111; font-size:1rem;
@@ -513,7 +513,34 @@ h1 {
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
 }
 
-</style>
+/* === Override: Distance tabs as Yellow/White gradient with Black text === */
+nav.sticky .walking,
+nav.sticky .short,
+nav.sticky .quick,
+nav.sticky .worth {
+  background: linear-gradient(135deg, #ffffff 0%, #fff7bf 45%, #ffeb00 100%);
+  color: #000 !important;
+  border: 2px solid #000;
+  text-shadow: none;
+  box-shadow: 0 6px 14px rgba(0,0,0,.25);
+  transition: all 0.2s ease;
+}
+nav.sticky .walking:hover,
+nav.sticky .short:hover,
+nav.sticky .quick:hover,
+nav.sticky .worth:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+}
+nav.sticky .walking:focus-visible,
+nav.sticky .short:focus-visible,
+nav.sticky .quick:focus-visible,
+nav.sticky .worth:focus-visible {
+  outline: 3px solid #000;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(255,235,0,0.65);
+}
+  </style>
 </head>
 <body>
   <header>
@@ -521,7 +548,7 @@ h1 {
       <span class="hero-badge">SOMOS UNIDOS</span>
       <h1>Matchday Munchies</h1>
       <div class="matchline">Next Home Match: <strong>Fri, Oct 24 @ 7:00 PM</strong> — <strong>New Mexico United vs Rhode Island FC</strong> · Isotopes Park</div>
-      <div id="countdown" class="countdown" aria-live="polite">Kickoff in 01d 07h 36m 30s</div>
+      <div id="countdown" class="countdown" aria-live="polite">Kickoff in 00d 00h 00m 00s</div>
       <div class="cta-row">
         <a class="btn" href="https://seatgeek.com/new-mexico-united-tickets" target="_blank" rel="noreferrer">Get Tickets</a>
         <a class="btn btn-outline" href="https://www.newmexicoutd.com/schedule/" target="_blank" rel="noreferrer"  style="background:#FFEB00;color:black;border:2px solid black;">Full Schedule</a>
@@ -858,26 +885,28 @@ h1 {
       updateTemperature();setInterval(updateTemperature,600000);
     })();
 
-    // Match countdown (America/Denver)
-    (function(){
-      const el=document.getElementById('countdown');
-      // Kickoff: Sun Oct 19, 2025 3:00 PM America/Denver
-      function targetDateInDenver(){
-        // force target time in Denver regardless of viewer TZ
-        const denver = new Date('2025-10-19T15:00:00-06:00'); // MDT in Oct
-        return denver;
+    // Match countdown (America/Denver) — Fri Oct 24, 2025 @ 7:00 PM
+    (function () {
+      const el = document.getElementById('countdown');
+      // MDT offset used in late October 2025
+      const kickoff = new Date('2025-10-24T19:00:00-06:00');
+      function pad(n){ return String(n).padStart(2,'0'); }
+      function tick() {
+        const diff = kickoff.getTime() - Date.now();
+        if (diff <= 0) {
+          el.textContent = 'It’s Match Time!';
+          clearInterval(timer);
+          return;
+        }
+        const totalSeconds = Math.floor(diff / 1000);
+        const d = Math.floor(totalSeconds / 86400);
+        const h = Math.floor((totalSeconds % 86400) / 3600);
+        const m = Math.floor((totalSeconds % 3600) / 60);
+        const s = totalSeconds % 60;
+        el.textContent = `Kickoff in ${pad(d)}d ${pad(h)}h ${pad(m)}m ${pad(s)}s`;
       }
-      function tick(){
-        const t = targetDateInDenver().getTime() - Date.now();
-        if(t<=0){ el.textContent = 'It’s Match Time!'; return; }
-        const s = Math.floor(t/1000);
-        const d = Math.floor(s/86400);
-        const h = Math.floor((s%86400)/3600);
-        const m = Math.floor((s%3600)/60);
-        const sec = s%60;
-        el.textContent = `Kickoff in ${String(d).padStart(2,'0')}d ${String(h).padStart(2,'0')}h ${String(m).padStart(2,'0')}m ${String(sec).padStart(2,'0')}s`;
-      }
-      tick(); setInterval(tick,1000);
+      tick();
+      const timer = setInterval(tick, 1000);
     })();
   </script>
 
