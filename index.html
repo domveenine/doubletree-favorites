@@ -98,13 +98,37 @@
       border-bottom:1px solid var(--ring);
     }
     nav.sticky .wrap{padding:12px 22px;}
-    .pills{display:flex; flex-wrap:wrap; gap:8px;}
+    .pills{display:flex; flex-wrap:wrap; gap:8px; justify-content:center;}
     .pill{ color:#fff; text-decoration:none; padding:10px 14px; border-radius:999px; font-weight:800; letter-spacing:.2px;
       background: linear-gradient(180deg, #0f1520, #0c121b);
       border:1px solid rgba(255,255,255,.14);
       box-shadow: 0 6px 18px rgba(0,0,0,.28);
     }
     .pill:hover{filter:brightness(1.07)}
+
+    /* ===== Improved Mobile Button Layout ===== */
+    @media (max-width: 600px) {
+      .pills {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .pill {
+        font-size: 0.9rem;
+        padding: 10px 12px;
+        text-align: center;
+        white-space: normal;
+        line-height: 1.2;
+      }
+    }
+    @media (max-width: 400px) {
+      .pills {
+        grid-template-columns: 1fr;
+      }
+      .pill {
+        font-size: 1rem;
+      }
+    }
 
     /* ===== Sections ===== */
     main{max-width:1080px; margin:0 auto; padding:24px 22px 30px; position:relative; z-index:1;}
@@ -202,8 +226,8 @@
         <p class="row"><a href="https://maps.google.com/?q=125%202nd%20St%20NW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">125 2nd St NW, Albuquerque, NM 87102</a><span class="distance">• 0.2 mi from hotel</span></p>
         <p class="row muted"><a href="tel:+1) 242-9080">(505) 242-9080</a> • Daily 7a–10p</p>
         <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=125%202nd%20St%20NW%2C%20Albuquerque%2C%20NM%2087102">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=125%202nd%20St%20NW%2C%20Albuquerque%2C%20NM%2087102">Lyft</a>
+          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=125%202nd%20St%20NW%2C%20Albuquerque%2C%2087102">Uber</a>
+          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=125%202nd%20St%20NW%2C%20Albuquerque%2C%2087102">Lyft</a>
         </div>
       </div>
       <div class="card"><h3>Oni Ramen</h3>
@@ -211,8 +235,8 @@
         <p class="row"><a href="https://maps.google.com/?q=600%20Central%20Ave%20SW%20%23100%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">600 Central Ave SW #100, Albuquerque, NM 87102</a><span class="distance">• 0.3 mi from hotel</span></p>
         <p class="row muted"><a href="tel:+1) 503-6722">(505) 503-6722</a> • Daily 11:30a–8p</p>
         <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=600%20Central%20Ave%20SW%20%23100%2C%20Albuquerque%2C%20NM%2087102">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=600%20Central%20Ave%20SW%20%23100%2C%20Albuquerque%2C%20NM%2087102">Lyft</a>
+          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=600%20Central%20Ave%20SW%20%23100%2C%20Albuquerque%2C%2087102">Uber</a>
+          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=600%20Central%20Ave%20SW%20%23100%2C%20Albuquerque%2C%2087102">Lyft</a>
         </div>
       </div>
       <div class="card"><h3>505 Central Food Hall</h3>
@@ -220,8 +244,8 @@
         <p class="row"><a href="https://maps.google.com/?q=505%20Central%20Ave%20NW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">505 Central Ave NW, Albuquerque, NM 87102</a><span class="distance">• 0.3 mi from hotel</span></p>
         <p class="row muted">Varies by Vendor • Usually 11a–9p</p>
         <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=505%20Central%20Ave%20NW%2C%20Albuquerque%2C%20NM%2087102">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=505%20Central%20Ave%20NW%2C%20Albuquerque%2C%20NM%2087102">Lyft</a>
+          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=505%20Central%20Ave%20NW%2C%20Albuquerque%2C%2087102">Uber</a>
+          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=505%20Central%20Ave%20NW%2C%20Albuquerque%2C%2087102">Lyft</a>
         </div>
       </div>
       <div class="card"><h3>Slate Street Café</h3>
@@ -229,8 +253,8 @@
         <p class="row"><a href="https://maps.google.com/?q=515%20Slate%20Ave%20NW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">515 Slate Ave NW, Albuquerque, NM 87102</a><span class="distance">• 0.4 mi from hotel</span></p>
         <p class="row muted"><a href="tel:+1) 243-2210">(505) 243-2210</a> • Mon–Fri 8a–2p, Sat 9a–2p</p>
         <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=515%20Slate%20Ave%20NW%2C%20Albuquerque%2C%20NM%2087102">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=515%20Slate%20Ave%20NW%2C%20Albuquerque%2C%20NM%2087102">Lyft</a>
+          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=515%20Slate%20Ave%20NW%2C%20Albuquerque%2C%2087102">Uber</a>
+          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=515%20Slate%20Ave%20NW%2C%20Albuquerque%2C%2087102">Lyft</a>
         </div>
       </div>
       <div class="card"><h3>Range Café Downtown</h3>
@@ -238,8 +262,8 @@
         <p class="row"><a href="https://maps.google.com/?q=320%20Central%20Ave%20SE%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">320 Central Ave SE, Albuquerque, NM 87102</a><span class="distance">• 0.4 mi from hotel</span></p>
         <p class="row muted"><a href="tel:+1) 243-1440">(505) 243-1440</a> • Daily 7a–3p</p>
         <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=320%20Central%20Ave%20SE%2C%20Albuquerque%2C%20NM%2087102">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=320%20Central%20Ave%20SE%2C%20Albuquerque%2C%20NM%2087102">Lyft</a>
+          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=320%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087102">Uber</a>
+          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=320%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087102">Lyft</a>
         </div>
       </div>
       <div class="card"><h3>Founders Speakeasy</h3>
@@ -256,8 +280,8 @@
         <p class="row"><a href="https://maps.google.com/?q=424%20Central%20Ave%20SE%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">424 Central Ave SE, Albuquerque, NM 87102</a><span class="distance">• 0.5 mi from hotel</span></p>
         <p class="row muted"><a href="tel:+1) 243-0200">(505) 243-0200</a> • Mon–Thu 11a–9p, Fri–Sat 11a–10p</p>
         <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=424%20Central%20Ave%20SE%2C%20Albuquerque%2C%20NM%2087102">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=424%20Central%20Ave%20SE%2C%20Albuquerque%2C%20NM%2087102">Lyft</a>
+          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=424%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087102">Uber</a>
+          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=424%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087102">Lyft</a>
         </div>
       </div>
       <div class="card"><h3>Marble Brewery</h3>
@@ -451,7 +475,7 @@
         <p class="row"><a href="https://maps.google.com/?q=6230%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%20NM%2087107" target="_blank" rel="noreferrer">6230 4th St NW, Los Ranchos de Albuquerque, NM 87107</a><span class="distance">• 5.5 mi from hotel</span></p>
         <p class="row muted"><a href="tel:+1) 345-5339">(505) 345-5339</a> • Daily 11a–9p</p>
         <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=6230%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%20NM%2087107">Uber</a>
+          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=6230%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%2087107">Uber</a>
           <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=6230%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%2087107">Lyft</a>
         </div>
       </div>
@@ -507,9 +531,8 @@
     Created by Doubletree ABQ • A Warm Welcome, With A Warm Cookie
   </footer>
 
-    <div id="temperature">--°F</div>
+  <div id="temperature">--°F</div>
 
-  
   <script>
     // Weather for ABQ (no API key; uses Open-Meteo)
     (function(){
