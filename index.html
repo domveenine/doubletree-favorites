@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Great+Vibes&family=Lato:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-  <title>Doubletree by Hilton Albuquerque — Downtown Foodie Favorites</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Great+Vibes&family=Lato:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <title>Doubletree by Hilton — Downtown Albuquerque Foodie Favorites</title>
   <style>
     :root{
       --hilton-blue:#003A70;
@@ -28,33 +28,10 @@
     body{margin:0;background:linear-gradient(180deg,var(--ink),var(--slate));color:var(--white);}
     body, button, input, select, textarea {font-family: "Lato","Helvetica Neue",Arial,sans-serif; line-height:1.6; font-weight:500;}
     h1,h2,h3, .brand {font-family:"Playfair Display","Times New Roman",serif; letter-spacing:.2px;}
-
-    .bg-lattice{
-      position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.05;
-      background-image: radial-gradient(circle at 12px 12px, var(--platinum) 1px, transparent 1px);
-      background-size: 28px 28px;
-    }
-
-    header{
-      position:relative; z-index:10; text-align:center; padding:86px 20px 72px;
-      background:
-        radial-gradient(1200px 300px at 50% -40%, rgba(215,200,182,.20), transparent 60%),
-        linear-gradient(120deg, #001933 0%, var(--hilton-blue) 70%, #032c56 100%);
-      border-bottom:1px solid var(--ring);
-      box-shadow: var(--shadow);
-      overflow:hidden;
-    }
-    header::before{
-      content:''; position:absolute; inset:-40% -10%; pointer-events:none;
-      background: linear-gradient(100deg, rgba(255,255,255,0) 20%, rgba(255,255,255,.12) 50%, rgba(255,255,255,0) 80%);
-      transform: rotate(8deg) translateX(-60%);
-      animation: shimmer 9s ease-in-out infinite;
-    }
-    @keyframes shimmer{
-      0% { transform: rotate(8deg) translateX(-60%); opacity:.3;}
-      50%{ transform: rotate(8deg) translateX(10%); opacity:.45;}
-      100%{ transform: rotate(8deg) translateX(80%); opacity:.3;}
-    }
+    .bg-lattice{position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.05; background-image: radial-gradient(circle at 12px 12px, var(--platinum) 1px, transparent 1px); background-size: 28px 28px;}
+    header{position:relative; z-index:10; text-align:center; padding:86px 20px 72px; background: radial-gradient(1200px 300px at 50% -40%, rgba(215,200,182,.20), transparent 60%), linear-gradient(120deg, #001933 0%, var(--hilton-blue) 70%, #032c56 100%); border-bottom:1px solid var(--ring); box-shadow: var(--shadow); overflow:hidden;}
+    header::before{content:''; position:absolute; inset:-40% -10%; pointer-events:none; background: linear-gradient(100deg, rgba(255,255,255,0) 20%, rgba(255,255,255,.12) 50%, rgba(255,255,255,0) 80%); transform: rotate(8deg) translateX(-60%); animation: shimmer 9s ease-in-out infinite;}
+    @keyframes shimmer{0% { transform: rotate(8deg) translateX(-60%); opacity:.3;} 50%{ transform: rotate(8deg) translateX(10%); opacity:.45;} 100%{ transform: rotate(8deg) translateX(80%); opacity:.3;}}
     .wrap{max-width:1080px;margin:0 auto;padding:0 22px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;}
     .title-wrap{ position:relative; z-index:2; }
     .script{ font-family:'Great Vibes', cursive; font-size:4rem; color:var(--taupe); line-height:1; margin:0; text-shadow:0 6px 18px rgba(0,0,0,.55); }
@@ -62,60 +39,20 @@
     .divider{ width:120px; height:2px; margin:20px auto 0; position:relative; background:rgba(255,255,255,.18); border-radius:2px; overflow:hidden; }
     .divider::after{ content:''; position:absolute; inset:0; background:linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent); transform:translateX(-100%); animation: line-sheen 3.8s ease-in-out infinite; }
     @keyframes line-sheen{ 0%{transform:translateX(-100%)} 50%{transform:translateX(0)} 100%{transform:translateX(100%)} }
-    .fade-up{ opacity:0; transform:translateY(8px); animation: fadeUp .9s ease-out .15s forwards; }
-    .fade-up.delay{ animation-delay:.35s; }
-    @keyframes fadeUp{ to{ opacity:1; transform:none } }
     .actions{margin-top:18px; display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:10px; text-align:center;}
-    .btn{ display:inline-flex; align-items:center; gap:10px; padding:10px 16px; min-height:44px;
-      border-radius:999px; font-weight:800; text-decoration:none; color:#fff;
-      background: linear-gradient(180deg, #0e223b, #001a33);
-      border:1px solid rgba(255,255,255,.18);
-      box-shadow:0 10px 26px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.06);
-      transition: filter .2s ease, transform .2s ease;
-    }
+    .btn{ display:inline-flex; align-items:center; gap:10px; padding:10px 16px; min-height:44px; border-radius:999px; font-weight:800; text-decoration:none; color:#fff; background: linear-gradient(180deg, #0e223b, #001a33); border:1px solid rgba(255,255,255,.18); box-shadow:0 10px 26px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.06); transition: filter .2s ease, transform .2s ease; }
     .btn:hover{filter:brightness(1.05); transform:translateY(-1px);}
-
-    nav.sticky{
-      position:sticky; top:0; z-index:9;
-      backdrop-filter: blur(6px);
-      background: rgba(4,8,14,.6);
-      border-bottom:1px solid var(--ring);
-    }
+    nav.sticky{position:sticky; top:0; z-index:9; backdrop-filter: blur(6px); background: rgba(4,8,14,.6); border-bottom:1px solid var(--ring);}
     nav.sticky .wrap{padding:12px 22px;}
     .pills{display:flex; flex-wrap:wrap; gap:8px; justify-content:center;}
-    .pill{ color:#fff; text-decoration:none; padding:10px 14px; border-radius:999px; font-weight:800; letter-spacing:.2px;
-      background: linear-gradient(180deg, #0f1520, #0c121b);
-      border:1px solid rgba(255,255,255,.14);
-      box-shadow: 0 6px 18px rgba(0,0,0,.28);
-    }
+    .pill{ color:#fff; text-decoration:none; padding:10px 14px; border-radius:999px; font-weight:800; letter-spacing:.2px; background: linear-gradient(180deg, #0f1520, #0c121b); border:1px solid rgba(255,255,255,.14); box-shadow: 0 6px 18px rgba(0,0,0,.28);}
     .pill:hover{filter:brightness(1.07)}
-
-    @media (max-width: 600px) {
-      .pills {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-      }
-      .pill { font-size: 0.9rem; padding: 10px 12px; text-align: center; white-space: normal; line-height: 1.2; }
-    }
-    @media (max-width: 400px) {
-      .pills { grid-template-columns: 1fr; }
-      .pill { font-size: 1rem; }
-    }
-
+    @media (max-width: 600px) {.pills{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pill{font-size:.95rem;line-height:1.2}}
+    @media (max-width: 400px) {.pills{grid-template-columns:1fr}.pill{font-size:1rem}}
     main{max-width:1080px; margin:0 auto; padding:24px 22px 30px; position:relative; z-index:1;}
-    section{margin:28px 0 36px;}
+    section{margin:28px 0 36px; scroll-margin-top:90px}
     section h2{margin:0 0 16px 0; font-weight:800; font-size:1.25rem; color:var(--platinum-2); letter-spacing:.6px; text-transform:uppercase;}
-
-    .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.0) 30%), var(--card);
-      border:1px solid var(--ring);
-      border-radius: var(--radius);
-      padding:18px;
-      box-shadow: var(--shadow);
-      margin-bottom:14px;
-      text-align:left;
-    }
+    .card{background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.0) 30%), var(--card); border:1px solid var(--ring); border-radius: var(--radius); padding:18px; box-shadow: var(--shadow); margin-bottom:14px; text-align:left;}
     .card h3{margin:0 0 6px 0; font-weight:900; font-size:1.15rem; color:#fff;}
     .cuisine{ font-style:italic; font-size:0.98rem; margin:4px 0; display:flex; align-items:center; gap:8px; flex-wrap:wrap; color:var(--platinum-2)}
     .price{ display:inline-block; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:999px; padding:2px 10px; font-size:.8rem; font-weight:800; color:#fff; }
@@ -127,63 +64,22 @@
     .cta{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px;}
     .btn-uber{ background:#000; color:#fff; border-radius:10px; padding:9px 14px; font-weight:900; text-decoration:none; border:1px solid rgba(255,255,255,.12); }
     .btn-lyft{ background:#ff00bf; color:#fff; border-radius:10px; padding:9px 14px; font-weight:900; text-decoration:none; border:1px solid rgba(255,255,255,.12); }
-
-    footer{ text-align:center; padding:20px; font-size:.92rem; color:#d6d7d9; border-top:1px solid var(--ring);
-      background:linear-gradient(to right, #0c1118, #121722); }
-
-    #temperature {
-      position: fixed;
-      right: 12px;
-      bottom: 12px;
-      font-size: 0.92rem;
-      color: #fff;
-      background: linear-gradient(180deg, #121721, #0f141e);
-      padding: 8px 12px;
-      border-radius: 12px;
-      z-index: 10000;
-      font-weight: 800;
-      border:1px solid rgba(255,255,255,.14);
-      box-shadow:0 10px 22px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.06);
-    }
-
-    /* Counter */
-    .page-views {
-      text-align: center;
-      font-family: "Lato","Helvetica Neue",Arial,sans-serif;
-      font-size: 0.95rem;
-      letter-spacing: 0.5px;
-      color: #bcd3f2;
-      margin: 20px auto 10px;
-      background: linear-gradient(180deg, var(--navy), #0f274a);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 8px 22px rgba(0,0,0,0.35);
-      border-radius: 12px;
-      padding: 8px 16px;
-      width: fit-content;
-    }
-    .page-views span {
-      color: #0072ce;
-      font-weight: 700;
-      text-shadow: 0 0 6px rgba(0,114,206,0.4);
-    }
-    .page-views:hover span {
-      text-shadow: 0 0 10px rgba(0,114,206,0.7);
-    }
-
-    section{scroll-margin-top:90px}
+    .page-views { text-align: center; font-size: 0.95rem; letter-spacing: 0.5px; color: #bcd3f2; margin: 20px auto 10px; background: linear-gradient(180deg, var(--navy), #0f274a); border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 8px 22px rgba(0,0,0,0.35); border-radius: 12px; padding: 8px 16px; width: fit-content; }
+    .page-views span { color: #0072ce; font-weight: 700; text-shadow: 0 0 6px rgba(0,114,206,0.4); }
+    footer{ text-align:center; padding:20px; font-size:.92rem; color:#d6d7d9; border-top:1px solid var(--ring); background:linear-gradient(to right, #0c1118, #121722); }
+    #temperature { position: fixed; right: 12px; bottom: 12px; font-size: 0.92rem; color: #fff; background: linear-gradient(180deg, #121721, #0f141e); padding: 8px 12px; border-radius: 12px; z-index: 10000; font-weight: 800; border:1px solid rgba(255,255,255,.14); box-shadow:0 10px 22px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.06); }
   </style>
 </head>
 <body>
   <div class="bg-lattice" aria-hidden="true"></div>
-
   <header>
     <div class="wrap">
       <div class="title-wrap">
-        <h1 class="script fade-up">Doubletree by Hilton</h1>
-        <h2 class="subtitle fade-up delay">Downtown Albuquerque Foodie Favorites</h2>
-        <div class="divider fade-up delay"></div>
+        <h1 class="script">Doubletree by Hilton</h1>
+        <h2 class="subtitle">Downtown Albuquerque Foodie Favorites</h2>
+        <div class="divider"></div>
       </div>
-      <div class="actions fade-up delay">
+      <div class="actions">
         <a class="btn" href="https://domveenine.github.io/doubletree-abq-map/" target="_blank" rel="noreferrer">Interactive Map</a>
         <a class="btn" href="https://www.visitalbuquerque.org/things-to-do/search/" target="_blank" rel="noreferrer">Local Happenings</a>
       </div>
@@ -193,492 +89,146 @@
   <nav class="sticky" aria-label="Distance sections">
     <div class="wrap">
       <div class="pills">
-        <a class="pill" href="#On-Foot">On Foot • 0–1 mile</a>
-        <a class="pill" href="#Nearby">Nearby • 1–3 miles</a>
-        <a class="pill" href="#Short-Ride">Short Ride • 3–5 miles</a>
-        <a class="pill" href="#Worth-the-Drive">Worth the Drive • 5+ miles</a>
+        <a class="pill" href="#on-foot">On Foot • 0–1 mile</a>
+        <a class="pill" href="#nearby">Nearby • 1–3 miles</a>
+        <a class="pill" href="#short-ride">Short Ride • 3–5 miles</a>
+        <a class="pill" href="#worth-the-drive">Worth the Drive • 5+ miles</a>
       </div>
     </div>
   </nav>
 
   <main>
+    <!-- Sections & restaurant cards (same as last complete version) -->
+    <!-- For brevity here: I’m keeping your full list intact. -->
     <!-- On Foot -->
-    <section id="On-Foot">
+    <section id="on-foot">
       <h2>On Foot • 0–1 mile</h2>
-
-      <div class="card"><h3>My Mom’s</h3>
-        <p class="cuisine">Classic New Mexican Breakfast & Lunch <span class="price">$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=500%204th%20St%20NW%20%23106%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">500 4th St NW #106, Albuquerque, NM 87102</a>
-          <span class="distance">• 0.1 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15052472943">(505) 247-2943</a> • Mon–Fri 8a–2p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=500%204th%20St%20NW%20%23106%2C%20Albuquerque%2C%20NM%2087102">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=500%204th%20St%20NW%20%23106%2C%20Albuquerque%2C%2087102">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>CHAR (Hotel Andaluz)</h3>
-        <p class="cuisine">Upscale American Grill <span class="price">$$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=125%202nd%20St%20NW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">125 2nd St NW, Albuquerque, NM 87102</a>
-          <span class="distance">• 0.2 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15052429080">(505) 242-9080</a> • Daily 7a–10p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=125%202nd%20St%20NW%2C%20Albuquerque%2C%2087102">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=125%202nd%20St%20NW%2C%20Albuquerque%2C%2087102">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>Oni Ramen</h3>
-        <p class="cuisine">Japanese & NM Fusion <span class="price">$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=600%20Central%20Ave%20SW%20%23100%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">600 Central Ave SW #100, Albuquerque, NM 87102</a>
-          <span class="distance">• 0.3 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15055036722">(505) 503-6722</a> • Daily 11:30a–8p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=600%20Central%20Ave%20SW%20%23100%2C%20Albuquerque%2C%2087102">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=600%20Central%20Ave%20SW%20%23100%2C%20Albuquerque%2C%2087102">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>505 Central Food Hall</h3>
-        <p class="cuisine">Food Hall with Local Vendors <span class="price">$ Varies</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=505%20Central%20Ave%20NW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">505 Central Ave NW, Albuquerque, NM 87102</a>
-          <span class="distance">• 0.3 mi</span>
-        </p>
-        <p class="row muted">Varies by vendor • Usually 11a–9p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=505%20Central%20Ave%20NW%2C%20Albuquerque%2C%2087102">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=505%20Central%20Ave%20NW%2C%20Albuquerque%2C%2087102">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>Slate Street Café</h3>
-        <p class="cuisine">Café & Brunch <span class="price">$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=515%20Slate%20Ave%20NW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">515 Slate Ave NW, Albuquerque, NM 87102</a>
-          <span class="distance">• 0.4 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15052432210">(505) 243-2210</a> • Mon–Fri 8a–2p, Sat 9a–2p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=515%20Slate%20Ave%20NW%2C%20Albuquerque%2C%2087102">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=515%20Slate%20Ave%20NW%2C%20Albuquerque%2C%2087102">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>Range Café Downtown</h3>
-        <p class="cuisine">Southwestern Diner Classic <span class="price">$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=320%20Central%20Ave%20SE%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">320 Central Ave SE, Albuquerque, NM 87102</a>
-          <span class="distance">• 0.4 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15052431440">(505) 243-1440</a> • Daily 7a–3p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=320%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087102">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=320%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087102">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>Founders Speakeasy</h3>
-        <p class="cuisine">Basement Speakeasy & Cocktails <span class="price">$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=622%20Central%20Ave%20SW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">622 Central Ave SW, Albuquerque, NM 87102</a>
-          <span class="distance">• 0.5 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15055822693">(505) 582-2693</a> • Tue–Sat 5p–2a, Sun–Mon 5p–12a</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=622%20Central%20Ave%20SW%2C%20Albuquerque%2C%2087102">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=622%20Central%20Ave%20SW%2C%20Albuquerque%2C%2087102">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>The Artichoke Café</h3>
-        <p class="cuisine">Contemporary American Fine Dining <span class="price">$$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=424%20Central%20Ave%20SE%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">424 Central Ave SE, Albuquerque, NM 87102</a>
-          <span class="distance">• 0.5 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15052430200">(505) 243-0200</a> • Mon–Thu 11a–9p, Fri–Sat 11a–10p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=424%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087102">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=424%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087102">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>Marble Brewery</h3>
-        <p class="cuisine">Craft Brewery with Food Trucks <span class="price">$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=111%20Marble%20Ave%20NW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">111 Marble Ave NW, Albuquerque, NM 87102</a>
-          <span class="distance">• 0.5 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15052432739">(505) 243-2739</a> • Daily 11:30a–10p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=111%20Marble%20Ave%20NW%2C%20Albuquerque%2C%2087102">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=111%20Marble%20Ave%20NW%2C%20Albuquerque%2C%2087102">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>Farina Pizzeria &amp; Wine Bar</h3>
-        <p class="cuisine">Artisan Pizzeria &amp; Wine Bar <span class="price">$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=510%20Central%20Ave%20SE%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">510 Central Ave SE, Albuquerque, NM 87102</a>
-          <span class="distance">• 0.6 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15052430130">(505) 243-0130</a> • Mon–Sat 11a–9p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=510%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087102">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=510%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087102">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>Cocina Azul</h3>
-        <p class="cuisine">Traditional New Mexican <span class="price">$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=1134%20Mountain%20Rd%20NW%2C%20Albuquerque%2C%20NM%2087104" target="_blank" rel="noreferrer">1134 Mountain Rd NW, Albuquerque, NM 87104</a>
-          <span class="distance">• 0.7 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15058312500">(505) 831-2500</a> • Daily 9a–8p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=1134%20Mountain%20Rd%20NW%2C%20Albuquerque%2C%2087104">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=1134%20Mountain%20Rd%20NW%2C%20Albuquerque%2C%2087104">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>Monroe’s</h3>
-        <p class="cuisine">Classic New Mexican Breakfast &amp; Lunch <span class="price">$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=1025%204th%20St%20NW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">1025 4th St NW, Albuquerque, NM 87102</a>
-          <span class="distance">• 0.7 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15052421111">(505) 242-1111</a> • Sun 9a–8p, Mon–Tue & Thu–Sat 10a–8p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=1025%204th%20St%20NW%2C%20Albuquerque%2C%2087102">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=1025%204th%20St%20NW%2C%20Albuquerque%2C%2087102">Lyft</a>
-        </div>
-      </div>
+      <div class="card"><h3>My Mom’s</h3><p class="cuisine">Classic New Mexican Breakfast & Lunch <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=500%204th%20St%20NW%20%23106%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">500 4th St NW #106, Albuquerque, NM 87102</a><span class="distance">• 0.1 mi</span></p><p class="row muted"><a href="tel:+15052472943">(505) 247-2943</a> • Mon–Fri 8a–2p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=500%204th%20St%20NW%20%23106%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=500%204th%20St%20NW%20%23106%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
+      <div class="card"><h3>CHAR (Hotel Andaluz)</h3><p class="cuisine">Upscale American Grill <span class="price">$$$</span></p><p class="row"><a href="https://maps.google.com/?q=125%202nd%20St%20NW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">125 2nd St NW, Albuquerque, NM 87102</a><span class="distance">• 0.2 mi</span></p><p class="row muted"><a href="tel:+15052429080">(505) 242-9080</a> • Daily 7a–10p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=125%202nd%20St%20NW%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=125%202nd%20St%20NW%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
+      <div class="card"><h3>Oni Ramen</h3><p class="cuisine">Japanese & NM Fusion <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=600%20Central%20Ave%20SW%20%23100%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">600 Central Ave SW #100, Albuquerque, NM 87102</a><span class="distance">• 0.3 mi</span></p><p class="row muted"><a href="tel:+15055036722">(505) 503-6722</a> • Daily 11:30a–8p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=600%20Central%20Ave%20SW%20%23100%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=600%20Central%20Ave%20SW%20%23100%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
+      <div class="card"><h3>505 Central Food Hall</h3><p class="cuisine">Food Hall with Local Vendors <span class="price">$ Varies</span></p><p class="row"><a href="https://maps.google.com/?q=505%20Central%20Ave%20NW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">505 Central Ave NW, Albuquerque, NM 87102</a><span class="distance">• 0.3 mi</span></p><p class="row muted">Varies by vendor • Usually 11a–9p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=505%20Central%20Ave%20NW%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=505%20Central%20Ave%20NW%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
+      <div class="card"><h3>Slate Street Café</h3><p class="cuisine">Café & Brunch <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=515%20Slate%20Ave%20NW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">515 Slate Ave NW, Albuquerque, NM 87102</a><span class="distance">• 0.4 mi</span></p><p class="row muted"><a href="tel:+15052432210">(505) 243-2210</a> • Mon–Fri 8a–2p, Sat 9a–2p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=515%20Slate%20Ave%20NW%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=515%20Slate%20Ave%20NW%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
+      <div class="card"><h3>Range Café Downtown</h3><p class="cuisine">Southwestern Diner Classic <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=320%20Central%20Ave%20SE%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">320 Central Ave SE, Albuquerque, NM 87102</a><span class="distance">• 0.4 mi</span></p><p class="row muted"><a href="tel:+15052431440">(505) 243-1440</a> • Daily 7a–3p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=320%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=320%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
+      <div class="card"><h3>Founders Speakeasy</h3><p class="cuisine">Basement Speakeasy & Cocktails <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=622%20Central%20Ave%20SW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">622 Central Ave SW, Albuquerque, NM 87102</a><span class="distance">• 0.5 mi</span></p><p class="row muted"><a href="tel:+15055822693">(505) 582-2693</a> • Tue–Sat 5p–2a, Sun–Mon 5p–12a</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=622%20Central%20Ave%20SW%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=622%20Central%20Ave%20SW%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
+      <div class="card"><h3>The Artichoke Café</h3><p class="cuisine">Contemporary American Fine Dining <span class="price">$$$</span></p><p class="row"><a href="https://maps.google.com/?q=424%20Central%20Ave%20SE%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">424 Central Ave SE, Albuquerque, NM 87102</a><span class="distance">• 0.5 mi</span></p><p class="row muted"><a href="tel:+15052430200">(505) 243-0200</a> • Mon–Thu 11a–9p, Fri–Sat 11a–10p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=424%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=424%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
+      <div class="card"><h3>Marble Brewery</h3><p class="cuisine">Craft Brewery with Food Trucks <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=111%20Marble%20Ave%20NW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">111 Marble Ave NW, Albuquerque, NM 87102</a><span class="distance">• 0.5 mi</span></p><p class="row muted"><a href="tel:+15052432739">(505) 243-2739</a> • Daily 11:30a–10p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=111%20Marble%20Ave%20NW%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=111%20Marble%20Ave%20NW%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
+      <div class="card"><h3>Farina Pizzeria &amp; Wine Bar</h3><p class="cuisine">Artisan Pizzeria &amp; Wine Bar <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=510%20Central%20Ave%20SE%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">510 Central Ave SE, Albuquerque, NM 87102</a><span class="distance">• 0.6 mi</span></p><p class="row muted"><a href="tel:+15052430130">(505) 243-0130</a> • Mon–Sat 11a–9p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=510%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=510%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
+      <div class="card"><h3>Cocina Azul</h3><p class="cuisine">Traditional New Mexican <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=1134%20Mountain%20Rd%20NW%2C%20Albuquerque%2C%20NM%2087104" target="_blank" rel="noreferrer">1134 Mountain Rd NW, Albuquerque, NM 87104</a><span class="distance">• 0.7 mi</span></p><p class="row muted"><a href="tel:+15058312500">(505) 831-2500</a> • Daily 9a–8p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=1134%20Mountain%20Rd%20NW%2C%20Albuquerque%2C%2087104">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=1134%20Mountain%20Rd%20NW%2C%20Albuquerque%2C%2087104">Lyft</a></div></div>
+      <div class="card"><h3>Monroe’s</h3><p class="cuisine">Classic New Mexican Breakfast &amp; Lunch <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=1025%204th%20St%20NW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">1025 4th St NW, Albuquerque, NM 87102</a><span class="distance">• 0.7 mi</span></p><p class="row muted"><a href="tel:+15052421111">(505) 242-1111</a> • Sun 9a–8p, Mon–Tue & Thu–Sat 10a–8p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=1025%204th%20St%20NW%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=1025%204th%20St%20NW%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
     </section>
 
     <!-- Nearby -->
-    <section id="Nearby">
+    <section id="nearby">
       <h2>Nearby • 1–3 miles</h2>
-
-      <div class="card"><h3>Kosmos Restaurant &amp; Astropub</h3>
-        <p class="cuisine">Modern American &amp; Gastropub <span class="price">$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=1715%205th%20St%20NW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">1715 5th St NW, Albuquerque, NM 87102</a>
-          <span class="distance">• 1.2 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15053691772">(505) 369-1772</a> • Tue–Thu 11:30a–8p, Fri–Sat 11:30a–9p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=1715%205th%20St%20NW%2C%20Albuquerque%2C%2087102">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=1715%205th%20St%20NW%2C%20Albuquerque%2C%2087102">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>Tractor Brewing Company Wells Park</h3>
-        <p class="cuisine">Local Brewery &amp; Pub Fare <span class="price">$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=1800%204th%20St%20NW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">1800 4th St NW, Albuquerque, NM 87102</a>
-          <span class="distance">• 1.2 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15052436752">(505) 243-6752</a> • Mon 4–9p, Tue–Thu 2–10p, Fri 2–12a, Sat 1–11p, Sun 1–10p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=1800%204th%20St%20NW%2C%20Albuquerque%2C%2087102">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=1800%204th%20St%20NW%2C%20Albuquerque%2C%2087102">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>The Grove Cafe &amp; Market</h3>
-        <p class="cuisine">Breakfast, Brunch &amp; Lunch <span class="price">$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=600%20Central%20Ave%20SE%20Unit%20A%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">600 Central Ave SE Unit A, Albuquerque, NM 87102</a>
-          <span class="distance">• 1.7 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15052489800">(505) 248-9800</a> • Tue–Sun 8a–2p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=600%20Central%20Ave%20SE%20Unit%20A%2C%20Albuquerque%2C%2087102">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=600%20Central%20Ave%20SE%20Unit%20A%2C%20Albuquerque%2C%2087102">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>Laguna Burger</h3>
-        <p class="cuisine">Award-Winning Burgers <span class="price">$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=2400%2012th%20St%20NW%2C%20Albuquerque%2C%20NM%2087104" target="_blank" rel="noreferrer">2400 12th St NW, Albuquerque, NM 87104</a>
-          <span class="distance">• 2.0 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15053528282">(505) 352-8282</a> • Daily 10:30a–8p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=2400%2012th%20St%20NW%2C%20Albuquerque%2C%2087104">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=2400%2012th%20St%20NW%2C%20Albuquerque%2C%2087104">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>Indian Pueblo Kitchen</h3>
-        <p class="cuisine">Native American Inspired <span class="price">$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=2401%2012th%20St%20NW%2C%20Albuquerque%2C%20NM%2087104" target="_blank" rel="noreferrer">2401 12th St NW, Albuquerque, NM 87104</a>
-          <span class="distance">• 2.1 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15057243510">(505) 724-3510</a> • Wed–Sun 8a–3p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=2401%2012th%20St%20NW%2C%20Albuquerque%2C%2087104">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=2401%2012th%20St%20NW%2C%20Albuquerque%2C%2087104">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>Monte Carlo Steakhouse</h3>
-        <p class="cuisine">Old-School Steakhouse <span class="price">$$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=3916%20Central%20Ave%20SW%2C%20Albuquerque%2C%20NM%2087105" target="_blank" rel="noreferrer">3916 Central Ave SW, Albuquerque, NM 87105</a>
-          <span class="distance">• 2.2 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15058369886">(505) 836-9886</a> • Mon–Sat 11a–9p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=3916%20Central%20Ave%20SW%2C%20Albuquerque%2C%2087105">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=3916%20Central%20Ave%20SW%2C%20Albuquerque%2C%2087105">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>66 Diner</h3>
-        <p class="cuisine">Retro American Diner <span class="price">$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=1405%20Central%20Ave%20NE%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">1405 Central Ave NE, Albuquerque, NM 87102</a>
-          <span class="distance">• 2.3 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15052471421">(505) 247-1421</a> • Mon–Thu 11a–9p, Fri–Sat 11a–10p, Sun 11a–8p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=1405%20Central%20Ave%20NE%2C%20Albuquerque%2C%2087102">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=1405%20Central%20Ave%20NE%2C%20Albuquerque%2C%2087102">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>Frontier Restaurant</h3>
-        <p class="cuisine">Classic New Mexican Diner <span class="price">$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=2400%20Central%20Ave%20SE%2C%20Albuquerque%2C%20NM%2087106" target="_blank" rel="noreferrer">2400 Central Ave SE, Albuquerque, NM 87106</a>
-          <span class="distance">• 2.5 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15052660550">(505) 266-0550</a> • Daily 5a–12a</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=2400%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087106">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=2400%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087106">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>Sawmill Market</h3>
-        <p class="cuisine">Food Hall &amp; Market Style Dining <span class="price">$ Varies</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=1909%20Bellamah%20Ave%20NW%2C%20Albuquerque%2C%20NM%2087104" target="_blank" rel="noreferrer">1909 Bellamah Ave NW, Albuquerque, NM 87104</a>
-          <span class="distance">• 2.8 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15054982982">(505) 498-2982</a> • Sun–Thu 8a–9p, Fri–Sat 8a–10p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=1909%20Bellamah%20Ave%20NW%2C%20Albuquerque%2C%2087104">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=1909%20Bellamah%20Ave%20NW%2C%20Albuquerque%2C%2087104">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>Annapurna’s Vegetarian Café</h3>
-        <p class="cuisine">Ayurvedic &amp; Vegetarian <span class="price">$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=2201%20Silver%20Ave%20SE%2C%20Albuquerque%2C%20NM%2087106" target="_blank" rel="noreferrer">2201 Silver Ave SE, Albuquerque, NM 87106</a>
-          <span class="distance">• 2.8 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15052622424">(505) 262-2424</a> • Daily 9a–8p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=2201%20Silver%20Ave%20SE%2C%20Albuquerque%2C%2087106">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=2201%20Silver%20Ave%20SE%2C%20Albuquerque%2C%2087106">Lyft</a>
-        </div>
-      </div>
+      <div class="card"><h3>Kosmos Restaurant &amp; Astropub</h3><p class="cuisine">Modern American &amp; Gastropub <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=1715%205th%20St%20NW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">1715 5th St NW, Albuquerque, NM 87102</a><span class="distance">• 1.2 mi</span></p><p class="row muted"><a href="tel:+15053691772">(505) 369-1772</a> • Tue–Thu 11:30a–8p, Fri–Sat 11:30a–9p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=1715%205th%20St%20NW%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=1715%205th%20St%20NW%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
+      <div class="card"><h3>Tractor Brewing Company Wells Park</h3><p class="cuisine">Local Brewery &amp; Pub Fare <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=1800%204th%20St%20NW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">1800 4th St NW, Albuquerque, NM 87102</a><span class="distance">• 1.2 mi</span></p><p class="row muted"><a href="tel:+15052436752">(505) 243-6752</a> • Mon 4–9p, Tue–Thu 2–10p, Fri 2–12a, Sat 1–11p, Sun 1–10p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=1800%204th%20St%20NW%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=1800%204th%20St%20NW%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
+      <div class="card"><h3>The Grove Cafe &amp; Market</h3><p class="cuisine">Breakfast, Brunch &amp; Lunch <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=600%20Central%20Ave%20SE%20Unit%20A%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">600 Central Ave SE Unit A, Albuquerque, NM 87102</a><span class="distance">• 1.7 mi</span></p><p class="row muted"><a href="tel:+15052489800">(505) 248-9800</a> • Tue–Sun 8a–2p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=600%20Central%20Ave%20SE%20Unit%20A%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=600%20Central%20Ave%20SE%20Unit%20A%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
+      <div class="card"><h3>Laguna Burger</h3><p class="cuisine">Award-Winning Burgers <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=2400%2012th%20St%20NW%2C%20Albuquerque%2C%20NM%2087104" target="_blank" rel="noreferrer">2400 12th St NW, Albuquerque, NM 87104</a><span class="distance">• 2.0 mi</span></p><p class="row muted"><a href="tel:+15053528282">(505) 352-8282</a> • Daily 10:30a–8p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=2400%2012th%20St%20NW%2C%20Albuquerque%2C%2087104">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=2400%2012th%20St%20NW%2C%20Albuquerque%2C%2087104">Lyft</a></div></div>
+      <div class="card"><h3>Indian Pueblo Kitchen</h3><p class="cuisine">Native American Inspired <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=2401%2012th%20St%20NW%2C%20Albuquerque%2C%20NM%2087104" target="_blank" rel="noreferrer">2401 12th St NW, Albuquerque, NM 87104</a><span class="distance">• 2.1 mi</span></p><p class="row muted"><a href="tel:+15057243510">(505) 724-3510</a> • Wed–Sun 8a–3p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=2401%2012th%20St%20NW%2C%20Albuquerque%2C%2087104">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=2401%2012th%20St%20NW%2C%20Albuquerque%2C%2087104">Lyft</a></div></div>
+      <div class="card"><h3>Monte Carlo Steakhouse</h3><p class="cuisine">Old-School Steakhouse <span class="price">$$$</span></p><p class="row"><a href="https://maps.google.com/?q=3916%20Central%20Ave%20SW%2C%20Albuquerque%2C%20NM%2087105" target="_blank" rel="noreferrer">3916 Central Ave SW, Albuquerque, NM 87105</a><span class="distance">• 2.2 mi</span></p><p class="row muted"><a href="tel:+15058369886">(505) 836-9886</a> • Mon–Sat 11a–9p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=3916%20Central%20Ave%20SW%2C%20Albuquerque%2C%2087105">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=3916%20Central%20Ave%20SW%2C%20Albuquerque%2C%2087105">Lyft</a></div></div>
+      <div class="card"><h3>66 Diner</h3><p class="cuisine">Retro American Diner <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=1405%20Central%20Ave%20NE%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">1405 Central Ave NE, Albuquerque, NM 87102</a><span class="distance">• 2.3 mi</span></p><p class="row muted"><a href="tel:+15052471421">(505) 247-1421</a> • Mon–Thu 11a–9p, Fri–Sat 11a–10p, Sun 11a–8p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=1405%20Central%20Ave%20NE%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=1405%20Central%20Ave%20NE%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
+      <div class="card"><h3>Frontier Restaurant</h3><p class="cuisine">Classic New Mexican Diner <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=2400%20Central%20Ave%20SE%2C%20Albuquerque%2C%20NM%2087106" target="_blank" rel="noreferrer">2400 Central Ave SE, Albuquerque, NM 87106</a><span class="distance">• 2.5 mi</span></p><p class="row muted"><a href="tel:+15052660550">(505) 266-0550</a> • Daily 5a–12a</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=2400%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087106">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=2400%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087106">Lyft</a></div></div>
+      <div class="card"><h3>Sawmill Market</h3><p class="cuisine">Food Hall &amp; Market Style Dining <span class="price">$ Varies</span></p><p class="row"><a href="https://maps.google.com/?q=1909%20Bellamah%20Ave%20NW%2C%20Albuquerque%2C%20NM%2087104" target="_blank" rel="noreferrer">1909 Bellamah Ave NW, Albuquerque, NM 87104</a><span class="distance">• 2.8 mi</span></p><p class="row muted"><a href="tel:+15054982982">(505) 498-2982</a> • Sun–Thu 8a–9p, Fri–Sat 8a–10p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=1909%20Bellamah%20Ave%20NW%2C%20Albuquerque%2C%2087104">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=1909%20Bellamah%20Ave%20NW%2C%20Albuquerque%2C%2087104">Lyft</a></div></div>
+      <div class="card"><h3>Annapurna’s Vegetarian Café</h3><p class="cuisine">Ayurvedic &amp; Vegetarian <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=2201%20Silver%20Ave%20SE%2C%20Albuquerque%2C%20NM%2087106" target="_blank" rel="noreferrer">2201 Silver Ave SE, Albuquerque, NM 87106</a><span class="distance">• 2.8 mi</span></p><p class="row muted"><a href="tel:+15052622424">(505) 262-2424</a> • Daily 9a–8p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=2201%20Silver%20Ave%20SE%2C%20Albuquerque%2C%2087106">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=2201%20Silver%20Ave%20SE%2C%20Albuquerque%2C%2087106">Lyft</a></div></div>
     </section>
 
     <!-- Short Ride -->
-    <section id="Short-Ride">
+    <section id="short-ride">
       <h2>Short Ride • 3–5 miles</h2>
-
-      <div class="card"><h3>M’tucci’s Bar Roma</h3>
-        <p class="cuisine">Italian &amp; Craft Cocktails <span class="price">$$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=3222%20Central%20Ave%20SE%2C%20Albuquerque%2C%20NM%2087106" target="_blank" rel="noreferrer">3222 Central Ave SE, Albuquerque, NM 87106</a>
-          <span class="distance">• 3.3 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15055082745">(505) 508-2745</a> • Sun–Thu 11a–9p, Fri–Sat 11a–10p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=3222%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087106">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=3222%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087106">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>Guava Tree Café</h3>
-        <p class="cuisine">Latin Fusion &amp; Sandwiches <span class="price">$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=118%20Richmond%20Dr%20NE%2C%20Albuquerque%2C%20NM%2087106" target="_blank" rel="noreferrer">118 Richmond Dr NE, Albuquerque, NM 87106</a>
-          <span class="distance">• 3.0 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15059902599">(505) 990-2599</a> • Tue–Sat 11a–4p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=118%20Richmond%20Dr%20NE%2C%20Albuquerque%2C%2087106">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=118%20Richmond%20Dr%20NE%2C%20Albuquerque%2C%2087106">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>Tula’s Kitchen</h3>
-        <p class="cuisine">American Comfort Food <span class="price">$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=1825%20Central%20Ave%20NW%2C%20Albuquerque%2C%20NM%2087104" target="_blank" rel="noreferrer">1825 Central Ave NW, Albuquerque, NM 87104</a>
-          <span class="distance">• 4.0 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15052002666">(505) 200-2666</a> • Tue–Sun 9a–9p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=1825%20Central%20Ave%20NW%2C%20Albuquerque%2C%2087104">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=1825%20Central%20Ave%20NW%2C%20Albuquerque%2C%2087104">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>El Pinto Restaurant &amp; Cantina</h3>
-        <p class="cuisine">New Mexican &amp; Margaritas <span class="price">$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=10500%204th%20St%20NW%2C%20Albuquerque%2C%20NM%2087114" target="_blank" rel="noreferrer">10500 4th St NW, Albuquerque, NM 87114</a>
-          <span class="distance">• 4.8 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15058981771">(505) 898-1771</a> • Daily 11a–9p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=10500%204th%20St%20NW%2C%20Albuquerque%2C%2087114">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=10500%204th%20St%20NW%2C%20Albuquerque%2C%2087114">Lyft</a>
-        </div>
-      </div>
+      <div class="card"><h3>M’tucci’s Bar Roma</h3><p class="cuisine">Italian &amp; Craft Cocktails <span class="price">$$$</span></p><p class="row"><a href="https://maps.google.com/?q=3222%20Central%20Ave%20SE%2C%20Albuquerque%2C%20NM%2087106" target="_blank" rel="noreferrer">3222 Central Ave SE, Albuquerque, NM 87106</a><span class="distance">• 3.3 mi</span></p><p class="row muted"><a href="tel:+15055082745">(505) 508-2745</a> • Sun–Thu 11a–9p, Fri–Sat 11a–10p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=3222%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087106">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=3222%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087106">Lyft</a></div></div>
+      <div class="card"><h3>Guava Tree Café</h3><p class="cuisine">Latin Fusion &amp; Sandwiches <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=118%20Richmond%20Dr%20NE%2C%20Albuquerque%2C%20NM%2087106" target="_blank" rel="noreferrer">118 Richmond Dr NE, Albuquerque, NM 87106</a><span class="distance">• 3.0 mi</span></p><p class="row muted"><a href="tel:+15059902599">(505) 990-2599</a> • Tue–Sat 11a–4p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=118%20Richmond%20Dr%20NE%2C%20Albuquerque%2C%2087106">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=118%20Richmond%20Dr%20NE%2C%20Albuquerque%2C%2087106">Lyft</a></div></div>
+      <div class="card"><h3>Tula’s Kitchen</h3><p class="cuisine">American Comfort Food <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=1825%20Central%20Ave%20NW%2C%20Albuquerque%2C%20NM%2087104" target="_blank" rel="noreferrer">1825 Central Ave NW, Albuquerque, NM 87104</a><span class="distance">• 4.0 mi</span></p><p class="row muted"><a href="tel:+15052002666">(505) 200-2666</a> • Tue–Sun 9a–9p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=1825%20Central%20Ave%20NW%2C%20Albuquerque%2C%2087104">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=1825%20Central%20Ave%20NW%2C%20Albuquerque%2C%2087104">Lyft</a></div></div>
+      <div class="card"><h3>El Pinto Restaurant &amp; Cantina</h3><p class="cuisine">New Mexican &amp; Margaritas <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=10500%204th%20St%20NW%2C%20Albuquerque%2C%20NM%2087114" target="_blank" rel="noreferrer">10500 4th St NW, Albuquerque, NM 87114</a><span class="distance">• 4.8 mi</span></p><p class="row muted"><a href="tel:+15058981771">(505) 898-1771</a> • Daily 11a–9p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=10500%204th%20St%20NW%2C%20Albuquerque%2C%2087114">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=10500%204th%20St%20NW%2C%20Albuquerque%2C%2087114">Lyft</a></div></div>
     </section>
 
     <!-- Worth the Drive -->
-    <section id="Worth-the-Drive">
+    <section id="worth-the-drive">
       <h2>Worth the Drive • 5+ miles</h2>
-
-      <div class="card"><h3>Farm &amp; Table</h3>
-        <p class="cuisine">Farm-to-Table American <span class="price">$$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=8917%204th%20St%20NW%2C%20Albuquerque%2C%20NM%2087114" target="_blank" rel="noreferrer">8917 4th St NW, Albuquerque, NM 87114</a>
-          <span class="distance">• 5.0 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15055037124">(505) 503-7124</a> • Wed–Sat 5p–9p, Sun 9a–2p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=8917%204th%20St%20NW%2C%20Albuquerque%2C%2087114">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=8917%204th%20St%20NW%2C%20Albuquerque%2C%2087114">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>Sadie’s of New Mexico</h3>
-        <p class="cuisine">Classic New Mexican &amp; Margaritas <span class="price">$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=6230%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%20NM%2087107" target="_blank" rel="noreferrer">6230 4th St NW, Los Ranchos de Albuquerque, NM 87107</a>
-          <span class="distance">• 5.5 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15053455339">(505) 345-5339</a> • Daily 11a–9p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=6230%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%2087107">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=6230%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%2087107">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>Vernon’s Speakeasy</h3>
-        <p class="cuisine">Upscale Speakeasy Steakhouse <span class="price">$$$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=6855%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%20NM%2087107" target="_blank" rel="noreferrer">6855 4th St NW, Los Ranchos de Albuquerque, NM 87107</a>
-          <span class="distance">• 5.6 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15053410831">(505) 341-0831</a> • Wed–Fri & Sun 4p–10p, Sat 4p–10p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=6855%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%2087107">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=6855%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%2087107">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>M’tucci’s</h3>
-        <p class="cuisine">Italian &amp; American Fusion <span class="price">$$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=4939%20Pan%20American%20Fwy%20NE%2C%20Albuquerque%2C%20NM%2087109" target="_blank" rel="noreferrer">4939 Pan American Fwy NE, Albuquerque, NM 87109</a>
-          <span class="distance">• 6.0 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15053128519">(505) 312-8519</a> • Daily 11a–10p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=4939%20Pan%20American%20Fwy%20NE%2C%20Albuquerque%2C%2087109">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=4939%20Pan%20American%20Fwy%20NE%2C%20Albuquerque%2C%2087109">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>Los Poblanos Campo Restaurant</h3>
-        <p class="cuisine">Organic Farm Dining <span class="price">$$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=4803%20Rio%20Grande%20Blvd%20NW%2C%20Albuquerque%2C%20NM%2087107" target="_blank" rel="noreferrer">4803 Rio Grande Blvd NW, Albuquerque, NM 87107</a>
-          <span class="distance">• 6.2 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15053449297">(505) 344-9297</a> • Wed–Sun 5p–9p, Sat & Sun Brunch 9a–2p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=4803%20Rio%20Grande%20Blvd%20NW%2C%20Albuquerque%2C%2087107">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=4803%20Rio%20Grande%20Blvd%20NW%2C%20Albuquerque%2C%2087107">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>Japanese Kitchen</h3>
-        <p class="cuisine">Teppanyaki &amp; Sushi <span class="price">$$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=6521%20Americas%20Pkwy%20NE%2C%20Albuquerque%2C%20NM%2087110" target="_blank" rel="noreferrer">6521 Americas Pkwy NE, Albuquerque, NM 87110</a>
-          <span class="distance">• 6.2 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15058848937">(505) 884-8937</a> • Lunch Mon–Sat 11:30a–2:30p, Dinner Daily 5p–9p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=6521%20Americas%20Pkwy%20NE%2C%20Albuquerque%2C%2087110">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=6521%20Americas%20Pkwy%20NE%2C%20Albuquerque%2C%2087110">Lyft</a>
-        </div>
-      </div>
-
-      <div class="card"><h3>TEN3 at Sandia Peak Tram</h3>
-        <p class="cuisine">Scenic Fine Dining &amp; Cocktails <span class="price">$$$$</span></p>
-        <p class="row">
-          <a href="https://maps.google.com/?q=30%20Tramway%20Rd%20NE%2C%20Albuquerque%2C%20NM%2087122" target="_blank" rel="noreferrer">30 Tramway Rd NE, Albuquerque, NM 87122</a>
-          <span class="distance">• 9.8 mi</span>
-        </p>
-        <p class="row muted"><a href="tel:+15058566692">(505) 856-6692</a> • Mon–Thu 11a–9p, Fri–Sat 11a–9:30p, Sun 11a–8p</p>
-        <div class="cta">
-          <a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=30%20Tramway%20Rd%20NE%2C%20Albuquerque%2C%2087122">Uber</a>
-          <a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=30%20Tramway%20Rd%20NE%2C%20Albuquerque%2C%2087122">Lyft</a>
-        </div>
-      </div>
-
+      <div class="card"><h3>Farm &amp; Table</h3><p class="cuisine">Farm-to-Table American <span class="price">$$$</span></p><p class="row"><a href="https://maps.google.com/?q=8917%204th%20St%20NW%2C%20Albuquerque%2C%20NM%2087114" target="_blank" rel="noreferrer">8917 4th St NW, Albuquerque, NM 87114</a><span class="distance">• 5.0 mi</span></p><p class="row muted"><a href="tel:+15055037124">(505) 503-7124</a> • Wed–Sat 5p–9p, Sun 9a–2p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=8917%204th%20St%20NW%2C%20Albuquerque%2C%2087114">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=8917%204th%20St%20NW%2C%20Albuquerque%2C%2087114">Lyft</a></div></div>
+      <div class="card"><h3>Sadie’s of New Mexico</h3><p class="cuisine">Classic New Mexican &amp; Margaritas <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=6230%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%20NM%2087107" target="_blank" rel="noreferrer">6230 4th St NW, Los Ranchos de Albuquerque, NM 87107</a><span class="distance">• 5.5 mi</span></p><p class="row muted"><a href="tel:+15053455339">(505) 345-5339</a> • Daily 11a–9p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=6230%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%2087107">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=6230%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%2087107">Lyft</a></div></div>
+      <div class="card"><h3>Vernon’s Speakeasy</h3><p class="cuisine">Upscale Speakeasy Steakhouse <span class="price">$$$$</span></p><p class="row"><a href="https://maps.google.com/?q=6855%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%20NM%2087107" target="_blank" rel="noreferrer">6855 4th St NW, Los Ranchos de Albuquerque, NM 87107</a><span class="distance">• 5.6 mi</span></p><p class="row muted"><a href="tel:+15053410831">(505) 341-0831</a> • Wed–Fri & Sun 4p–10p, Sat 4p–10p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=6855%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%2087107">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=6855%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%2087107">Lyft</a></div></div>
+      <div class="card"><h3>M’tucci’s</h3><p class="cuisine">Italian &amp; American Fusion <span class="price">$$$</span></p><p class="row"><a href="https://maps.google.com/?q=4939%20Pan%20American%20Fwy%20NE%2C%20Albuquerque%2C%20NM%2087109" target="_blank" rel="noreferrer">4939 Pan American Fwy NE, Albuquerque, NM 87109</a><span class="distance">• 6.0 mi</span></p><p class="row muted"><a href="tel:+15053128519">(505) 312-8519</a> • Daily 11a–10p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=4939%20Pan%20American%20Fwy%20NE%2C%20Albuquerque%2C%2087109">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=4939%20Pan%20American%20Fwy%20NE%2C%20Albuquerque%2C%2087109">Lyft</a></div></div>
+      <div class="card"><h3>Los Poblanos Campo Restaurant</h3><p class="cuisine">Organic Farm Dining <span class="price">$$$</span></p><p class="row"><a href="https://maps.google.com/?q=4803%20Rio%20Grande%20Blvd%20NW%2C%20Albuquerque%2C%20NM%2087107" target="_blank" rel="noreferrer">4803 Rio Grande Blvd NW, Albuquerque, NM 87107</a><span class="distance">• 6.2 mi</span></p><p class="row muted"><a href="tel:+15053449297">(505) 344-9297</a> • Wed–Sun 5p–9p, Sat & Sun Brunch 9a–2p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=4803%20Rio%20Grande%20Blvd%20NW%2C%20Albuquerque%2C%2087107">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=4803%20Rio%20Grande%20Blvd%20NW%2C%20Albuquerque%2C%2087107">Lyft</a></div></div>
+      <div class="card"><h3>Japanese Kitchen</h3><p class="cuisine">Teppanyaki &amp; Sushi <span class="price">$$$</span></p><p class="row"><a href="https://maps.google.com/?q=6521%20Americas%20Pkwy%20NE%2C%20Albuquerque%2C%20NM%2087110" target="_blank" rel="noreferrer">6521 Americas Pkwy NE, Albuquerque, NM 87110</a><span class="distance">• 6.2 mi</span></p><p class="row muted"><a href="tel:+15058848937">(505) 884-8937</a> • Lunch Mon–Sat 11:30a–2:30p, Dinner Daily 5p–9p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=6521%20Americas%20Pkwy%20NE%2C%20Albuquerque%2C%2087110">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=6521%20Americas%20Pkwy%20NE%2C%20Albuquerque%2C%2087110">Lyft</a></div></div>
+      <div class="card"><h3>TEN3 at Sandia Peak Tram</h3><p class="cuisine">Scenic Fine Dining &amp; Cocktails <span class="price">$$$$</span></p><p class="row"><a href="https://maps.google.com/?q=30%20Tramway%20Rd%20NE%2C%20Albuquerque%2C%20NM%2087122" target="_blank" rel="noreferrer">30 Tramway Rd NE, Albuquerque, NM 87122</a><span class="distance">• 9.8 mi</span></p><p class="row muted"><a href="tel:+15058566692">(505) 856-6692</a> • Mon–Thu 11a–9p, Fri–Sat 11a–9:30p, Sun 11a–8p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=30%20Tramway%20Rd%20NE%2C%20Albuquerque%2C%2087122">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=30%20Tramway%20Rd%20NE%2C%20Albuquerque%2C%2087122">Lyft</a></div></div>
     </section>
   </main>
 
-  <div class="page-views">
-    Page Views: <span id="visitCount">…</span>
-  </div>
-
-  <footer>
-    Created by Doubletree ABQ • A Warm Welcome, With A Warm Cookie
-  </footer>
-
+  <div class="page-views">Page Views: <span id="visitCount">…</span> <small id="pvHint" style="opacity:.75"></small></div>
+  <footer>Created by Doubletree ABQ • A Warm Welcome, With A Warm Cookie</footer>
   <div id="temperature">--°F</div>
 
   <script>
-    // CountAPI counter (counts every load, including yours)
-    const namespace = "doubletree-abq";
-    const key = "foodie-favorites";
-    fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById("visitCount").textContent = data.value.toLocaleString();
-      })
-      .catch(() => {
-        document.getElementById("visitCount").textContent = "N/A";
-      });
+    // Robust CountAPI: create -> hit -> fallback
+    (function(){
+      const out = document.getElementById("visitCount");
+      const hint = document.getElementById("pvHint");
+      const NS = "doubletree-abq";
+      const KEY = "foodie-favorites-v2"; // use a fresh key so you see movement
+      const base = "https://api.countapi.xyz";
+      const backupBase = "https://countapi.mileshilliard.com/api/v1";
+
+      function show(v){ out.textContent = Number(v).toLocaleString(); }
+      function setHint(msg){ if(hint) hint.textContent = msg; }
+
+      async function ensureKey(){
+        try{
+          // Try a GET; if 404, create with value 0
+          const g = await fetch(`${base}/get/${NS}/${KEY}`, {cache:"no-store"});
+          if(g.ok){
+            return true;
+          } else {
+            const c = await fetch(`${base}/create?namespace=${encodeURIComponent(NS)}&key=${encodeURIComponent(KEY)}&value=0`);
+            return c.ok;
+          }
+        }catch(e){ return false; }
+      }
+      async function hitPrimary(){
+        try{
+          const r = await fetch(`${base}/hit/${NS}/${KEY}`, {cache:"no-store"});
+          if(!r.ok) return false;
+          const j = await r.json();
+          if(typeof j.value === "number"){ show(j.value); return true; }
+          return false;
+        }catch(e){ return false; }
+      }
+      async function hitBackup(){
+        try{
+          // Backup API accepts a single key string
+          const r = await fetch(`${backupBase}/hit/${NS}_${KEY}`, {cache:"no-store"});
+          if(!r.ok) return false;
+          const j = await r.json();
+          const val = j.count ?? j.value;
+          if(typeof val === "number"){ show(val); return true; }
+          return false;
+        }catch(e){ return false; }
+      }
+      async function localFallback(){
+        try{
+          const k = `pv_${NS}_${KEY}`;
+          const n = (parseInt(localStorage.getItem(k) || "0", 10) + 1);
+          localStorage.setItem(k, String(n));
+          show(n);
+          setHint("(local preview)");
+        }catch(e){
+          out.textContent = "N/A";
+        }
+      }
+
+      (async function run(){
+        if(location.protocol === "file:"){
+          setHint("Since 11/1/2025");
+        }
+        const ok = await ensureKey();
+        if(await hitPrimary()) return;
+        if(await hitBackup()) return;
+        await localFallback();
+      })();
+    })();
   </script>
 
   <script>
-    // Simple ABQ weather (Open-Meteo, no key)
+    // Weather for ABQ (Open-Meteo)
     (function(){
       const el = document.getElementById('temperature');
       const LAT = 35.0865, LON = -106.6483;
@@ -691,7 +241,7 @@
           const t = Math.round(data?.current?.temperature_2m ?? NaN);
           const label = WMO[data?.current?.weather_code] || '';
           el.textContent = Number.isFinite(t) ? `${t}°F ${label}` : 'N/A';
-        }catch(e){el.textContent='N/A';}
+        }catch(e){ el.textContent='N/A'; }
       }
       updateTemp();
       setInterval(updateTemp, 600000);
