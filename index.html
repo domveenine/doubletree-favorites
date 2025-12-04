@@ -6,7 +6,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Great+Vibes&family=Lato:wght@400;600;700;900&display=swap" rel="stylesheet">
-  <title>DTABQ Favorites</title>
+  <title>Doubletree by Hilton — Downtown Albuquerque Holiday Foodie Favorites</title>
   <style>
     :root{
       --hilton-blue:#003A70;
@@ -82,16 +82,355 @@
   100% { transform: translateX(100%); }
 }
 
+
+/* ===== FULL HOLIDAY THEME ===== */
+
+/* Global winter night backdrop */
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at top, rgba(15,120,90,.65) 0, transparent 55%),
+    radial-gradient(circle at bottom, rgba(140,0,40,.45) 0, transparent 60%),
+    linear-gradient(180deg,#05070b,#080c13 40%,#05060a 100%);
+  color:var(--white);
+}
+
+/* Soft twinkling stars over the lattice */
+.bg-lattice{
+  opacity:.12;
+}
+
+/* Header: deep evergreen + warm light */
+header.holiday{
+  background:
+    radial-gradient(1300px 420px at 50% -50%, rgba(255,240,210,.32), transparent 70%),
+    linear-gradient(115deg,#03170f 0%,#0a3b28 40%,#15563a 70%,#0b2a1d 100%);
+  border-bottom:2px solid rgba(255,225,190,.55);
+  box-shadow:0 26px 70px rgba(0,0,0,.7);
+}
+
+/* Script + subtitle for holiday glow */
+header.holiday .script{
+  color:#fff9eb;
+  text-shadow:
+    0 0 18px rgba(255,255,240,.8),
+    0 10px 26px rgba(0,0,0,.8);
+}
+header.holiday .holiday-tagline{
+  margin:8px 0 4px;
+  font-family:"Lato","Helvetica Neue",Arial,sans-serif;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:.86rem;
+  color:#ffe1c2;
+}
+header.holiday .subtitle{
+  color:#ffe9c9;
+  text-shadow:0 3px 14px rgba(0,0,0,.6);
+}
+
+/* Garland & lights along bottom of header */
+header.holiday::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:-2px;
+  height:38px;
+  background-image:
+    linear-gradient(180deg,rgba(0,0,0,.0),rgba(0,0,0,.5)),
+    repeating-linear-gradient(-45deg,
+      #0f3c28 0,#0f3c28 10px,
+      #145435 10px,#145435 20px);
+  box-shadow:0 -2px 0 rgba(255,230,200,.45);
+}
+
+/* Little "light bulbs" hanging just under header */
+header.holiday .wrap::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:-26px;
+  width:260px;
+  height:24px;
+  background-image:
+    radial-gradient(circle, #ff4b5c 0 45%, transparent 55%),
+    radial-gradient(circle, #ffd15c 0 45%, transparent 55%),
+    radial-gradient(circle, #58f29b 0 45%, transparent 55%),
+    radial-gradient(circle, #6bc5ff 0 45%, transparent 55%);
+  background-size:24px 24px;
+  background-repeat:repeat-x;
+  background-position:0 0;
+  opacity:.95;
+  filter:drop-shadow(0 3px 6px rgba(0,0,0,.7));
+}
+
+/* Divider shimmer a bit warmer */
+.divider{
+  background:rgba(255,235,205,.3);
+}
+
+/* Navigation: candy-cane inspired pills */
+nav.sticky{
+  background:rgba(6,10,16,.9);
+  border-bottom:1px solid rgba(255,230,210,.18);
+  box-shadow:0 10px 28px rgba(0,0,0,.65);
+}
+.pill{
+  background:linear-gradient(135deg,#143426,#145c3d);
+  border:1px solid rgba(255,235,210,.35);
+  box-shadow:0 8px 20px rgba(0,0,0,.45);
+}
+.pill:hover{
+  filter:brightness(1.18);
+  transform:translateY(-1px);
+}
+
+/* Main sections: holiday labels */
+section h2{
+  color:#ffe3c4;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  margin-bottom:18px;
+  position:relative;
+  padding-left:4px;
+}
+section h2::before{
+  content:"🎄";
+  margin-right:6px;
+}
+section h2::after{
+  content:"✨";
+  margin-left:6px;
+}
+
+/* Cards: warm glow & subtle red/green accent line */
+.card{
+  background:
+    linear-gradient(145deg,rgba(10,20,22,.96),rgba(10,14,18,.98)),
+    radial-gradient(circle at top left,rgba(255,230,200,.12),transparent 60%);
+  border-radius:20px;
+  border:1px solid rgba(255,230,200,.18);
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.78),
+    0 0 0 1px rgba(255,255,255,.03);
+  position:relative;
+  overflow:hidden;
+}
+.card::before{
+  content:"";
+  position:absolute;
+  left:-3px; top:0; bottom:0;
+  width:5px;
+  background:linear-gradient(180deg,#e63946,#ffd166,#52b788,#1b998b);
+  opacity:.95;
+}
+.card h3{
+  color:#ffffff;
+}
+.cuisine{
+  color:#ffe7c6;
+}
+.price{
+  background:rgba(15,70,50,.9);
+  border-color:rgba(255,235,200,.65);
+}
+
+/* Row text soft and cozy */
+.row{
+  color:#f3f4f6;
+}
+.muted{
+  color:#d6d7da;
+}
+
+/* Rideshare buttons with holiday twist */
+.btn-uber{
+  background:#111;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.25);
+}
+.btn-lyft{
+  background:linear-gradient(135deg,#ff2aa1,#ff66cc);
+  border-radius:999px;
+  border:1px solid rgba(255,230,245,.6);
+}
+
+/* Primary header buttons go evergreen & gold */
+.btn{
+  background:linear-gradient(180deg,#17654b,#0f3a2d);
+  border:1px solid rgba(255,235,210,.55);
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.75),
+    0 0 0 1px rgba(0,0,0,.5);
+}
+
+/* Page views = Holiday Guestbook */
+.page-views{
+  background:linear-gradient(140deg,#0e2d20,#154735);
+  border-color:rgba(255,235,210,.4);
+  color:#f2e2cf;
+}
+.page-views::before{
+  content:"Holiday Guestbook • ";
+}
+.page-views span{
+  color:#ffe38b;
+  text-shadow:0 0 8px rgba(255,227,139,.7);
+}
+
+/* Footer: clear holiday message */
+footer{
+  background:linear-gradient(90deg,#07120d,#0e2419,#07120d);
+  color:#f3e5d3;
+}
+
+
+/* Soft animated snowfall overlay */
+.holiday-snow{
+  pointer-events:none;
+  position:fixed;
+  inset:0;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.9) 0 2px, transparent 3px),
+    radial-gradient(circle, rgba(255,255,255,.7) 0 1.5px, transparent 3px),
+    radial-gradient(circle, rgba(255,255,255,.5) 0 1px, transparent 2.5px);
+  background-size:80px 80px, 120px 120px, 180px 180px;
+  animation:snowfall 24s linear infinite;
+  opacity:.22;
+  z-index:10000;
+}
+@keyframes snowfall{
+  0%{background-position:0 0, 0 0, 0 0;}
+  100%{background-position:-300px 600px, -200px 500px, -100px 400px;}
+}
+
+/* Floating temp widget with snowflake */
+#temperature{
+  border-radius:999px;
+  background:linear-gradient(145deg,#13252f,#0a151c);
+  border:1px solid rgba(200,230,255,.4);
+  padding:8px 14px;
+}
+#temperature::before{
+  content:"❄ ";
+}
+
+
+/* Candy cane accents */
+.pill {
+  border-image: repeating-linear-gradient(45deg, #ff0000 0 6px, #ffffff 6px 12px) 8;
+  border-width: 3px;
+}
+.card::before {
+  background: repeating-linear-gradient(90deg, #ff0000 0 10px, #ffffff 10px 20px);
+  width: 6px;
+}
+
+
+/* Realistic multi-layer snowfall override */
+.holiday-snow{
+  pointer-events:none;
+  position:fixed;
+  inset:0;
+  z-index:10000;
+  opacity:.25;
+}
+
+.holiday-snow,
+.holiday-snow::before,
+.holiday-snow::after{
+  background-repeat:repeat;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.9) 0 2px, transparent 3px),
+    radial-gradient(circle, rgba(255,255,255,.7) 0 1.5px, transparent 3px),
+    radial-gradient(circle, rgba(255,255,255,.5) 0 1px, transparent 2.5px);
+}
+
+/* Foreground layer: larger, faster flakes */
+.holiday-snow{
+  background-size:90px 90px, 130px 130px, 190px 190px;
+  animation:snowFront 14s linear infinite;
+}
+
+/* Mid layer: medium speed & size */
+.holiday-snow::before{
+  content:"";
+  position:fixed;
+  inset:-50px 0 0 0;
+  background-size:140px 140px, 200px 200px, 260px 260px;
+  opacity:.6;
+  animation:snowMid 26s linear infinite;
+}
+
+/* Far layer: very small, slow flakes */
+.holiday-snow::after{
+  content:"";
+  position:fixed;
+  inset:-80px 0 0 0;
+  background-size:220px 220px, 320px 320px, 420px 420px;
+  opacity:.45;
+  animation:snowFar 40s linear infinite;
+}
+
+/* Slight drifting motion so flakes don't fall straight down */
+@keyframes snowFront{
+  0%{ transform:translate3d(0, -40px, 0); }
+  100%{ transform:translate3d(-120px, 320px, 0); }
+}
+@keyframes snowMid{
+  0%{ transform:translate3d(0, -60px, 0); }
+  100%{ transform:translate3d(-80px, 420px, 0); }
+}
+@keyframes snowFar{
+  0%{ transform:translate3d(0, -80px, 0); }
+  100%{ transform:translate3d(-40px, 520px, 0); }
+}
+
+
+/* Mouse-responsive, particle-based snowfall */
+.holiday-snow{
+  pointer-events:none;
+  position:fixed;
+  inset:0;
+  z-index:10000;
+  opacity:1;
+}
+#snowCanvas{
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+/* Remove old tiled snow backgrounds if present */
+.holiday-snow,
+.holiday-snow::before,
+.holiday-snow::after{
+  background:none !important;
+  animation:none !important;
+  transform:none !important;
+  content:none !important;
+}
+
+
+/* Smaller distance filter buttons */
+.pill{
+  padding:6px 10px !important;
+  font-size:0.82rem !important;
+  border-width:2px !important;
+}
+
 </style>
 </head>
 <body>
+  <div class="holiday-snow"><canvas id="snowCanvas"></canvas></div>
   
   <div class="bg-lattice" aria-hidden="true"></div>
-  <header>
+  <header class="holiday">
     <div class="wrap">
       <div class="title-wrap">
         <h1 class="script">Doubletree by Hilton</h1>
-        <h2 class="subtitle">Downtown Albuquerque Foodie Favorites</h2>
+        
+        <h2 class="subtitle">Downtown Albuquerque Holiday Foodie Favorites</h2>
         <div class="divider"></div>
       </div>
       <div class="actions">
@@ -106,10 +445,10 @@
   <nav class="sticky" aria-label="Distance sections">
     <div class="wrap">
       <div class="pills">
-        <a class="pill" href="#on-foot">On Foot • 0–1 mile</a>
-        <a class="pill" href="#nearby">Nearby • 1–3 miles</a>
-        <a class="pill" href="#short-ride">Short Ride • 3–5 miles</a>
-        <a class="pill" href="#worth-the-drive">Worth the Drive • 5+ miles</a>
+        <a class="pill" href="#on-foot">Festive Walk • 0–1 mile</a>
+        <a class="pill" href="#nearby">Winter Stroll • 1–3 miles</a>
+        <a class="pill" href="#short-ride">Holiday Hop • 3–5 miles</a>
+        <a class="pill" href="#worth-the-drive">Festive Venture • 5+ miles</a>
       </div>
     </div>
   </nav>
@@ -119,7 +458,7 @@
     <!-- For brevity here: I’m keeping your full list intact. -->
     <!-- On Foot -->
     <section id="on-foot">
-      <h2>On Foot • 0–1 mile</h2>
+      <h2>Festive Walk • 0–1 mile</h2>
       <div class="card"><h3>My Mom’s</h3><p class="cuisine">Classic New Mexican Breakfast & Lunch <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=500%204th%20St%20NW%20%23106%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">500 4th St NW #106, Albuquerque, NM 87102</a><span class="distance">• 0.1 mi</span></p><p class="row muted"><a href="tel:+15052472943">(505) 247-2943</a> • Mon–Fri 8a–2p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=500%204th%20St%20NW%20%23106%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=500%204th%20St%20NW%20%23106%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
       <div class="card"><h3>CHAR (Hotel Andaluz)</h3><p class="cuisine">Upscale American Grill <span class="price">$$$</span></p><p class="row"><a href="https://maps.google.com/?q=125%202nd%20St%20NW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">125 2nd St NW, Albuquerque, NM 87102</a><span class="distance">• 0.2 mi</span></p><p class="row muted"><a href="tel:+15052429080">(505) 242-9080</a> • Daily 7a–10p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=125%202nd%20St%20NW%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=125%202nd%20St%20NW%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
       <div class="card"><h3>Oni Ramen</h3><p class="cuisine">Japanese & NM Fusion <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=600%20Central%20Ave%20SW%20%23100%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">600 Central Ave SW #100, Albuquerque, NM 87102</a><span class="distance">• 0.3 mi</span></p><p class="row muted"><a href="tel:+15055036722">(505) 503-6722</a> • Daily 11:30a–8p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=600%20Central%20Ave%20SW%20%23100%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=600%20Central%20Ave%20SW%20%23100%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
@@ -136,7 +475,7 @@
 
     <!-- Nearby -->
     <section id="nearby">
-      <h2>Nearby • 1–3 miles</h2>
+      <h2>Winter Stroll • 1–3 miles</h2>
       <div class="card"><h3>Kosmos Restaurant &amp; Astropub</h3><p class="cuisine">Modern American &amp; Gastropub <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=1715%205th%20St%20NW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">1715 5th St NW, Albuquerque, NM 87102</a><span class="distance">• 1.2 mi</span></p><p class="row muted"><a href="tel:+15053691772">(505) 369-1772</a> • Tue–Thu 11:30a–8p, Fri–Sat 11:30a–9p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=1715%205th%20St%20NW%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=1715%205th%20St%20NW%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
       <div class="card"><h3>Tractor Brewing Company Wells Park</h3><p class="cuisine">Local Brewery &amp; Pub Fare <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=1800%204th%20St%20NW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">1800 4th St NW, Albuquerque, NM 87102</a><span class="distance">• 1.2 mi</span></p><p class="row muted"><a href="tel:+15052436752">(505) 243-6752</a> • Mon 4–9p, Tue–Thu 2–10p, Fri 2–12a, Sat 1–11p, Sun 1–10p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=1800%204th%20St%20NW%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=1800%204th%20St%20NW%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
       <div class="card"><h3>The Grove Cafe &amp; Market</h3><p class="cuisine">Breakfast, Brunch &amp; Lunch <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=600%20Central%20Ave%20SE%20Unit%20A%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">600 Central Ave SE Unit A, Albuquerque, NM 87102</a><span class="distance">• 1.7 mi</span></p><p class="row muted"><a href="tel:+15052489800">(505) 248-9800</a> • Tue–Sun 8a–2p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=600%20Central%20Ave%20SE%20Unit%20A%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=600%20Central%20Ave%20SE%20Unit%20A%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
@@ -151,7 +490,7 @@
 
     <!-- Short Ride -->
     <section id="short-ride">
-      <h2>Short Ride • 3–5 miles</h2>
+      <h2>Holiday Hop • 3–5 miles</h2>
       <div class="card"><h3>M’tucci’s Bar Roma</h3><p class="cuisine">Italian &amp; Craft Cocktails <span class="price">$$$</span></p><p class="row"><a href="https://maps.google.com/?q=3222%20Central%20Ave%20SE%2C%20Albuquerque%2C%20NM%2087106" target="_blank" rel="noreferrer">3222 Central Ave SE, Albuquerque, NM 87106</a><span class="distance">• 3.3 mi</span></p><p class="row muted"><a href="tel:+15055082745">(505) 508-2745</a> • Sun–Thu 11a–9p, Fri–Sat 11a–10p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=3222%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087106">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=3222%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087106">Lyft</a></div></div>
       <div class="card"><h3>Guava Tree Café</h3><p class="cuisine">Latin Fusion &amp; Sandwiches <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=118%20Richmond%20Dr%20NE%2C%20Albuquerque%2C%20NM%2087106" target="_blank" rel="noreferrer">118 Richmond Dr NE, Albuquerque, NM 87106</a><span class="distance">• 3.0 mi</span></p><p class="row muted"><a href="tel:+15059902599">(505) 990-2599</a> • Tue–Sat 11a–4p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=118%20Richmond%20Dr%20NE%2C%20Albuquerque%2C%2087106">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=118%20Richmond%20Dr%20NE%2C%20Albuquerque%2C%2087106">Lyft</a></div></div>
       <div class="card"><h3>Tula’s Kitchen</h3><p class="cuisine">American Comfort Food <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=1825%20Central%20Ave%20NW%2C%20Albuquerque%2C%20NM%2087104" target="_blank" rel="noreferrer">1825 Central Ave NW, Albuquerque, NM 87104</a><span class="distance">• 4.0 mi</span></p><p class="row muted"><a href="tel:+15052002666">(505) 200-2666</a> • Tue–Sun 9a–9p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=1825%20Central%20Ave%20NW%2C%20Albuquerque%2C%2087104">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=1825%20Central%20Ave%20NW%2C%20Albuquerque%2C%2087104">Lyft</a></div></div>
@@ -160,7 +499,7 @@
 
     <!-- Worth the Drive -->
     <section id="worth-the-drive">
-      <h2>Worth the Drive • 5+ miles</h2>
+      <h2>Festive Venture • 5+ miles</h2>
       <div class="card"><h3>Farm &amp; Table</h3><p class="cuisine">Farm-to-Table American <span class="price">$$$</span></p><p class="row"><a href="https://maps.google.com/?q=8917%204th%20St%20NW%2C%20Albuquerque%2C%20NM%2087114" target="_blank" rel="noreferrer">8917 4th St NW, Albuquerque, NM 87114</a><span class="distance">• 5.0 mi</span></p><p class="row muted"><a href="tel:+15055037124">(505) 503-7124</a> • Wed–Sat 5p–9p, Sun 9a–2p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=8917%204th%20St%20NW%2C%20Albuquerque%2C%2087114">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=8917%204th%20St%20NW%2C%20Albuquerque%2C%2087114">Lyft</a></div></div>
       <div class="card"><h3>Sadie’s of New Mexico</h3><p class="cuisine">Classic New Mexican &amp; Margaritas <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=6230%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%20NM%2087107" target="_blank" rel="noreferrer">6230 4th St NW, Los Ranchos de Albuquerque, NM 87107</a><span class="distance">• 5.5 mi</span></p><p class="row muted"><a href="tel:+15053455339">(505) 345-5339</a> • Daily 11a–9p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=6230%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%2087107">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=6230%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%2087107">Lyft</a></div></div>
       <div class="card"><h3>Vernon’s Speakeasy</h3><p class="cuisine">Upscale Speakeasy Steakhouse <span class="price">$$$$</span></p><p class="row"><a href="https://maps.google.com/?q=6855%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%20NM%2087107" target="_blank" rel="noreferrer">6855 4th St NW, Los Ranchos de Albuquerque, NM 87107</a><span class="distance">• 5.6 mi</span></p><p class="row muted"><a href="tel:+15053410831">(505) 341-0831</a> • Wed–Fri & Sun 4p–10p, Sat 4p–10p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=6855%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%2087107">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=6855%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%2087107">Lyft</a></div></div>
@@ -264,5 +603,107 @@
       setInterval(updateTemp, 600000);
     })();
   </script>
+
+<script>
+(function(){
+  const container = document.querySelector('.holiday-snow');
+  if(!container) return;
+  let canvas = document.getElementById('snowCanvas');
+  if(!canvas){
+    canvas = document.createElement('canvas');
+    canvas.id = 'snowCanvas';
+    container.appendChild(canvas);
+  }
+  const ctx = canvas.getContext('2d');
+
+  let flakes = [];
+  let width = 0;
+  let height = 0;
+  let wind = 0;
+  let targetWind = 0;
+
+  function resize(){
+    width = container.clientWidth;
+    height = container.clientHeight;
+    canvas.width = width;
+    canvas.height = height;
+    if(flakes.length === 0){
+      initFlakes();
+    }
+  }
+
+  function initFlakes(){
+    const count = Math.floor(width * height / 12000); // scale with viewport
+    flakes = [];
+    for(let i = 0; i < count; i++){
+      flakes.push(makeFlake(true));
+    }
+  }
+
+  function makeFlake(randomY){
+    return {
+      x: Math.random() * width,
+      y: randomY ? Math.random() * height : -10,
+      radius: 1 + Math.random() * 2.2,
+      speedY: 0.4 + Math.random() * 1.2,
+      drift: (Math.random() - 0.5) * 0.4,
+      swing: Math.random() * Math.PI * 2,
+      swingSpeed: 0.005 + Math.random() * 0.01
+    };
+  }
+
+  // Track mouse movement to influence wind
+  let lastMouseX = null;
+  let lastMoveTime = Date.now();
+
+  window.addEventListener('mousemove', (e) => {
+    const now = Date.now();
+    if(lastMouseX !== null){
+      const dx = e.clientX - lastMouseX;
+      const dt = Math.max(now - lastMoveTime, 16);
+      const velocityX = dx / dt; // pixels per ms
+      targetWind = Math.max(-1.5, Math.min(1.5, velocityX * 12)); // clamp
+    }
+    lastMouseX = e.clientX;
+    lastMoveTime = now;
+  }, {passive:true});
+
+  // Slowly let wind drift back to calm when mouse stops
+  function updateWind(){
+    wind += (targetWind - wind) * 0.02; // ease
+    targetWind *= 0.96; // decay target toward 0 over time
+  }
+
+  function step(){
+    if(!ctx) return;
+    updateWind();
+    ctx.clearRect(0,0,width,height);
+    ctx.fillStyle = 'rgba(255,255,255,0.9)';
+
+    for(let i = 0; i < flakes.length; i++){
+      const f = flakes[i];
+      f.y += f.speedY;
+      f.swing += f.swingSpeed;
+      f.x += f.drift + Math.sin(f.swing) * 0.2 + wind;
+
+      if(f.y > height + 12){
+        flakes[i] = makeFlake(false);
+      }
+      if(f.x > width + 20) f.x = -20;
+      if(f.x < -20) f.x = width + 20;
+
+      ctx.beginPath();
+      ctx.arc(f.x, f.y, f.radius, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    requestAnimationFrame(step);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  requestAnimationFrame(step);
+})();
+</script>
+
 </body>
 </html>
