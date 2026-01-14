@@ -6,438 +6,445 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&family=Great+Vibes&family=Lato:wght@400;600;700;900&display=swap" rel="stylesheet">
-  <title>Doubletree by Hilton — Downtown Albuquerque Holiday Foodie Favorites</title>
+  <title>Doubletree by Hilton — Downtown Albuquerque Foodie Favorites</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root{
-      --hilton-blue:#003A70;
-      --navy:#0b1d39;
-      --midnight:#101319;
-      --slate:#1B1E23;
-      --ink:#0A0C10;
-      --platinum:#B5B7B9;
-      --platinum-2:#d9dbde;
-      --taupe:#D7C8B6;
-      --white:#F7F8FA;
-      --card:#141820;
-      --ring: rgba(255,255,255,.06);
-      --shadow:0 18px 45px rgba(0,0,0,.35);
-      --radius:18px;
+      --bg0:#070812;
+      --bg1:#0b0f2a;
+      --ink:#0b0b10;
+      --paper:#ffffff;
+      --panel:#0f1433;
+      --panel2:#101842;
+      --line:#000000;
+      --neon1:#00e5ff;   /* cyan */
+      --neon2:#ff2bd6;   /* magenta */
+      --neon3:#ffd400;   /* yellow */
+      --neon4:#7cff00;   /* lime */
+      --muted:#cfd6ff;
+      --shadow: 0 20px 55px rgba(0,0,0,.40);
+      --radius: 18px;
     }
     *{box-sizing:border-box}
     html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;scroll-behavior:smooth}
-    body{margin:0;background:linear-gradient(180deg,var(--ink),var(--slate));color:var(--white);}
-    body, button, input, select, textarea {font-family: "Lato","Helvetica Neue",Arial,sans-serif; line-height:1.6; font-weight:500;}
-    h1,h2,h3, .brand {font-family:"Playfair Display","Times New Roman",serif; letter-spacing:.2px;}
-    .bg-lattice{position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.05; background-image: radial-gradient(circle at 12px 12px, var(--platinum) 1px, transparent 1px); background-size: 28px 28px;}
-    header{position:relative; z-index:10; text-align:center; padding:86px 20px 72px; background: radial-gradient(1200px 300px at 50% -40%, rgba(215,200,182,.20), transparent 60%), linear-gradient(120deg, #001933 0%, var(--hilton-blue) 70%, #032c56 100%); border-bottom:1px solid var(--ring); box-shadow: var(--shadow); overflow:hidden;}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--paper);
+      background:
+        radial-gradient(1100px 420px at 20% -10%, rgba(0,229,255,.25), transparent 60%),
+        radial-gradient(900px 360px at 80% 0%, rgba(255,43,214,.20), transparent 55%),
+        radial-gradient(800px 420px at 20% 110%, rgba(255,212,0,.14), transparent 60%),
+        linear-gradient(180deg, #12144a, #1a1f6b);
+    }
+    a{color:inherit}
+
+    /* subtle modern "con" texture */
+    .bg-lattice{
+      position:fixed; inset:0; pointer-events:none; z-index:0;
+      background-image:
+        linear-gradient(135deg, rgba(255,255,255,.06) 0 2px, transparent 2px 18px),
+        radial-gradient(circle at 12px 12px, rgba(255,255,255,.05) 1px, transparent 2px);
+      background-size: 20px 20px, 28px 28px;
+      opacity:.35;
+      mix-blend-mode: overlay;
+    }
+
+    header{
+      position:relative; z-index:10;
+      padding:70px 20px 48px;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      background:
+        linear-gradient(135deg, rgba(0,229,255,.25), rgba(255,43,214,.18) 45%, rgba(255,212,0,.12)),
+        linear-gradient(180deg, rgba(16,24,66,.85), rgba(7,8,18,.55));
+    }
+    /* diagonal stripe accent (less retro than halftone) */
     header::before{
-  content:'';
-  position:absolute;
-  inset:-30% -20%;
-  pointer-events:none;
-  background: linear-gradient(100deg, rgba(255,255,255,0) 10%, rgba(255,255,255,.28) 50%, rgba(255,255,255,0) 90%);
-  transform: rotate(8deg) translateX(-60%);
-  animation: shimmer 5s ease-in-out infinite;
-}
-    @keyframes shimmer{0% { transform: rotate(8deg) translateX(-60%); opacity:.3;} 50%{ transform: rotate(8deg) translateX(10%); opacity:.45;} 100%{ transform: rotate(8deg) translateX(80%); opacity:.3;}}
+      content:'';
+      position:absolute; inset:-40% -30%;
+      background: repeating-linear-gradient(
+        135deg,
+        rgba(255,255,255,.10) 0 10px,
+        rgba(255,255,255,0) 10px 22px
+      );
+      transform: rotate(-6deg);
+      opacity:.20;
+      pointer-events:none;
+    }
     .wrap{max-width:1080px;margin:0 auto;padding:0 22px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;}
     .title-wrap{ position:relative; z-index:2; }
-    .script{ font-family:'Great Vibes', cursive; font-size:4rem; color:var(--taupe); line-height:1; margin:0; text-shadow:0 6px 18px rgba(0,0,0,.55); }
-    .subtitle{ font-family:'Playfair Display', serif; font-weight:800; font-size:1.6rem; margin:8px 0 0 0; letter-spacing:.8px; color:#fff; }
-    .divider{ width:120px; height:2px; margin:20px auto 0; position:relative; background:rgba(255,255,255,.18); border-radius:2px; overflow:hidden; }
-    .divider::after{ content:''; position:absolute; inset:0; background:linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent); transform:translateX(-100%); animation: line-sheen 3.8s ease-in-out infinite; }
-    @keyframes line-sheen{ 0%{transform:translateX(-100%)} 50%{transform:translateX(0)} 100%{transform:translateX(100%)} }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:8px 14px;
+      border-radius:999px;
+      background: rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.16);
+      backdrop-filter: blur(8px);
+      margin: 0 0 14px 0;
+      font-weight:800;
+      letter-spacing:.6px;
+      text-transform:uppercase;
+      color: var(--muted);
+    }
+    .kdot{
+      width:10px;height:10px;border-radius:50%;
+      background: linear-gradient(180deg, var(--neon1), var(--neon2));
+      box-shadow: 0 0 18px rgba(0,229,255,.55);
+    }
+
+    h1{
+      font-family:"Bangers", cursive;
+      font-size:4.1rem;
+      letter-spacing:2px;
+      margin:0;
+      line-height:1.05;
+      color: var(--paper);
+      text-shadow:
+        0 2px 0 rgba(0,0,0,.35),
+        0 0 22px rgba(0,229,255,.35),
+        0 0 30px rgba(255,43,214,.25);
+    }
+    h2{
+      margin:12px 0 0 0;
+      font-weight:900;
+      font-size:1.3rem;
+      letter-spacing: .8px;
+      text-transform:uppercase;
+      color: rgba(255,255,255,.92);
+    }
+    .divider{
+      width:140px; height:6px;
+      margin:18px auto 0;
+      border-radius:999px;
+      background: linear-gradient(90deg, var(--neon1), var(--neon2), var(--neon3));
+      box-shadow: 0 0 22px rgba(0,229,255,.25);
+    }
+
     .actions{margin-top:18px; display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:10px; text-align:center;}
-    .btn{ display:inline-flex; align-items:center; gap:10px; padding:10px 16px; min-height:44px; border-radius:999px; font-weight:800; text-decoration:none; color:#fff; background: linear-gradient(180deg, #0e223b, #001a33); border:1px solid rgba(255,255,255,.18); box-shadow:0 10px 26px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.06); transition: filter .2s ease, transform .2s ease; }
-    .btn:hover{filter:brightness(1.05); transform:translateY(-1px);}
-    nav.sticky{position:sticky; top:0; z-index:9; backdrop-filter: blur(6px); background: rgba(4,8,14,.6); border-bottom:1px solid var(--ring);}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 16px; min-height:44px;
+      border-radius:999px;
+      font-weight:900;
+      text-decoration:none;
+      color: var(--ink);
+      background: linear-gradient(180deg, var(--neon3), #ffbf00);
+      border: 2px solid rgba(0,0,0,.75);
+      box-shadow: 0 12px 26px rgba(0,0,0,.35);
+      transition: transform .18s ease, filter .18s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); filter: brightness(1.02); }
+    .btn.alt{
+      background: linear-gradient(180deg, var(--neon1), #00b8ff);
+    }
+    .btn.mag{
+      background: linear-gradient(180deg, var(--neon2), #ff3a84);
+    }
+
+    nav.sticky{
+      position:sticky; top:0; z-index:9;
+      backdrop-filter: blur(10px);
+      background: rgba(11,15,42,.72);
+      border-bottom:1px solid rgba(255,255,255,.12);
+    }
     nav.sticky .wrap{padding:12px 22px;}
-    .pills{display:flex; flex-wrap:wrap; gap:8px; justify-content:center;}
-    .pill{ color:#fff; text-decoration:none; padding:10px 14px; border-radius:999px; font-weight:800; letter-spacing:.2px; background: linear-gradient(180deg, #0f1520, #0c121b); border:1px solid rgba(255,255,255,.14); box-shadow: 0 6px 18px rgba(0,0,0,.28);}
-    .pill:hover{filter:brightness(1.07)}
+    .pills{display:flex; flex-wrap:wrap; gap:10px; justify-content:center;}
+    .pill{
+      color: var(--paper);
+      text-decoration:none;
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:900;
+      letter-spacing:.2px;
+      background: rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow: 0 10px 22px rgba(0,0,0,.25);
+      transition: transform .18s ease, filter .18s ease, background .18s ease;
+    }
+    .pill:hover{ transform: translateY(-1px); background: rgba(255,255,255,.11); }
+
     @media (max-width: 600px) {.pills{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pill{font-size:.95rem;line-height:1.2}}
     @media (max-width: 400px) {.pills{grid-template-columns:1fr}.pill{font-size:1rem}}
+
     main{max-width:1080px; margin:0 auto; padding:24px 22px 30px; position:relative; z-index:1;}
     section{margin:28px 0 36px; scroll-margin-top:90px}
-    section h2{margin:0 0 16px 0; font-weight:800; font-size:1.25rem; color:var(--platinum-2); letter-spacing:.6px; text-transform:uppercase;}
-    .card{background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.0) 30%), var(--card); border:1px solid var(--ring); border-radius: var(--radius); padding:18px; box-shadow: var(--shadow); margin-bottom:14px; text-align:left;}
-    .card h3{margin:0 0 6px 0; font-weight:900; font-size:1.15rem; color:#fff;}
-    .cuisine{ font-style:italic; font-size:0.98rem; margin:4px 0; display:flex; align-items:center; gap:8px; flex-wrap:wrap; color:var(--platinum-2)}
-    .price{ display:inline-block; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:999px; padding:2px 10px; font-size:.8rem; font-weight:800; color:#fff; }
-    .row{ margin:6px 0; font-size:0.96rem; color:#eaecef}
-    .row a{ color:#eaecef; text-decoration:none; border-bottom:1px dashed rgba(234,236,239,0.4); font-weight:700; }
-    .row a:hover{ border-bottom:1px solid rgba(234,236,239,0.85); }
-    .distance{ display:inline-block; font-size:0.88rem; color:#cfd1d4; margin-left:6px; }
-    .muted{ color:#c9cacc; }
+    section h2{
+      margin:0 0 16px 0;
+      font-weight:1000;
+      font-size:1rem;
+      color: rgba(255,255,255,.92);
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      gap:10px;
+    }
+    section h2::before{
+      content:'';
+      width:12px;height:12px;border-radius:4px;
+      background: linear-gradient(180deg, var(--neon1), var(--neon2));
+      box-shadow: 0 0 16px rgba(0,229,255,.35);
+    }
+
+    .card{
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)),
+        linear-gradient(180deg, #1a2170, #141b4f);
+      border: 2px solid rgba(0,0,0,.75);
+      border-radius: var(--radius);
+      padding:18px;
+      box-shadow: 0 18px 45px rgba(0,0,0,.45);
+      margin-bottom:14px;
+      text-align:left;
+      position:relative;
+      overflow:hidden;
+    }
+    /* corner "sticker" */
+    .card::after{
+      content:'';
+      position:absolute;
+      top:-22px; right:-22px;
+      width:90px; height:90px;
+      transform: rotate(18deg);
+      background: linear-gradient(180deg, rgba(255,212,0,.90), rgba(255,43,214,.85));
+      opacity:.85;
+      border:2px solid rgba(0,0,0,.6);
+      border-radius:18px;
+      filter:saturate(1.2);
+    }
+
+    .card h3{
+      margin:0 0 6px 0;
+      font-weight:1000;
+      font-size:1.15rem;
+      color:#fff;
+    }
+    .cuisine{
+      font-size:0.98rem;
+      margin:4px 0;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      flex-wrap:wrap;
+      color: rgba(207,214,255,.95);
+    }
+    .price{
+      display:inline-block;
+      background: rgba(0,0,0,.35);
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:999px;
+      padding:3px 10px;
+      font-size:.78rem;
+      font-weight:900;
+      color:#fff;
+    }
+    .row{ margin:6px 0; font-size:0.96rem; color: rgba(255,255,255,.92) }
+    .row a{
+      color: rgba(255,255,255,.95);
+      text-decoration:none;
+      border-bottom:1px dashed rgba(255,255,255,0.35);
+      font-weight:800;
+    }
+    .row a:hover{ border-bottom:1px solid rgba(255,255,255,0.85); }
+    .distance{ display:inline-block; font-size:0.88rem; color: rgba(207,214,255,.90); margin-left:6px; }
+    .muted{ color: rgba(207,214,255,.85); }
     .cta{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px;}
-    .btn-uber{ background:#000; color:#fff; border-radius:10px; padding:9px 14px; font-weight:900; text-decoration:none; border:1px solid rgba(255,255,255,.12); }
-    .btn-lyft{ background:#ff00bf; color:#fff; border-radius:10px; padding:9px 14px; font-weight:900; text-decoration:none; border:1px solid rgba(255,255,255,.12); }
-    .page-views { text-align: center; font-size: 0.95rem; letter-spacing: 0.5px; color: #bcd3f2; margin: 20px auto 10px; background: linear-gradient(180deg, var(--navy), #0f274a); border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 8px 22px rgba(0,0,0,0.35); border-radius: 12px; padding: 8px 16px; width: fit-content; }
-    .page-views span { color: #0072ce; font-weight: 700; text-shadow: 0 0 6px rgba(0,114,206,0.4); }
-    footer{ text-align:center; padding:20px; font-size:.92rem; color:#d6d7d9; border-top:1px solid var(--ring); background:linear-gradient(to right, #0c1118, #121722); }
-    #temperature { position: fixed; right: 12px; bottom: 12px; font-size: 0.92rem; color: #fff; background: linear-gradient(180deg, #121721, #0f141e); padding: 8px 12px; border-radius: 12px; z-index: 10000; font-weight: 800; border:1px solid rgba(255,255,255,.14); box-shadow:0 10px 22px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.06); }
+
+    .btn-uber, .btn-lyft{
+      border-radius:12px;
+      padding:9px 14px;
+      font-weight:1000;
+      text-decoration:none;
+      border:2px solid rgba(0,0,0,.75);
+      box-shadow: 0 10px 18px rgba(0,0,0,.28);
+      color: var(--ink);
+    }
+    .btn-uber{ background: linear-gradient(180deg, var(--neon4), #53ff00); }
+    .btn-lyft{ background: linear-gradient(180deg, var(--neon2), #ff3a84); }
+
+    .page-views{
+      text-align:center;
+      font-size:0.95rem;
+      letter-spacing:0.5px;
+      color: rgba(255,255,255,.92);
+      margin: 20px auto 10px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: 0 10px 22px rgba(0,0,0,.35);
+      border-radius: 14px;
+      padding: 9px 16px;
+      width: fit-content;
+      backdrop-filter: blur(10px);
+    }
+    .page-views span{
+      color: var(--neon1);
+      font-weight: 900;
+      text-shadow: 0 0 10px rgba(0,229,255,.35);
+    }
+
+    footer{
+      text-align:center;
+      padding:20px;
+      font-size:.92rem;
+      color: rgba(255,255,255,.90);
+      border-top:1px solid rgba(255,255,255,.12);
+      background: rgba(7,8,18,.85);
+      backdrop-filter: blur(8px);
+    }
+
+    #temperature{
+      position: fixed;
+      right: 12px;
+      bottom: 12px;
+      font-size: 0.92rem;
+      color: #fff;
+      background: rgba(255,255,255,.10);
+      padding: 8px 12px;
+      border-radius: 12px;
+      z-index: 10000;
+      font-weight: 900;
+      border:1px solid rgba(255,255,255,.16);
+      box-shadow: 0 10px 22px rgba(0,0,0,.35);
+      backdrop-filter: blur(10px);
+    }
   
+.bg-characters{
+  filter: drop-shadow(0 0 24px rgba(0,229,255,.35));
 
-  50% { transform: translateX(0%); }
-  100% { transform: translateX(100%); }
-}
-
-
-/* ===== FULL HOLIDAY THEME ===== */
-
-/* Global winter night backdrop */
-body{
-  margin:0;
-  background:
-    radial-gradient(circle at top, rgba(15,120,90,.65) 0, transparent 55%),
-    radial-gradient(circle at bottom, rgba(140,0,40,.45) 0, transparent 60%),
-    linear-gradient(180deg,#05070b,#080c13 40%,#05060a 100%);
-  color:var(--white);
-}
-
-/* Soft twinkling stars over the lattice */
-.bg-lattice{
-  opacity:.12;
-}
-
-/* Header: deep evergreen + warm light */
-header.holiday{
-  background:
-    radial-gradient(1300px 420px at 50% -50%, rgba(255,240,210,.32), transparent 70%),
-    linear-gradient(115deg,#03170f 0%,#0a3b28 40%,#15563a 70%,#0b2a1d 100%);
-  border-bottom:2px solid rgba(255,225,190,.55);
-  box-shadow:0 26px 70px rgba(0,0,0,.7);
-}
-
-/* Script + subtitle for holiday glow */
-header.holiday .script{
-  color:#fff9eb;
-  text-shadow:
-    0 0 18px rgba(255,255,240,.8),
-    0 10px 26px rgba(0,0,0,.8);
-}
-header.holiday .holiday-tagline{
-  margin:8px 0 4px;
-  font-family:"Lato","Helvetica Neue",Arial,sans-serif;
-  text-transform:uppercase;
-  letter-spacing:2px;
-  font-size:.86rem;
-  color:#ffe1c2;
-}
-header.holiday .subtitle{
-  color:#ffe9c9;
-  text-shadow:0 3px 14px rgba(0,0,0,.6);
-}
-
-/* Garland & lights along bottom of header */
-header.holiday::after{
-  content:"";
-  position:absolute;
-  left:0; right:0; bottom:-2px;
-  height:38px;
-  background-image:
-    linear-gradient(180deg,rgba(0,0,0,.0),rgba(0,0,0,.5)),
-    repeating-linear-gradient(-45deg,
-      #0f3c28 0,#0f3c28 10px,
-      #145435 10px,#145435 20px);
-  box-shadow:0 -2px 0 rgba(255,230,200,.45);
-}
-
-/* Little "light bulbs" hanging just under header */
-header.holiday .wrap::after{
-  content:"";
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
-  bottom:-26px;
-  width:260px;
-  height:24px;
-  background-image:
-    radial-gradient(circle, #ff4b5c 0 45%, transparent 55%),
-    radial-gradient(circle, #ffd15c 0 45%, transparent 55%),
-    radial-gradient(circle, #58f29b 0 45%, transparent 55%),
-    radial-gradient(circle, #6bc5ff 0 45%, transparent 55%);
-  background-size:24px 24px;
-  background-repeat:repeat-x;
-  background-position:0 0;
-  opacity:.95;
-  filter:drop-shadow(0 3px 6px rgba(0,0,0,.7));
-}
-
-/* Divider shimmer a bit warmer */
-.divider{
-  background:rgba(255,235,205,.3);
-}
-
-/* Navigation: candy-cane inspired pills */
-nav.sticky{
-  background:rgba(6,10,16,.9);
-  border-bottom:1px solid rgba(255,230,210,.18);
-  box-shadow:0 10px 28px rgba(0,0,0,.65);
-}
-.pill{
-  background:linear-gradient(135deg,#143426,#145c3d);
-  border:1px solid rgba(255,235,210,.35);
-  box-shadow:0 8px 20px rgba(0,0,0,.45);
-}
-.pill:hover{
-  filter:brightness(1.18);
-  transform:translateY(-1px);
-}
-
-/* Main sections: holiday labels */
-section h2{
-  color:#ffe3c4;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-  margin-bottom:18px;
-  position:relative;
-  padding-left:4px;
-}
-section h2::before{
-  content:"🎄";
-  margin-right:6px;
-}
-section h2::after{
-  content:"✨";
-  margin-left:6px;
-}
-
-/* Cards: warm glow & subtle red/green accent line */
-.card{
-  background:
-    linear-gradient(145deg,rgba(10,20,22,.96),rgba(10,14,18,.98)),
-    radial-gradient(circle at top left,rgba(255,230,200,.12),transparent 60%);
-  border-radius:20px;
-  border:1px solid rgba(255,230,200,.18);
-  box-shadow:
-    0 18px 40px rgba(0,0,0,.78),
-    0 0 0 1px rgba(255,255,255,.03);
-  position:relative;
-  overflow:hidden;
-}
-.card::before{
-  content:"";
-  position:absolute;
-  left:-3px; top:0; bottom:0;
-  width:5px;
-  background:linear-gradient(180deg,#e63946,#ffd166,#52b788,#1b998b);
-  opacity:.95;
-}
-.card h3{
-  color:#ffffff;
-}
-.cuisine{
-  color:#ffe7c6;
-}
-.price{
-  background:rgba(15,70,50,.9);
-  border-color:rgba(255,235,200,.65);
-}
-
-/* Row text soft and cozy */
-.row{
-  color:#f3f4f6;
-}
-.muted{
-  color:#d6d7da;
-}
-
-/* Rideshare buttons with holiday twist */
-.btn-uber{
-  background:#111;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.25);
-}
-.btn-lyft{
-  background:linear-gradient(135deg,#ff2aa1,#ff66cc);
-  border-radius:999px;
-  border:1px solid rgba(255,230,245,.6);
-}
-
-/* Primary header buttons go evergreen & gold */
-.btn{
-  background:linear-gradient(180deg,#17654b,#0f3a2d);
-  border:1px solid rgba(255,235,210,.55);
-  box-shadow:
-    0 12px 30px rgba(0,0,0,.75),
-    0 0 0 1px rgba(0,0,0,.5);
-}
-
-/* Page views = Holiday Guestbook */
-.page-views{
-  background:linear-gradient(140deg,#0e2d20,#154735);
-  border-color:rgba(255,235,210,.4);
-  color:#f2e2cf;
-}
-.page-views::before{
-  content:"Holiday Guestbook • ";
-}
-.page-views span{
-  color:#ffe38b;
-  text-shadow:0 0 8px rgba(255,227,139,.7);
-}
-
-/* Footer: clear holiday message */
-footer{
-  background:linear-gradient(90deg,#07120d,#0e2419,#07120d);
-  color:#f3e5d3;
-}
-
-
-/* Soft animated snowfall overlay */
-.holiday-snow{
-  pointer-events:none;
   position:fixed;
   inset:0;
-  background-image:
-    radial-gradient(circle, rgba(255,255,255,.9) 0 2px, transparent 3px),
-    radial-gradient(circle, rgba(255,255,255,.7) 0 1.5px, transparent 3px),
-    radial-gradient(circle, rgba(255,255,255,.5) 0 1px, transparent 2.5px);
-  background-size:80px 80px, 120px 120px, 180px 180px;
-  animation:snowfall 24s linear infinite;
-  opacity:.22;
-  z-index:10000;
-}
-@keyframes snowfall{
-  0%{background-position:0 0, 0 0, 0 0;}
-  100%{background-position:-300px 600px, -200px 500px, -100px 400px;}
-}
-
-/* Floating temp widget with snowflake */
-#temperature{
-  border-radius:999px;
-  background:linear-gradient(145deg,#13252f,#0a151c);
-  border:1px solid rgba(200,230,255,.4);
-  padding:8px 14px;
-}
-#temperature::before{
-  content:"❄ ";
-}
-
-
-/* Candy cane accents */
-.pill {
-  border-image: repeating-linear-gradient(45deg, #ff0000 0 6px, #ffffff 6px 12px) 8;
-  border-width: 3px;
-}
-.card::before {
-  background: repeating-linear-gradient(90deg, #ff0000 0 10px, #ffffff 10px 20px);
-  width: 6px;
-}
-
-
-/* Realistic multi-layer snowfall override */
-.holiday-snow{
+  z-index:0;
   pointer-events:none;
-  position:fixed;
-  inset:0;
-  z-index:10000;
-  opacity:.25;
-}
-
-.holiday-snow,
-.holiday-snow::before,
-.holiday-snow::after{
-  background-repeat:repeat;
-  background-image:
-    radial-gradient(circle, rgba(255,255,255,.9) 0 2px, transparent 3px),
-    radial-gradient(circle, rgba(255,255,255,.7) 0 1.5px, transparent 3px),
-    radial-gradient(circle, rgba(255,255,255,.5) 0 1px, transparent 2.5px);
-}
-
-/* Foreground layer: larger, faster flakes */
-.holiday-snow{
-  background-size:90px 90px, 130px 130px, 190px 190px;
-  animation:snowFront 14s linear infinite;
-}
-
-/* Mid layer: medium speed & size */
-.holiday-snow::before{
-  content:"";
-  position:fixed;
-  inset:-50px 0 0 0;
-  background-size:140px 140px, 200px 200px, 260px 260px;
-  opacity:.6;
-  animation:snowMid 26s linear infinite;
-}
-
-/* Far layer: very small, slow flakes */
-.holiday-snow::after{
-  content:"";
-  position:fixed;
-  inset:-80px 0 0 0;
-  background-size:220px 220px, 320px 320px, 420px 420px;
-  opacity:.45;
-  animation:snowFar 40s linear infinite;
-}
-
-/* Slight drifting motion so flakes don't fall straight down */
-@keyframes snowFront{
-  0%{ transform:translate3d(0, -40px, 0); }
-  100%{ transform:translate3d(-120px, 320px, 0); }
-}
-@keyframes snowMid{
-  0%{ transform:translate3d(0, -60px, 0); }
-  100%{ transform:translate3d(-80px, 420px, 0); }
-}
-@keyframes snowFar{
-  0%{ transform:translate3d(0, -80px, 0); }
-  100%{ transform:translate3d(-40px, 520px, 0); }
-}
-
-
-/* Mouse-responsive, particle-based snowfall */
-.holiday-snow{
-  pointer-events:none;
-  position:fixed;
-  inset:0;
-  z-index:10000;
   opacity:1;
 }
-#snowCanvas{
+.bg-characters svg{
   width:100%;
   height:100%;
-  display:block;
-}
-
-/* Remove old tiled snow backgrounds if present */
-.holiday-snow,
-.holiday-snow::before,
-.holiday-snow::after{
-  background:none !important;
-  animation:none !important;
-  transform:none !important;
-  content:none !important;
 }
 
 
-/* Smaller distance filter buttons */
-.pill{
-  padding:6px 10px !important;
-  font-size:0.82rem !important;
-  border-width:2px !important;
+.btn.con{
+  background: linear-gradient(180deg, #7cff00, #53ff00);
+  color: #0b0b10;
+}
+
+
+/* Motion: subtle, modern, not distracting */
+@keyframes floaty {
+  0% { transform: translate3d(0,0,0); }
+  50% { transform: translate3d(0,-14px,0); }
+  100% { transform: translate3d(0,0,0); }
+}
+@keyframes drift {
+  0% { transform: translate3d(0,0,0) scale(1); }
+  50% { transform: translate3d(16px,-10px,0) scale(1.01); }
+  100% { transform: translate3d(0,0,0) scale(1); }
+}
+@keyframes glowPulse {
+  0% { filter: drop-shadow(0 0 18px rgba(0,229,255,.28)); }
+  50% { filter: drop-shadow(0 0 30px rgba(255,43,214,.26)); }
+  100% { filter: drop-shadow(0 0 18px rgba(0,229,255,.28)); }
+}
+@keyframes popIn {
+  from { opacity:0; transform: translateY(12px) scale(.98); }
+  to { opacity:1; transform: translateY(0) scale(1); }
+}
+
+.bg-characters{
+  animation: drift 14s ease-in-out infinite;
+}
+.bg-characters svg{
+  animation: glowPulse 10s ease-in-out infinite;
+}
+
+header .title-wrap{
+  animation: popIn .7s ease-out both;
+}
+
+.card{
+  transition: transform .18s ease, filter .18s ease;
+  animation: popIn .6s ease-out both;
+}
+.card:nth-child(1){ animation-delay: .02s; }
+.card:nth-child(2){ animation-delay: .04s; }
+.card:nth-child(3){ animation-delay: .06s; }
+.card:nth-child(4){ animation-delay: .08s; }
+.card:nth-child(5){ animation-delay: .10s; }
+.card:hover{
+  transform: translateY(-2px);
+  filter: brightness(1.03);
+}
+
+/* CTA buttons: small wiggle on hover */
+@keyframes nudge {
+  0% { transform: translateY(0); }
+  40% { transform: translateY(-2px); }
+  100% { transform: translateY(-1px); }
+}
+.btn:hover, .pill:hover, .btn-uber:hover, .btn-lyft:hover{
+  animation: nudge .22s ease-out both;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .bg-characters, .bg-characters svg, header .title-wrap, .card, .btn:hover, .pill:hover, .btn-uber:hover, .btn-lyft:hover{
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 </style>
+
 </head>
 <body>
-  <div class="holiday-snow"><canvas id="snowCanvas"></canvas></div>
+
+<div class="bg-characters" aria-hidden="true">
+  <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+    <!-- Hero silhouette -->
+    <path d="M180 720 L220 520 L260 480 L300 520 L340 720 Z" fill="rgba(255,255,255,0.18)"/>
+    <circle cx="260" cy="440" r="40" fill="rgba(255,255,255,0.18)"/>
+    <!-- Cape -->
+    <path d="M300 520 C420 560, 480 700, 520 760 L300 760 Z" fill="rgba(255,43,214,0.28)"/>
+
+    <!-- Robot -->
+    <rect x="820" y="520" width="120" height="160" rx="14" fill="rgba(0,229,255,0.30)"/>
+    <rect x="845" y="480" width="70" height="50" rx="10" fill="rgba(0,229,255,0.30)"/>
+    <circle cx="865" cy="505" r="6" fill="rgba(0,0,0,0.4)"/>
+    <circle cx="895" cy="505" r="6" fill="rgba(0,0,0,0.4)"/>
+
+    <!-- City blocks -->
+    <rect x="0" y="650" width="1200" height="150" fill="rgba(255,212,0,0.22)"/>
+    <rect x="40" y="610" width="60" height="40" fill="rgba(0,0,0,0.25)"/>
+    <rect x="120" y="590" width="50" height="60" fill="rgba(0,0,0,0.25)"/>
+    <rect x="200" y="600" width="70" height="50" fill="rgba(0,0,0,0.25)"/>
+    <rect x="1020" y="600" width="70" height="50" fill="rgba(0,0,0,0.25)"/>
+  </svg>
+</div>
+
   
   <div class="bg-lattice" aria-hidden="true"></div>
-  <header class="holiday">
+  <header>
     <div class="wrap">
       <div class="title-wrap">
-        <h1 class="script">Doubletree by Hilton</h1>
-        
-        <h2 class="subtitle">Downtown Albuquerque Holiday Foodie Favorites</h2>
+        <h1>DoubleTree by Hilton</h1>
+        <h2>Downtown Albuquerque Foodie Favorites</h2>
         <div class="divider"></div>
       </div>
       <div class="actions">
-        <a class="btn" href="https://domveenine.github.io/doubletree-abq-map/" target="_blank" rel="noreferrer">Interactive Map</a>
-        <a class="btn" href="https://www.visitalbuquerque.org/things-to-do/search/" target="_blank" rel="noreferrer">Local Happenings</a>
+        <a class="btn alt" href="https://domveenine.github.io/doubletree-abq-map/" target="_blank" rel="noreferrer">Interactive Map</a>
+        <a class="btn mag" href="https://www.visitalbuquerque.org/things-to-do/search/" target="_blank" rel="noreferrer">Local Happenings</a>
       
         <a class="btn" href="https://www.hilton.com/en/hotels/albsmdt-doubletree-albuquerque/" target="_blank" rel="noreferrer">DTABQ</a>
+        <a class="btn con" href="https://albuquerquecomiccon.com/" target="_blank" rel="noreferrer">Comic Con Info</a>
       </div>
     </div>
   </header>
@@ -445,10 +452,10 @@ footer{
   <nav class="sticky" aria-label="Distance sections">
     <div class="wrap">
       <div class="pills">
-        <a class="pill" href="#on-foot">Festive Walk • 0–1 mile</a>
-        <a class="pill" href="#nearby">Winter Stroll • 1–3 miles</a>
-        <a class="pill" href="#short-ride">Holiday Hop • 3–5 miles</a>
-        <a class="pill" href="#worth-the-drive">Festive Venture • 5+ miles</a>
+        <a class="pill" href="#on-foot">On Foot • 0–1 mile</a>
+        <a class="pill" href="#nearby">Nearby • 1–3 miles</a>
+        <a class="pill" href="#short-ride">Short Ride • 3–5 miles</a>
+        <a class="pill" href="#worth-the-drive">Worth the Drive • 5+ miles</a>
       </div>
     </div>
   </nav>
@@ -458,7 +465,7 @@ footer{
     <!-- For brevity here: I’m keeping your full list intact. -->
     <!-- On Foot -->
     <section id="on-foot">
-      <h2>Festive Walk • 0–1 mile</h2>
+      <h2>On Foot • 0–1 mile</h2>
       <div class="card"><h3>My Mom’s</h3><p class="cuisine">Classic New Mexican Breakfast & Lunch <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=500%204th%20St%20NW%20%23106%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">500 4th St NW #106, Albuquerque, NM 87102</a><span class="distance">• 0.1 mi</span></p><p class="row muted"><a href="tel:+15052472943">(505) 247-2943</a> • Mon–Fri 8a–2p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=500%204th%20St%20NW%20%23106%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=500%204th%20St%20NW%20%23106%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
       <div class="card"><h3>CHAR (Hotel Andaluz)</h3><p class="cuisine">Upscale American Grill <span class="price">$$$</span></p><p class="row"><a href="https://maps.google.com/?q=125%202nd%20St%20NW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">125 2nd St NW, Albuquerque, NM 87102</a><span class="distance">• 0.2 mi</span></p><p class="row muted"><a href="tel:+15052429080">(505) 242-9080</a> • Daily 7a–10p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=125%202nd%20St%20NW%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=125%202nd%20St%20NW%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
       <div class="card"><h3>Oni Ramen</h3><p class="cuisine">Japanese & NM Fusion <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=600%20Central%20Ave%20SW%20%23100%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">600 Central Ave SW #100, Albuquerque, NM 87102</a><span class="distance">• 0.3 mi</span></p><p class="row muted"><a href="tel:+15055036722">(505) 503-6722</a> • Daily 11:30a–8p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=600%20Central%20Ave%20SW%20%23100%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=600%20Central%20Ave%20SW%20%23100%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
@@ -475,7 +482,7 @@ footer{
 
     <!-- Nearby -->
     <section id="nearby">
-      <h2>Winter Stroll • 1–3 miles</h2>
+      <h2>Nearby • 1–3 miles</h2>
       <div class="card"><h3>Kosmos Restaurant &amp; Astropub</h3><p class="cuisine">Modern American &amp; Gastropub <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=1715%205th%20St%20NW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">1715 5th St NW, Albuquerque, NM 87102</a><span class="distance">• 1.2 mi</span></p><p class="row muted"><a href="tel:+15053691772">(505) 369-1772</a> • Tue–Thu 11:30a–8p, Fri–Sat 11:30a–9p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=1715%205th%20St%20NW%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=1715%205th%20St%20NW%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
       <div class="card"><h3>Tractor Brewing Company Wells Park</h3><p class="cuisine">Local Brewery &amp; Pub Fare <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=1800%204th%20St%20NW%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">1800 4th St NW, Albuquerque, NM 87102</a><span class="distance">• 1.2 mi</span></p><p class="row muted"><a href="tel:+15052436752">(505) 243-6752</a> • Mon 4–9p, Tue–Thu 2–10p, Fri 2–12a, Sat 1–11p, Sun 1–10p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=1800%204th%20St%20NW%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=1800%204th%20St%20NW%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
       <div class="card"><h3>The Grove Cafe &amp; Market</h3><p class="cuisine">Breakfast, Brunch &amp; Lunch <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=600%20Central%20Ave%20SE%20Unit%20A%2C%20Albuquerque%2C%20NM%2087102" target="_blank" rel="noreferrer">600 Central Ave SE Unit A, Albuquerque, NM 87102</a><span class="distance">• 1.7 mi</span></p><p class="row muted"><a href="tel:+15052489800">(505) 248-9800</a> • Tue–Sun 8a–2p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=600%20Central%20Ave%20SE%20Unit%20A%2C%20Albuquerque%2C%2087102">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=600%20Central%20Ave%20SE%20Unit%20A%2C%20Albuquerque%2C%2087102">Lyft</a></div></div>
@@ -490,7 +497,7 @@ footer{
 
     <!-- Short Ride -->
     <section id="short-ride">
-      <h2>Holiday Hop • 3–5 miles</h2>
+      <h2>Short Ride • 3–5 miles</h2>
       <div class="card"><h3>M’tucci’s Bar Roma</h3><p class="cuisine">Italian &amp; Craft Cocktails <span class="price">$$$</span></p><p class="row"><a href="https://maps.google.com/?q=3222%20Central%20Ave%20SE%2C%20Albuquerque%2C%20NM%2087106" target="_blank" rel="noreferrer">3222 Central Ave SE, Albuquerque, NM 87106</a><span class="distance">• 3.3 mi</span></p><p class="row muted"><a href="tel:+15055082745">(505) 508-2745</a> • Sun–Thu 11a–9p, Fri–Sat 11a–10p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=3222%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087106">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=3222%20Central%20Ave%20SE%2C%20Albuquerque%2C%2087106">Lyft</a></div></div>
       <div class="card"><h3>Guava Tree Café</h3><p class="cuisine">Latin Fusion &amp; Sandwiches <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=118%20Richmond%20Dr%20NE%2C%20Albuquerque%2C%20NM%2087106" target="_blank" rel="noreferrer">118 Richmond Dr NE, Albuquerque, NM 87106</a><span class="distance">• 3.0 mi</span></p><p class="row muted"><a href="tel:+15059902599">(505) 990-2599</a> • Tue–Sat 11a–4p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=118%20Richmond%20Dr%20NE%2C%20Albuquerque%2C%2087106">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=118%20Richmond%20Dr%20NE%2C%20Albuquerque%2C%2087106">Lyft</a></div></div>
       <div class="card"><h3>Tula’s Kitchen</h3><p class="cuisine">American Comfort Food <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=1825%20Central%20Ave%20NW%2C%20Albuquerque%2C%20NM%2087104" target="_blank" rel="noreferrer">1825 Central Ave NW, Albuquerque, NM 87104</a><span class="distance">• 4.0 mi</span></p><p class="row muted"><a href="tel:+15052002666">(505) 200-2666</a> • Tue–Sun 9a–9p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=1825%20Central%20Ave%20NW%2C%20Albuquerque%2C%2087104">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=1825%20Central%20Ave%20NW%2C%20Albuquerque%2C%2087104">Lyft</a></div></div>
@@ -499,7 +506,7 @@ footer{
 
     <!-- Worth the Drive -->
     <section id="worth-the-drive">
-      <h2>Festive Venture • 5+ miles</h2>
+      <h2>Worth the Drive • 5+ miles</h2>
       <div class="card"><h3>Farm &amp; Table</h3><p class="cuisine">Farm-to-Table American <span class="price">$$$</span></p><p class="row"><a href="https://maps.google.com/?q=8917%204th%20St%20NW%2C%20Albuquerque%2C%20NM%2087114" target="_blank" rel="noreferrer">8917 4th St NW, Albuquerque, NM 87114</a><span class="distance">• 5.0 mi</span></p><p class="row muted"><a href="tel:+15055037124">(505) 503-7124</a> • Wed–Sat 5p–9p, Sun 9a–2p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=8917%204th%20St%20NW%2C%20Albuquerque%2C%2087114">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=8917%204th%20St%20NW%2C%20Albuquerque%2C%2087114">Lyft</a></div></div>
       <div class="card"><h3>Sadie’s of New Mexico</h3><p class="cuisine">Classic New Mexican &amp; Margaritas <span class="price">$$</span></p><p class="row"><a href="https://maps.google.com/?q=6230%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%20NM%2087107" target="_blank" rel="noreferrer">6230 4th St NW, Los Ranchos de Albuquerque, NM 87107</a><span class="distance">• 5.5 mi</span></p><p class="row muted"><a href="tel:+15053455339">(505) 345-5339</a> • Daily 11a–9p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=6230%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%2087107">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=6230%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%2087107">Lyft</a></div></div>
       <div class="card"><h3>Vernon’s Speakeasy</h3><p class="cuisine">Upscale Speakeasy Steakhouse <span class="price">$$$$</span></p><p class="row"><a href="https://maps.google.com/?q=6855%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%20NM%2087107" target="_blank" rel="noreferrer">6855 4th St NW, Los Ranchos de Albuquerque, NM 87107</a><span class="distance">• 5.6 mi</span></p><p class="row muted"><a href="tel:+15053410831">(505) 341-0831</a> • Wed–Fri & Sun 4p–10p, Sat 4p–10p</p><div class="cta"><a class="btn-uber" href="https://m.uber.com/ul/?action=setPickup&dropoff[formatted_address]=6855%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%2087107">Uber</a><a class="btn-lyft" href="https://lyft.com/ride?id=lyft&destination[address]=6855%204th%20St%20NW%2C%20Los%20Ranchos%20de%20Albuquerque%2C%2087107">Lyft</a></div></div>
@@ -605,104 +612,28 @@ footer{
   </script>
 
 <script>
-(function(){
-  const container = document.querySelector('.holiday-snow');
-  if(!container) return;
-  let canvas = document.getElementById('snowCanvas');
-  if(!canvas){
-    canvas = document.createElement('canvas');
-    canvas.id = 'snowCanvas';
-    container.appendChild(canvas);
-  }
-  const ctx = canvas.getContext('2d');
+  (function(){
+    const bg = document.querySelector('.bg-characters');
+    if(!bg) return;
 
-  let flakes = [];
-  let width = 0;
-  let height = 0;
-  let wind = 0;
-  let targetWind = 0;
+    // Respect reduced motion
+    const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce) return;
 
-  function resize(){
-    width = container.clientWidth;
-    height = container.clientHeight;
-    canvas.width = width;
-    canvas.height = height;
-    if(flakes.length === 0){
-      initFlakes();
+    let ticking = false;
+    function onScroll(){
+      if(ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY || 0;
+        // Very subtle parallax shift
+        bg.style.transform = `translate3d(0, ${Math.min(20, y * 0.03)}px, 0)`;
+        ticking = false;
+      });
     }
-  }
-
-  function initFlakes(){
-    const count = Math.floor(width * height / 12000); // scale with viewport
-    flakes = [];
-    for(let i = 0; i < count; i++){
-      flakes.push(makeFlake(true));
-    }
-  }
-
-  function makeFlake(randomY){
-    return {
-      x: Math.random() * width,
-      y: randomY ? Math.random() * height : -10,
-      radius: 1 + Math.random() * 2.2,
-      speedY: 0.4 + Math.random() * 1.2,
-      drift: (Math.random() - 0.5) * 0.4,
-      swing: Math.random() * Math.PI * 2,
-      swingSpeed: 0.005 + Math.random() * 0.01
-    };
-  }
-
-  // Track mouse movement to influence wind
-  let lastMouseX = null;
-  let lastMoveTime = Date.now();
-
-  window.addEventListener('mousemove', (e) => {
-    const now = Date.now();
-    if(lastMouseX !== null){
-      const dx = e.clientX - lastMouseX;
-      const dt = Math.max(now - lastMoveTime, 16);
-      const velocityX = dx / dt; // pixels per ms
-      targetWind = Math.max(-1.5, Math.min(1.5, velocityX * 12)); // clamp
-    }
-    lastMouseX = e.clientX;
-    lastMoveTime = now;
-  }, {passive:true});
-
-  // Slowly let wind drift back to calm when mouse stops
-  function updateWind(){
-    wind += (targetWind - wind) * 0.02; // ease
-    targetWind *= 0.96; // decay target toward 0 over time
-  }
-
-  function step(){
-    if(!ctx) return;
-    updateWind();
-    ctx.clearRect(0,0,width,height);
-    ctx.fillStyle = 'rgba(255,255,255,0.9)';
-
-    for(let i = 0; i < flakes.length; i++){
-      const f = flakes[i];
-      f.y += f.speedY;
-      f.swing += f.swingSpeed;
-      f.x += f.drift + Math.sin(f.swing) * 0.2 + wind;
-
-      if(f.y > height + 12){
-        flakes[i] = makeFlake(false);
-      }
-      if(f.x > width + 20) f.x = -20;
-      if(f.x < -20) f.x = width + 20;
-
-      ctx.beginPath();
-      ctx.arc(f.x, f.y, f.radius, 0, Math.PI * 2);
-      ctx.fill();
-    }
-    requestAnimationFrame(step);
-  }
-
-  window.addEventListener('resize', resize);
-  resize();
-  requestAnimationFrame(step);
-})();
+    window.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+  })();
 </script>
 
 </body>
