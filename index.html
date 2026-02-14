@@ -409,6 +409,89 @@ body h2 {
 }
 </style>
 
+
+<style id="mobile-optimizations">
+/* ===== Mobile & Responsive Layout ===== */
+:root{
+  --mobile-pad: 14px;
+}
+
+/* Let content breathe on small screens */
+@media (max-width: 900px) {
+  body { font-size: 16px !important; }
+  header { padding: 26px var(--mobile-pad) !important; }
+}
+
+/* Smartphone tuning */
+@media (max-width: 600px) {
+  /* Header title: smaller and readable */
+  header h1, h1 {
+    font-size: clamp(2.2rem, 7vw, 3.0rem) !important;
+    line-height: 1.08 !important;
+    letter-spacing: 0.5px !important;
+    transform: none !important; /* remove skew on small screens for clarity */
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.40) !important;
+    margin: 12px 0 8px 0 !important;
+    padding: 0 6px !important;
+  }
+
+  /* Section titles */
+  h2 {
+    font-size: clamp(1.25rem, 5.2vw, 1.6rem) !important;
+    line-height: 1.15 !important;
+    margin: 18px 0 10px 0 !important;
+  }
+
+  /* Cards */
+  .section, section, .card {
+    border-radius: 14px !important;
+    padding: 14px !important;
+    margin: 12px 0 !important;
+  }
+
+  /* Make lists and paragraphs less oversized */
+  p, li {
+    font-size: 1rem !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Buttons/links that look like buttons */
+  .btn, .button, button, a.btn, a.button {
+    display: inline-block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important;
+    padding: 12px 14px !important;
+    font-size: 1rem !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Any horizontal groups should stack */
+  .row, .columns, .grid, .button-row, .cta-row {
+    display: block !important;
+  }
+
+  /* Reduce extra spacing around embedded widgets (weather etc.) */
+  iframe, img, video {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Give the page consistent side padding */
+  main, .container, .content, .wrapper {
+    padding-left: var(--mobile-pad) !important;
+    padding-right: var(--mobile-pad) !important;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  header h1, h1 { font-size: 2.05rem !important; }
+  h2 { font-size: 1.15rem !important; }
+}
+</style>
+
 </head>
 <body>
   
